@@ -27,6 +27,30 @@ final class SeleniumAction {
         agreeButton.click();
     }
 
+    void jdiDoSekceNavodyAFormulareProUcitele() {
+        clickOnForTeacherMenuItem();
+        var menuItem = findByXPath("//*[@id=\"navbarSupportedContent\"]/div[1]/div[2]/div/a[1]");
+        menuItem.click();
+    }
+
+    void jdiDoSekceObjednavka() {
+        clickOnForTeacherMenuItem();
+        var orderMenuItem = findByXPath("//*[@id=\"navbarSupportedContent\"]/div[1]/div[2]/div/a[2]");
+        orderMenuItem.click();
+    }
+
+    void jdiDoSekceNavodyAFormulareProRodice() {
+        clickOnForParentMenuItem();
+        var formMenuItem = findByXPath("//*[@id=\"navbarSupportedContent\"]/div[1]/div[1]/div/a[1]");
+        formMenuItem.click();
+    }
+
+    void jdiDoSekceVytvorPrihlasku() {
+        clickOnForParentMenuItem();
+        var createApplicationMenuItem = findByXPath("//*[@id=\"navbarSupportedContent\"]/div[1]/div[1]/div/a[2]");
+        createApplicationMenuItem.click();
+    }
+
     void overAdresuWwwStranky(String wwwAdresa) {
         var url = findByXPath("/html/body/div/div/div/div/div/div/div/div[1]/p[2]/a");
         assertThat(url.getText()).isEqualTo(wwwAdresa);
@@ -60,5 +84,15 @@ final class SeleniumAction {
     @Nonnull
     private WebElement findByXPath(String xpathExpression) {
         return driver.findElement(By.xpath(xpathExpression));
+    }
+
+    private void clickOnForTeacherMenuItem() {
+        var forTeacherMenuItem = findByXPath("//*[@id=\"navbarSupportedContent\"]/div[1]/div[2]/a");
+        forTeacherMenuItem.click();
+    }
+
+    private void clickOnForParentMenuItem() {
+        var forParentMenuItem = findByXPath("//*[@id=\"navbarSupportedContent\"]/div[1]/div[1]/a");
+        forParentMenuItem.click();
     }
 }
