@@ -14,12 +14,12 @@ class TestRunner {
 
     private final WebDriver webDriver;
 
-    protected SeleniumAction firefox;
+    protected SeleniumActionFacade firefox;
 
     public TestRunner() {
         var driver = new Driver();
         this.webDriver = driver.getWebDriver();
-        this.firefox = new SeleniumAction(webDriver);
+        this.firefox = new SeleniumActionFacade(webDriver);
     }
 
     @BeforeEach

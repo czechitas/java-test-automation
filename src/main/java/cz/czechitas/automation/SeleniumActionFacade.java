@@ -1,25 +1,30 @@
 package cz.czechitas.automation;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import javax.annotation.Nonnull;
 import java.util.Objects;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
- * Selenium actions
+ * Selenium actions facade for working with browser
  *
  * @author Jiri Koudelka
  * @since 1.0.0
  */
-final class SeleniumAction {
+@SuppressWarnings("unused")
+final class SeleniumActionFacade {
 
-    private final WebDriver driver;
+    private final ElementFinder elementFinder;
+    private final PublicMenuAction publicMenuAction;
+    private final InternalMenuAction internalMenuAction;
 
-    public SeleniumAction(@Nonnull WebDriver driver) {
-        this.driver = Objects.requireNonNull(driver);
+    public SeleniumActionFacade(@Nonnull WebDriver driver) {
+        this.elementFinder = new ElementFinder(Objects.requireNonNull(driver));
+        this.publicMenuAction = new PublicMenuAction(elementFinder);
+        this.internalMenuAction = new InternalMenuAction(elementFinder);
     }
 
     void jdiDoSekceKontakt() {
@@ -28,27 +33,47 @@ final class SeleniumAction {
     }
 
     void jdiDoSekceNavodyAFormulareProUcitele() {
-        clickOnForTeacherMenuItem();
-        var menuItem = findByXPath("//*[@id=\"navbarSupportedContent\"]/div[1]/div[2]/div/a[1]");
-        menuItem.click();
+        publicMenuAction.jdiDoSekceNavodyAFormulareProUcitele();
     }
 
-    void jdiDoSekceObjednavka() {
-        clickOnForTeacherMenuItem();
-        var orderMenuItem = findByXPath("//*[@id=\"navbarSupportedContent\"]/div[1]/div[2]/div/a[2]");
-        orderMenuItem.click();
+    void jdiDoSekceObjednavkaProMSZS() {
+        publicMenuAction.jdiDoSekceObjednavkaProMSZS();
     }
 
     void jdiDoSekceNavodyAFormulareProRodice() {
-        clickOnForParentMenuItem();
-        var formMenuItem = findByXPath("//*[@id=\"navbarSupportedContent\"]/div[1]/div[1]/div/a[1]");
-        formMenuItem.click();
+        publicMenuAction.jdiDoSekceNavodyAFormulareProRodice();
     }
 
     void jdiDoSekceVytvorPrihlasku() {
-        clickOnForParentMenuItem();
-        var createApplicationMenuItem = findByXPath("//*[@id=\"navbarSupportedContent\"]/div[1]/div[1]/div/a[2]");
-        createApplicationMenuItem.click();
+        publicMenuAction.jdiDoSekceVytvorPrihlasku();
+    }
+
+    void jdiDoSekceDomu() {
+        publicMenuAction.jdiDoSekceDomu();
+    }
+
+    void jdiDoSekceObjednavky() {
+        internalMenuAction.jdiDoSekceObjednavky();
+    }
+
+    void jdiDoSekceTerminy() {
+        internalMenuAction.jdiDoSekceTerminy();
+    }
+
+    void jdiDoSekcePrihlasky() {
+        internalMenuAction.jdiDoSekcePrihlasky();
+    }
+
+    void jdiDoSekceKategorie() {
+        internalMenuAction.jdiDoSekceKategorie();
+    }
+
+    void jdiDoSekceAktuality() {
+        internalMenuAction.jdiDoSekceAktuality();
+    }
+
+    void jdiDoSekceExporty() {
+        internalMenuAction.jdiDoSekceExporty();
     }
 
     void overAdresuWwwStranky(String wwwAdresa) {
@@ -83,16 +108,6 @@ final class SeleniumAction {
 
     @Nonnull
     private WebElement findByXPath(String xpathExpression) {
-        return driver.findElement(By.xpath(xpathExpression));
-    }
-
-    private void clickOnForTeacherMenuItem() {
-        var forTeacherMenuItem = findByXPath("//*[@id=\"navbarSupportedContent\"]/div[1]/div[2]/a");
-        forTeacherMenuItem.click();
-    }
-
-    private void clickOnForParentMenuItem() {
-        var forParentMenuItem = findByXPath("//*[@id=\"navbarSupportedContent\"]/div[1]/div[1]/a");
-        forParentMenuItem.click();
+        return elementFinder.findByXPath(xpathExpression);
     }
 }
