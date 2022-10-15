@@ -17,8 +17,7 @@ class TestRunner {
     protected SeleniumActionFacade firefox;
 
     public TestRunner() {
-        var driver = new Driver();
-        this.webDriver = driver.getWebDriver();
+        this.webDriver = WebDriverProvider.getWebDriver();
         this.firefox = new SeleniumActionFacade(webDriver);
     }
 

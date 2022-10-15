@@ -18,18 +18,19 @@ import static org.assertj.core.api.Assertions.assertThat;
 final class SeleniumActionFacade {
 
     private final ElementFinder elementFinder;
-    private final PublicMenuAction publicMenuAction;
+    public final PublicMenuAction publicMenuAction;
     private final InternalMenuAction internalMenuAction;
+    private final UserAction userAction;
 
     public SeleniumActionFacade(@Nonnull WebDriver driver) {
         this.elementFinder = new ElementFinder(Objects.requireNonNull(driver));
         this.publicMenuAction = new PublicMenuAction(elementFinder);
         this.internalMenuAction = new InternalMenuAction(elementFinder);
+        this.userAction = new UserAction(elementFinder);
     }
 
     void jdiDoSekceKontakt() {
-        var agreeButton = findByXPath("/html/body/div/header/nav/div/div[1]/a[2]");
-        agreeButton.click();
+        publicMenuAction.jdiDoSekceKontakt();
     }
 
     void jdiDoSekceNavodyAFormulareProUcitele() {
@@ -82,28 +83,27 @@ final class SeleniumActionFacade {
     }
 
     void klikniNaTlacitkoPrihlasit() {
-        var loginButton = findByXPath("/html/body/div/header/nav/div/div[2]/a");
-        loginButton.click();
+        userAction.klikniNaTlacitkoPrihlasit();
     }
 
     void vyplnEmail(String email) {
-        var emailInputBox = findByXPath("//*[@id=\"email\"]");
-        emailInputBox.sendKeys(email);
+        userAction.vyplnEmail(email);
     }
 
     void vyplnHeslo(String heslo) {
-        var passwordInputBox = findByXPath("//*[@id=\"password\"]");
-        passwordInputBox.sendKeys(heslo);
+        userAction.vyplnHeslo(heslo);
     }
 
     void provedPrihlaseni() {
-        var loginButton = findByXPath("/html/body/div/div/div/div/div/div/form/div[3]/div/button");
-        loginButton.click();
+        userAction.provedPrihlaseni();
+    }
+
+    void provedOdhlaseni() {
+        userAction.provedOdhlaseni();
     }
 
     void overPrihlaseniUzivatele() {
-        var loggedInText = findByXPath("/html/body/div/header/nav[1]/div/div[2]/div/span");
-        assertThat(loggedInText.getText()).isEqualTo("Přihlášen");
+        userAction.overPrihlaseniUzivatele();
     }
 
     @Nonnull
