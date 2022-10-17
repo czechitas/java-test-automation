@@ -23,4 +23,13 @@ final class OrderAction {
         var suburbanCampButton = elementFinder.findByXPath("//*[@id=\"nav-home-tab\"]");
         suburbanCampButton.click();
     }
+
+    void vyplnICO(String ico) {
+        Objects.requireNonNull(ico);
+
+        var icoInputBox = elementFinder.findByXPath("//*[@id=\"ico\"]");
+        icoInputBox.sendKeys(ico);
+        var fullAddressElement = elementFinder.findByXPath("//*[@id=\"address\"]");
+        fullAddressElement.click();
+    }
 }

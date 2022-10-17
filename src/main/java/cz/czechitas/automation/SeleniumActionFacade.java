@@ -114,6 +114,10 @@ final class SeleniumActionFacade {
         applicationAction.klikniNaVytvoritPrihlasku();
     }
 
+    void vyplnICO(String ico) {
+        orderAction.vyplnICO(ico);
+    }
+
     void cekejNekolikVterin(long vteriny) {
         try {
             Thread.sleep(vteriny * 1000);
