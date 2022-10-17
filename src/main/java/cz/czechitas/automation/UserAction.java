@@ -3,8 +3,6 @@ package cz.czechitas.automation;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Objects;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 /**
  * User specific selenium actions
  *
@@ -45,10 +43,5 @@ final class UserAction {
         signedInUserElement.click();
         var logoutButton = elementFinder.findByXPath("//*[@id=\"logout-link\"]");
         logoutButton.click();
-    }
-
-    void overPrihlaseniUzivatele() {
-        var loggedInText = elementFinder.findByXPath("/html/body/div/header/nav[1]/div/div[2]/div/span");
-        assertThat(loggedInText.getText()).isEqualTo("Přihlášen");
     }
 }

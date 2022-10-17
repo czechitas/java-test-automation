@@ -15,17 +15,23 @@ import java.util.Objects;
  * @since 1.0.0
  */
 @ParametersAreNonnullByDefault
-final class ElementFinder
+public final class ElementFinder
 {
     private final WebDriver driver;
 
-    ElementFinder(WebDriver driver)
+    public ElementFinder(WebDriver driver)
     {
         this.driver = Objects.requireNonNull(driver);
     }
 
+    /**
+     * Finds {@link WebElement} by XPath
+     *
+     * @param xpathExpression element XPtah
+     * @return found {@link WebElement}
+     */
     @Nonnull
-    WebElement findByXPath(String xpathExpression) {
-        return driver.findElement(By.xpath(Objects.requireNonNull(xpathExpression)));
+    public WebElement findByXPath(String xpathExpression) {
+     return driver.findElement(By.xpath(Objects.requireNonNull(xpathExpression)));
     }
 }

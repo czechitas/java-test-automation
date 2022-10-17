@@ -8,12 +8,11 @@ import org.junit.jupiter.api.Test;
  * @author Jiri Koudelka
  * @since 1.0.0
  */
-final class ExampleTest extends TestRunner
-{
+final class ExampleTest extends TestRunner {
     @Test
     void overKontaktniWwwAdresu() {
         firefox.jdiDoSekceKontakt();
-        firefox.overAdresuWwwStranky("www.czechitas.cz");
+        overeni.overAdresuWwwStranky("www.czechitas.cz");
     }
 
     @Test
@@ -22,8 +21,6 @@ final class ExampleTest extends TestRunner
         firefox.vyplnEmail("admin@czechitas-app.loc");
         firefox.vyplnHeslo("Czechitas123");
         firefox.provedPrihlaseni();
-        firefox.overPrihlaseniUzivatele();
-        //TODO: Assert separe
-        //TODO: WebDriver manager pro stazeni odpovidajich driveru
+        overeni.overPrihlaseniUzivatele();
     }
 }
