@@ -11,6 +11,7 @@ import java.util.Objects;
  */
 @ParametersAreNonnullByDefault
 final class UserAction {
+
     private final ElementFinder elementFinder;
 
     UserAction(ElementFinder elementFinder)

@@ -10,8 +10,8 @@ import java.util.Objects;
  * @since 1.0.0
  */
 @ParametersAreNonnullByDefault
-final class PublicMenuAction
-{
+final class PublicMenuAction {
+
     private final ElementFinder elementFinder;
 
     PublicMenuAction(ElementFinder elementFinder)

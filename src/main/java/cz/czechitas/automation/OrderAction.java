@@ -10,8 +10,8 @@ import java.util.Objects;
  * @since 1.0.0
  */
 @ParametersAreNonnullByDefault
-final class OrderAction
-{
+final class OrderAction {
+
     private final ElementFinder elementFinder;
 
     OrderAction(ElementFinder elementFinder)

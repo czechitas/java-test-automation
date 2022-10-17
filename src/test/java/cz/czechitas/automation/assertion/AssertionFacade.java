@@ -14,8 +14,8 @@ import static org.assertj.core.api.Assertions.assertThat;
  * @since 1.0.0
  */
 @ParametersAreNonnullByDefault
-public final class AssertionFacade
-{
+public final class AssertionFacade {
+
     private final ElementFinder elementFinder;
 
     public AssertionFacade(WebDriver webDriver)

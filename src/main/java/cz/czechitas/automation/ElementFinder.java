@@ -15,8 +15,8 @@ import java.util.Objects;
  * @since 1.0.0
  */
 @ParametersAreNonnullByDefault
-public final class ElementFinder
-{
+public final class ElementFinder {
+
     private final WebDriver driver;
 
     public ElementFinder(WebDriver driver)

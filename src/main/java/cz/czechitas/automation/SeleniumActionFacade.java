@@ -19,6 +19,7 @@ final class SeleniumActionFacade {
     private final InternalMenuAction internalMenuAction;
     private final UserAction userAction;
     private final OrderAction orderAction;
+    private final ApplicationAction applicationAction;
 
     public SeleniumActionFacade(WebDriver driver) {
         var elementFinder = new ElementFinder(Objects.requireNonNull(driver));
@@ -26,6 +27,7 @@ final class SeleniumActionFacade {
         this.internalMenuAction = new InternalMenuAction(elementFinder);
         this.userAction = new UserAction(elementFinder);
         this.orderAction = new OrderAction(elementFinder);
+        this.applicationAction = new ApplicationAction(elementFinder);
     }
 
     void jdiDoSekceKontakt() {
@@ -98,6 +100,18 @@ final class SeleniumActionFacade {
 
     void vyberMoznostPrimestskyTabor() {
         orderAction.vyberMoznostPrimestskyTabor();
+    }
+
+    void klikniNaVytvoreniNovePrihlasky() {
+        applicationAction.klikniNaVytvoreniNovePrihlasky();
+    }
+
+    void vyberObdobiProgramovani() {
+        applicationAction.vyberObdobiProgramovani();
+    }
+
+    void klikniNaVytvoritPrihlasku() {
+        applicationAction.klikniNaVytvoritPrihlasku();
     }
 
     void cekejNekolikVterin(long vteriny) {

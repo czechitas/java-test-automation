@@ -10,8 +10,8 @@ import java.util.Objects;
  * @since 1.0.0
  */
 @ParametersAreNonnullByDefault
-final class InternalMenuAction
-{
+final class InternalMenuAction {
+
     private final ElementFinder elementFinder;
 
     InternalMenuAction(ElementFinder elementFinder)
