@@ -3,12 +3,13 @@ package cz.czechitas.automation;
 import org.junit.jupiter.api.Test;
 
 /**
- * TODO: JavaDoc
+ * Example test class for functionality showcase
  *
  * @author Jiri Koudelka
  * @since 1.0.0
  */
 final class ExampleTest extends TestRunner {
+
     @Test
     void overKontaktniWwwAdresu() {
         prohlizec.jdiDoSekceKontakt();

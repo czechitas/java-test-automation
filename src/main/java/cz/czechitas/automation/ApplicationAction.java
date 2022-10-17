@@ -14,7 +14,6 @@ final class ApplicationAction {
 
     private final ElementFinder elementFinder;
 
-
     ApplicationAction(ElementFinder elementFinder) {
         this.elementFinder = Objects.requireNonNull(elementFinder);
     }
@@ -32,5 +31,10 @@ final class ApplicationAction {
     void klikniNaVytvoritPrihlasku() {
         var createApplicationButton = elementFinder.findByXPath("/html/body/div/div/div/div/div[2]/div/div/div[2]/a");
         createApplicationButton.click();
+    }
+
+    void otevriDetailPrvniPrihlasky() {
+        var openApplicationButton = elementFinder.findByXPath("/html/body/div/div/div/div/div/div[2]/div[2]/div/table/tbody/tr/td[5]/div/a[1]");
+        openApplicationButton.click();
     }
 }

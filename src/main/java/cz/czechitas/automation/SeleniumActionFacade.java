@@ -118,6 +118,10 @@ final class SeleniumActionFacade {
         orderAction.vyplnICO(ico);
     }
 
+    void otevriDetailPrvniPrihlasky() {
+        applicationAction.otevriDetailPrvniPrihlasky();
+    }
+
     void cekejNekolikVterin(long vteriny) {
         try {
             Thread.sleep(vteriny * 1000);

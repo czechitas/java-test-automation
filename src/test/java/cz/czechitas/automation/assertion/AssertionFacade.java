@@ -42,4 +42,9 @@ public final class AssertionFacade {
         var registerButton = elementFinder.findByXPath("/html/body/div/div/div/div/div/div[2]/form/div[4]/div/a");
         assertThat(registerButton.getText()).isEqualTo("Zaregistrujte se");
     }
+
+    public void overZpusobUhradyPrihlasky(String zpusobUhrady) {
+        var paymentMethodElement = elementFinder.findByXPath("/html/body/div/div/div/div/div/table/tbody/tr[2]/td[2]/strong");
+        assertThat(paymentMethodElement.getText()).isEqualTo(zpusobUhrady);
+    }
 }
