@@ -15,12 +15,12 @@ class TestRunner {
 
     private final WebDriver webDriver;
 
-    protected final SeleniumActionFacade firefox;
+    protected final SeleniumActionFacade prohlizec;
     protected final AssertionFacade overeni;
 
     public TestRunner() {
         this.webDriver = WebDriverProvider.getWebDriver();
-        this.firefox = new SeleniumActionFacade(webDriver);
+        this.prohlizec = new SeleniumActionFacade(webDriver);
         this.overeni = new AssertionFacade(webDriver);
     }
 

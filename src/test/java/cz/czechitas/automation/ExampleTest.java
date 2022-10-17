@@ -11,16 +11,16 @@ import org.junit.jupiter.api.Test;
 final class ExampleTest extends TestRunner {
     @Test
     void overKontaktniWwwAdresu() {
-        firefox.jdiDoSekceKontakt();
+        prohlizec.jdiDoSekceKontakt();
         overeni.overAdresuWwwStranky("www.czechitas.cz");
     }
 
     @Test
     void overUspesnePrihlaseni() {
-        firefox.klikniNaTlacitkoPrihlasit();
-        firefox.vyplnEmail("admin@czechitas-app.loc");
-        firefox.vyplnHeslo("Czechitas123");
-        firefox.provedPrihlaseni();
+        prohlizec.klikniNaTlacitkoPrihlasit();
+        prohlizec.vyplnEmail("admin@czechitas-app.loc");
+        prohlizec.vyplnHeslo("Czechitas123");
+        prohlizec.provedPrihlaseni();
         overeni.overPrihlaseniUzivatele();
     }
 }
