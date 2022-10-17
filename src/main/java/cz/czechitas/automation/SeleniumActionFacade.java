@@ -15,15 +15,17 @@ import java.util.Objects;
 @ParametersAreNonnullByDefault
 final class SeleniumActionFacade {
 
-    public final PublicMenuAction publicMenuAction;
+    private final PublicMenuAction publicMenuAction;
     private final InternalMenuAction internalMenuAction;
     private final UserAction userAction;
+    private final OrderAction orderAction;
 
     public SeleniumActionFacade(WebDriver driver) {
         var elementFinder = new ElementFinder(Objects.requireNonNull(driver));
         this.publicMenuAction = new PublicMenuAction(elementFinder);
         this.internalMenuAction = new InternalMenuAction(elementFinder);
         this.userAction = new UserAction(elementFinder);
+        this.orderAction = new OrderAction(elementFinder);
     }
 
     void jdiDoSekceKontakt() {
@@ -92,6 +94,10 @@ final class SeleniumActionFacade {
 
     void provedOdhlaseni() {
         userAction.provedOdhlaseni();
+    }
+
+    void vyberMoznostPrimestskyTabor() {
+        orderAction.vyberMoznostPrimestskyTabor();
     }
 
     void cekejNekolikVterin(long vteriny) {
