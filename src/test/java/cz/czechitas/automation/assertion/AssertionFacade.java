@@ -32,4 +32,9 @@ public final class AssertionFacade
         var loggedInText = elementFinder.findByXPath("/html/body/div/header/nav[1]/div/div[2]/div/span");
         assertThat(loggedInText.getText()).isEqualTo("Přihlášen");
     }
+
+    public void overExistenciDlazdiceProgramovani() {
+        var programmingText = elementFinder.findByXPath("/html/body/div/div/div[1]/div/div/div[1]/div");
+        assertThat(programmingText.getText()).isEqualTo("Programování");
+    }
 }
