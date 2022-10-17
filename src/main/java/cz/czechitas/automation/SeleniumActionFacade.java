@@ -46,7 +46,7 @@ final class SeleniumActionFacade {
         publicMenuAction.jdiDoSekceNavodyAFormulareProRodice();
     }
 
-    void jdiDoSekceVytvorPrihlasku() {
+    void jdiDoSekceVytvorPrihlaskuProRodice() {
         publicMenuAction.jdiDoSekceVytvorPrihlasku();
     }
 

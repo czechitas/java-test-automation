@@ -37,4 +37,9 @@ public final class AssertionFacade {
         var programmingText = elementFinder.findByXPath("/html/body/div/div/div[1]/div/div/div[1]/div");
         assertThat(programmingText.getText()).isEqualTo("Programování");
     }
+
+    public void overPritomnostTlacitkaZaregistrujteSe() {
+        var registerButton = elementFinder.findByXPath("/html/body/div/div/div/div/div/div[2]/form/div[4]/div/a");
+        assertThat(registerButton.getText()).isEqualTo("Zaregistrujte se");
+    }
 }
