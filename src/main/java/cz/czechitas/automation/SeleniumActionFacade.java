@@ -93,4 +93,12 @@ final class SeleniumActionFacade {
     void provedOdhlaseni() {
         userAction.provedOdhlaseni();
     }
+
+    void cekejNekolikVterin(long vteriny) {
+        try {
+            Thread.sleep(vteriny * 1000);
+        } catch (InterruptedException interruptedException) {
+            Thread.currentThread().interrupt();
+        }
+    }
 }
