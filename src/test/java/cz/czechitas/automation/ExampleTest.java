@@ -12,16 +12,16 @@ final class ExampleTest extends TestRunner {
 
     @Test
     void overKontaktniWwwAdresu() {
-        prohlizec.jdiDoSekceKontakt();
+        prohlizec.horniMenu.jdiDoSekceKontakt();
         overeni.overAdresuWwwStranky("www.czechitas.cz");
     }
 
     @Test
     void overUspesnePrihlaseni() {
-        prohlizec.klikniNaTlacitkoPrihlasit();
-        prohlizec.vyplnEmail("admin@czechitas-app.loc");
-        prohlizec.vyplnHeslo("Czechitas123");
-        prohlizec.provedPrihlaseni();
+        prohlizec.prihlasovani.klikniNaTlacitkoPrihlasit();
+        prohlizec.prihlasovani.vyplnEmail("admin@czechitas-app.loc");
+        prohlizec.prihlasovani.vyplnHeslo("Czechitas123");
+        prohlizec.prihlasovani.provedPrihlaseni();
         overeni.overPrihlaseniUzivatele();
     }
 }
