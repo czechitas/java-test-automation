@@ -17,10 +17,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 public final class AssertionFacade {
 
     private final ElementFinder elementFinder;
+    public final ApplicationAssertion sekcePrihlasky;
 
     public AssertionFacade(WebDriver webDriver)
     {
         this.elementFinder = new ElementFinder(webDriver);
+        this.sekcePrihlasky = new ApplicationAssertion(elementFinder);
     }
 
     public void overAdresuWwwStranky(String wwwAdresa) {

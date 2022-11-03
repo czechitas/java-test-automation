@@ -4,7 +4,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Objects;
 
 /**
- * User specific selenium actions
+ * Login/logout specific selenium actions
  *
  * @author Jiri Koudelka
  * @since 1.0.0
