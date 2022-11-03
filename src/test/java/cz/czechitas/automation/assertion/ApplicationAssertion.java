@@ -14,17 +14,15 @@ import static org.assertj.core.api.Assertions.assertThat;
  * @since 1.0.0
  */
 @ParametersAreNonnullByDefault
-public final class ApplicationAssertion
-{
+public final class ApplicationAssertion {
+
     private final ElementFinder elementFinder;
 
-    ApplicationAssertion(ElementFinder elementFinder)
-    {
+    ApplicationAssertion(ElementFinder elementFinder) {
         this.elementFinder = Objects.requireNonNull(elementFinder);
     }
 
-    public void overExistenciSloupce(String jmenoSloupce)
-    {
+    public void overExistenciSloupce(String jmenoSloupce) {
         var column = elementFinder.findByXPath("/html/body/div/div/div/div/div/div[2]/div[2]/div/table/thead/tr");
         assertThat(column.getText()).contains(jmenoSloupce);
     }

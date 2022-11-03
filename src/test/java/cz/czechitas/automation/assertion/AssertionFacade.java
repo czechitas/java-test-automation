@@ -18,11 +18,13 @@ public final class AssertionFacade {
 
     private final ElementFinder elementFinder;
     public final ApplicationAssertion sekcePrihlasky;
+    public final ApplicationDetailAssertion detailPrihlasky;
 
     public AssertionFacade(WebDriver webDriver)
     {
         this.elementFinder = new ElementFinder(webDriver);
         this.sekcePrihlasky = new ApplicationAssertion(elementFinder);
+        this.detailPrihlasky = new ApplicationDetailAssertion(elementFinder);
     }
 
     public void overAdresuWwwStranky(String wwwAdresa) {
@@ -43,10 +45,5 @@ public final class AssertionFacade {
     public void overPritomnostTlacitkaZaregistrujteSe() {
         var registerButton = elementFinder.findByXPath("/html/body/div/div/div/div/div/div[2]/form/div[4]/div/a");
         assertThat(registerButton.getText()).isEqualTo("Zaregistrujte se");
-    }
-
-    public void overZpusobUhradyPrihlasky(String zpusobUhrady) {
-        var paymentMethodElement = elementFinder.findByXPath("/html/body/div/div/div/div/div/table/tbody/tr[2]/td[2]/strong");
-        assertThat(paymentMethodElement.getText()).isEqualTo(zpusobUhrady);
     }
 }

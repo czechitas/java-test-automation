@@ -10,8 +10,7 @@ import java.util.Objects;
  * @since 1.0.0
  */
 @ParametersAreNonnullByDefault
-final class LoginAction
-{
+final class LoginAction {
 
     private final ElementFinder elementFinder;
 
