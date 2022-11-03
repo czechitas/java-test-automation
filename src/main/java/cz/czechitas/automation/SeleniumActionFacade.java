@@ -20,7 +20,7 @@ final class SeleniumActionFacade {
     final LoginAction prihlasovani;
     final OrderAction sekceObjednavky;
     final ApplicationAction sekcePrihlasky;
-    final NewApplication novaPrihlaska;
+    final ApplicationDetail detailPrihlasky;
 
     public SeleniumActionFacade(WebDriver driver) {
         var elementFinder = new ElementFinder(Objects.requireNonNull(driver));
@@ -29,7 +29,7 @@ final class SeleniumActionFacade {
         this.prihlasovani = new LoginAction(elementFinder);
         this.sekceObjednavky = new OrderAction(elementFinder);
         this.sekcePrihlasky = new ApplicationAction(elementFinder);
-        this.novaPrihlaska = new NewApplication(elementFinder);
+        this.detailPrihlasky = new ApplicationDetail(elementFinder);
     }
 
     void cekejNekolikVterin(long vteriny) {

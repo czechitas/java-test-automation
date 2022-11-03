@@ -47,4 +47,14 @@ public final class ApplicationDetailAssertion {
         var noteElement = elementFinder.findByXPath("/html/body/div/div/div/div/div/table/tbody/tr[10]/td[2]");
         assertThat(noteElement.getText()).isEqualTo(poznamka);
     }
+
+    public void overZbyvajiciCastkuKUhrazeni(String castkaKUhrazeni) {
+        var amountElement = elementFinder.findByXPath("/html/body/div/div/div/div/div/table/tbody/tr[4]/td[2]/strong");
+        assertThat(amountElement.getText()).isEqualTo(castkaKUhrazeni);
+    }
+
+    public void overZpravaProPrijemceObsahujePrijmeniZaka(String prijmeniZaka) {
+        var recipientMessageElement = elementFinder.findByXPath("/html/body/div/div/div/div/div/table/tbody/tr[7]/td[2]");
+        assertThat(recipientMessageElement.getText()).contains(prijmeniZaka);
+    }
 }

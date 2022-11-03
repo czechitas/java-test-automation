@@ -10,11 +10,11 @@ import java.util.Objects;
  * @since 1.0.0
  */
 @ParametersAreNonnullByDefault
-final class NewApplication {
+final class ApplicationDetail {
 
     private final ElementFinder elementFinder;
 
-    NewApplication(ElementFinder elementFinder) {
+    ApplicationDetail(ElementFinder elementFinder) {
         this.elementFinder = Objects.requireNonNull(elementFinder);
     }
 
@@ -47,17 +47,32 @@ final class NewApplication {
     }
 
     void klikniNaSouhlasSPodminkami() {
-        var approvalCheckbox = elementFinder.findByXPath("/html/body/div/div/div/div/div/form/table/tbody/tr[11]/td[2]/span/label");
+        var approvalCheckbox = elementFinder.findByXPath(
+                "/html/body/div/div/div/div/div/form/table/tbody/tr[11]/td[2]/span/label");
         approvalCheckbox.click();
     }
 
     void klikniNaVytvoritPrihlasku() {
-        var createButton = elementFinder.findByXPath("/html/body/div/div/div/div/div/form/table/tbody/tr[11]/td[2]/input");
+        var createButton = elementFinder.findByXPath(
+                "/html/body/div/div/div/div/div/form/table/tbody/tr[11]/td[2]/input");
         createButton.click();
     }
 
     void zvolZpusobUhradyHotove() {
-        var inCashRadioButton = elementFinder.findByXPath("/html/body/div/div/div/div/div/form/table/tbody/tr[8]/td[2]/span[4]/label");
+        var inCashRadioButton = elementFinder.findByXPath(
+                "/html/body/div/div/div/div/div/form/table/tbody/tr[8]/td[2]/span[4]/label");
         inCashRadioButton.click();
+    }
+
+    void zvolZpusobUhradyBankovnimPrevodem() {
+        var toBankAccountButton = elementFinder.findByXPath(
+                "/html/body/div/div/div/div/div/form/table/tbody/tr[7]/td[2]/span[1]/label");
+        toBankAccountButton.click();
+    }
+
+    void klikniNaUpravitPrihlasku() {
+        var editButton = elementFinder.findByXPath(
+                "/html/body/div/div/div/div/div/form/table/tbody/tr[10]/td[2]/input");
+        editButton.click();
     }
 }
