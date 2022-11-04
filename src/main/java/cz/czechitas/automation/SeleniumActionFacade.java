@@ -25,6 +25,7 @@ final class SeleniumActionFacade {
     final OrderAction sekceObjednavky;
     final ApplicationAction sekcePrihlasky;
     final ApplicationDetail detailPrihlasky;
+    final ProfileAction profil;
 
     public SeleniumActionFacade(WebDriver driver) {
         var elementFinder = new ElementFinder(Objects.requireNonNull(driver));
@@ -34,6 +35,7 @@ final class SeleniumActionFacade {
         this.sekceObjednavky = new OrderAction(elementFinder);
         this.sekcePrihlasky = new ApplicationAction(elementFinder);
         this.detailPrihlasky = new ApplicationDetail(elementFinder);
+        this.profil = new ProfileAction(elementFinder);
     }
 
     void cekejNekolikVterin(long vteriny) {
