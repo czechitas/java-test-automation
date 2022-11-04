@@ -31,4 +31,15 @@ public final class ApplicationAssertion {
         var url = elementFinder.findByXPath("/html/body/div/div/div/div/div/div/div/div[1]/p[2]/a");
         assertThat(url.getText()).isEqualTo(wwwAdresa);
     }
+
+    public void overZeVTabulcePrihlasekNeniZadnaZobrazena() {
+        var applicationsCountElement = elementFinder.findByXPath("//*[@id=\"DataTables_Table_0_info\"]");
+        assertThat(applicationsCountElement.getText()).contains("Žádné záznamy nenalezeny");
+    }
+
+    public void overZeVTabulcePrihlasekJePraveZobrazenych(int pocetPrihlasek) {
+        var applicationsCountElement = elementFinder.findByXPath("//*[@id=\"DataTables_Table_0_info\"]");
+        assertThat(applicationsCountElement.getText()).contains("Zobrazeno " + pocetPrihlasek + " až " + pocetPrihlasek +
+                " záznamů z " + pocetPrihlasek);
+    }
 }

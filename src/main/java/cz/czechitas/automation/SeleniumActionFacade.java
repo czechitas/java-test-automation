@@ -2,8 +2,10 @@ package cz.czechitas.automation;
 
 import org.openqa.selenium.WebDriver;
 
+import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Objects;
+import java.util.Random;
 
 /**
  * Selenium actions facade for working with browser
@@ -14,6 +16,8 @@ import java.util.Objects;
 @SuppressWarnings("unused")
 @ParametersAreNonnullByDefault
 final class SeleniumActionFacade {
+
+    private final Random random = new Random();
 
     final PublicMenuAction horniMenu;
     final InternalMenuAction interniMenu;
@@ -38,5 +42,16 @@ final class SeleniumActionFacade {
         } catch (InterruptedException interruptedException) {
             Thread.currentThread().interrupt();
         }
+    }
+
+    @Nonnull
+    String vygenerujNahodnePrijmeni(int delkaPrijmeni) {
+        var leftLimit = 97;
+        var rightLimit = 122;
+
+        return random.ints(leftLimit, rightLimit + 1)
+                .limit(delkaPrijmeni)
+                .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
+                .toString();
     }
 }
