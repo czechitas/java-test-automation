@@ -19,7 +19,7 @@ final class ExampleTest extends TestRunner {
     @Test
     void overUspesnePrihlaseni() {
         prohlizec.klikniNaTlacitkoPrihlasit();
-        prohlizec.vyplnEmail("admin@czechitas-app.loc");
+        prohlizec.vyplnEmail("da-app.admin@czechitas.cz");
         prohlizec.vyplnHeslo("Czechitas123");
         prohlizec.provedPrihlaseni();
         overeni.overPrihlaseniUzivatele();
