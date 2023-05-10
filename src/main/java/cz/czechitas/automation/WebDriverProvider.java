@@ -3,6 +3,8 @@ package cz.czechitas.automation;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.github.bonigarcia.wdm.config.WebDriverManagerException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeOptions;
 
 import javax.annotation.Nonnull;
 
@@ -42,13 +44,17 @@ public final class WebDriverProvider {
 
     private static WebDriver createChromeDriver() {
         try {
-            return WebDriverManager.chromedriver().create();
+            ChromeOptions options = new ChromeOptions();
+            options.addArguments("--remote-allow-origins=*");
+            return WebDriverManager.chromedriver().capabilities(options).create();
         } catch (WebDriverManagerException exception1) {
             return createEdgeDriver();
         }
     }
 
     private static WebDriver createEdgeDriver() {
-        return WebDriverManager.edgedriver().create();
+        EdgeOptions options = new EdgeOptions();
+        options.addArguments("--remote-allow-origins=*");
+        return WebDriverManager.edgedriver().capabilities(options).create();
     }
 }
