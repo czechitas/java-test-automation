@@ -73,7 +73,7 @@ final class ExampleTest extends TestRunner {
         prohlizec.detailPrihlasky.klikniNaUpravitPrihlasku();
         prohlizec.sekcePrihlasky.klikniNaDetailUPrvniPrihlasky();
         overeni.detailPrihlasky.overZpusobUhradyPrihlasky("Bankovní převod");
-        overeni.detailPrihlasky.overZbyvajiciCastkuKUhrazeni("1 500 Kč");
+        overeni.detailPrihlasky.overZbyvajiciCastkuKUhrazeni("1 800 Kč");
         overeni.detailPrihlasky.overZpravaProPrijemceObsahujePrijmeniZaka("Tester001");
     }
 
