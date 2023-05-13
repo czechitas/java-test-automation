@@ -29,7 +29,7 @@ final class ApplicationAction {
     }
 
     void klikniNaVytvoritPrihlasku() {
-        var createApplicationButton = elementFinder.findByXPath("/html/body/div/div/div/div/div[2]/div/div/div[2]/a");
+        var createApplicationButton = elementFinder.findByXPath("/html/body/div/div/div/div/div/div/div/div[2]/a");
         createApplicationButton.click();
     }
 
