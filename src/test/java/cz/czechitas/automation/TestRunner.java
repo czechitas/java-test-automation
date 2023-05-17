@@ -3,7 +3,6 @@ package cz.czechitas.automation;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
-
 import cz.czechitas.automation.assertion.AssertionFacade;
 
 /**
