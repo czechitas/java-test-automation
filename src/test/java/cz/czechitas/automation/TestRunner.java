@@ -1,9 +1,10 @@
 package cz.czechitas.automation;
 
-import cz.czechitas.automation.assertion.AssertionFacade;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
+
+import cz.czechitas.automation.assertion.AssertionFacade;
 
 /**
  * Base test runner class for low code automation on the {@code https://czechitas-app.kutac.cz/} page
@@ -26,7 +27,7 @@ class TestRunner {
 
     @BeforeEach
     void setUp() {
-        webDriver.get("https://team8-2022brno.herokuapp.com/");
+        webDriver.get("https://datoj23.herokuapp.com/");
     }
 
     @AfterEach
