@@ -5,8 +5,10 @@ import io.github.bonigarcia.wdm.config.WebDriverManagerException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeOptions;
+import org.openqa.selenium.safari.SafariOptions;
 
 import javax.annotation.Nonnull;
+import java.util.HashMap;
 
 /**
  * WebDriver provider that creates instances of {@link WebDriver} based on the following priorities:
@@ -53,8 +55,22 @@ public final class WebDriverProvider {
     }
 
     private static WebDriver createEdgeDriver() {
-        EdgeOptions options = new EdgeOptions();
-        options.addArguments("--remote-allow-origins=*");
-        return WebDriverManager.edgedriver().capabilities(options).create();
+        try {
+            EdgeOptions options = new EdgeOptions();
+            options.addArguments("--remote-allow-origins=*");
+            return WebDriverManager.edgedriver().capabilities(options).create();
+        } catch (WebDriverManagerException exception1) {
+            return createSafariDriver();
+        }
+
+    }
+
+    private static WebDriver createSafariDriver() {
+        SafariOptions options = new SafariOptions();
+        HashMap<String, Object> browserstackOptions = new HashMap<>();
+        browserstackOptions.put("disableCorsRestrictions", "true");
+        options.setCapability("bstack:options", browserstackOptions);
+
+        return WebDriverManager.safaridriver().capabilities(options).create();
     }
 }

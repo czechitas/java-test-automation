@@ -1,9 +1,9 @@
 package cz.czechitas.automation;
 
-import cz.czechitas.automation.assertion.AssertionFacade;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
+import cz.czechitas.automation.assertion.AssertionFacade;
 
 /**
  * Base test runner class for low code automation on the {@code https://czechitas-app.kutac.cz/} page
