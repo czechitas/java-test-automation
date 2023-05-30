@@ -14,16 +14,16 @@ final class ExampleTest extends TestRunner {
 
     @Test
     void overKontaktniWwwAdresu() {
-        prohlizec.jdiDoSekceKontakt();
+        prohlizec.horniMenu.jdiDoSekceKontakt();
         overeni.overAdresuWwwStranky("www.czechitas.cz");
     }
 
     @Test
     void overUspesnePrihlaseni() {
-        prohlizec.klikniNaTlacitkoPrihlasit();
-        prohlizec.vyplnEmail("da-app.admin@czechitas.cz");
-        prohlizec.vyplnHeslo("Czechitas123");
-        prohlizec.provedPrihlaseni();
+        prohlizec.prihlasovani.klikniNaTlacitkoPrihlasit();
+        prohlizec.prihlasovani.vyplnEmail("da-app.admin@czechitas.cz");
+        prohlizec.prihlasovani.vyplnHeslo("Czechitas123");
+        prohlizec.prihlasovani.provedPrihlaseni();
         overeni.overPrihlaseniUzivatele();
     }
 
@@ -31,7 +31,7 @@ final class ExampleTest extends TestRunner {
     @ParameterizedTest()
     @ValueSource(strings = {"123456789", "ASDFBVC", "123"})
     void overPolickoIco(String icoCislo) {
-        prohlizec.jdiDoSekceObjednavkaProMSZS();
-        prohlizec.vyplnICO(icoCislo);
+        prohlizec.horniMenu.jdiDoSekceObjednavkaProMSZS();
+        prohlizec.sekceObjednavky.vyplnICO(icoCislo);
     }
 }

@@ -24,6 +24,11 @@ final class OrderAction {
         suburbanCampButton.click();
     }
 
+    void vyberMoznostSkolaVPrirode() {
+        var schoolInNatureButton = elementFinder.findByXPath("//*[@id=\"nav-profile-tab\"]");
+        schoolInNatureButton.click();
+    }
+
     void vyplnICO(String ico) {
         Objects.requireNonNull(ico);
 
@@ -31,5 +36,10 @@ final class OrderAction {
         icoInputBox.sendKeys(ico);
         var fullAddressElement = elementFinder.findByXPath("//*[@id=\"address\"]");
         fullAddressElement.click();
+    }
+
+    void vyplnPocetDeti(int pocetDeti) {
+        var natureStudentsInput = elementFinder.findByXPath("//*[@id=\"nature-students\"]");
+        natureStudentsInput.sendKeys(String.valueOf(pocetDeti));
     }
 }

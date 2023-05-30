@@ -55,7 +55,7 @@ public final class WebDriverProvider {
     }
 
     private static WebDriver createEdgeDriver() {
-        try{
+        try {
             EdgeOptions options = new EdgeOptions();
             options.addArguments("--remote-allow-origins=*");
             return WebDriverManager.edgedriver().capabilities(options).create();
@@ -65,11 +65,12 @@ public final class WebDriverProvider {
 
     }
 
-    private static WebDriver createSafariDriver(){
+    private static WebDriver createSafariDriver() {
         SafariOptions options = new SafariOptions();
         HashMap<String, Object> browserstackOptions = new HashMap<>();
         browserstackOptions.put("disableCorsRestrictions", "true");
         options.setCapability("bstack:options", browserstackOptions);
+
         return WebDriverManager.safaridriver().capabilities(options).create();
     }
 }

@@ -26,7 +26,7 @@ class TestRunner {
 
     @BeforeEach
     void setUp() {
-        webDriver.get("https://datoj23.herokuapp.com/");
+        webDriver.get("https://team8-2022brno.herokuapp.com/");
     }
 
     @AfterEach
