@@ -27,7 +27,7 @@ public final class ElementFinder {
     /**
      * Finds {@link WebElement} by XPath
      *
-     * @param xpathExpression element XPtah
+     * @param xpathExpression element XPath
      * @return found {@link WebElement}
      */
     @Nonnull
