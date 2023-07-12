@@ -1,0 +1,23 @@
+name: Java CI with Maven
+on: pull_request
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'microsoft'
+
+      - name: Build with Maven
+        run: mvn test --file pom.xml
+
+      - name: Upload failed test screenshots
+        uses: actions/upload-artifact@v3
+        if: failure()
+        with:
+          name: my-artifact
+          path: failedScreenshots/*
+          retention-days: 7
