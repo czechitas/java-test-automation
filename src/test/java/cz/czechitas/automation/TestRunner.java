@@ -1,7 +1,9 @@
 package cz.czechitas.automation;
 
+import cz.czechitas.automation.extension.ScreenshotOnFailExtension;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.extension.RegisterExtension;
 import org.openqa.selenium.WebDriver;
 import cz.czechitas.automation.assertion.AssertionFacade;
 
@@ -18,10 +20,14 @@ class TestRunner {
     protected final SeleniumActionFacade prohlizec;
     protected final AssertionFacade overeni;
 
+    @RegisterExtension
+    final ScreenshotOnFailExtension screenshotExtension;
+
     public TestRunner() {
         this.webDriver = WebDriverProvider.getWebDriver();
         this.prohlizec = new SeleniumActionFacade(webDriver);
         this.overeni = new AssertionFacade(webDriver);
+        this.screenshotExtension = new ScreenshotOnFailExtension(webDriver);
     }
 
     @BeforeEach
