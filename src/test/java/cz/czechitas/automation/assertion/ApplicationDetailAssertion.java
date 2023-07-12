@@ -23,43 +23,43 @@ public final class ApplicationDetailAssertion {
         this.elementFinder = Objects.requireNonNull(elementFinder);
     }
 
-    public void overZpusobUhradyPrihlasky(String zpusobUhrady) {
+    public void checkPaymentMethod(String paymentMethod) {
         var paymentMethodElement = elementFinder.findByXPath("/html/body/div/div/div/div/div/table/tbody/tr[2]/td[2]/strong");
-        assertThat(paymentMethodElement.getText()).isEqualTo(zpusobUhrady);
+        assertThat(paymentMethodElement.getText()).isEqualTo(paymentMethod);
     }
 
-    public void overKrestniJmeno(String krestniJmeno) {
+    public void checkFirstName(String firstname) {
         var firstNameElement = elementFinder.findByXPath("/html/body/div/div/div/div/div/table/tbody/tr[6]/td[2]");
-        assertThat(firstNameElement.getText()).isEqualTo(krestniJmeno);
+        assertThat(firstNameElement.getText()).isEqualTo(firstname);
     }
 
-    public void overPrijmeni(String prijmeni) {
+    public void checkLastName(String lastname) {
         var lastNameElement = elementFinder.findByXPath("/html/body/div/div/div/div/div/table/tbody/tr[7]/td[2]");
-        assertThat(lastNameElement.getText()).isEqualTo(prijmeni);
+        assertThat(lastNameElement.getText()).isEqualTo(lastname);
     }
 
-    public void overDatumNarozeni(String datumNarozeni) {
+    public void checkDateOfBirth(String birthdate) {
         var birthDateElement = elementFinder.findByXPath("/html/body/div/div/div/div/div/table/tbody/tr[8]/td[2]");
-        assertThat(birthDateElement.getText()).isEqualTo(datumNarozeni);
+        assertThat(birthDateElement.getText()).isEqualTo(birthdate);
     }
 
-    public void overPoznamku(String poznamka) {
+    public void checkNote(String note) {
         var noteElement = elementFinder.findByXPath("/html/body/div/div/div/div/div/table/tbody/tr[10]/td[2]");
-        assertThat(noteElement.getText()).isEqualTo(poznamka);
+        assertThat(noteElement.getText()).isEqualTo(note);
     }
 
-    public void overZbyvajiciCastkuKUhrazeni(String castkaKUhrazeni) {
+    public void checkRemainingAmountToPay(String paymentAmount) {
         var amountElement = elementFinder.findByXPath("/html/body/div/div/div/div/div/table/tbody/tr[4]/td[2]/strong");
-        assertThat(amountElement.getText()).isEqualTo(castkaKUhrazeni);
+        assertThat(amountElement.getText()).isEqualTo(paymentAmount);
     }
 
-    public void overZpravaProPrijemceObsahujePrijmeniZaka(String prijmeniZaka) {
+    public void checkMessageContainsStudentLastName(String lastname) {
         var recipientMessageElement = elementFinder.findByXPath("/html/body/div/div/div/div/div/table/tbody/tr[7]/td[2]");
-        assertThat(recipientMessageElement.getText()).contains(prijmeniZaka);
+        assertThat(recipientMessageElement.getText()).contains(lastname);
     }
 
-    public void overTermin(String termin) {
+    public void checkTerm(String term) {
         var dateElement = elementFinder.findByXPath("/html/body/div/div/div/div/div/div[2]/h4");
-        assertThat(dateElement.getText()).contains(termin);
+        assertThat(dateElement.getText()).contains(term);
     }
 }

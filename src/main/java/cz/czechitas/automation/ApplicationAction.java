@@ -18,22 +18,22 @@ final class ApplicationAction {
         this.elementFinder = Objects.requireNonNull(elementFinder);
     }
 
-    void klikniNaVytvoreniNovePrihlasky() {
+    void clickCreateNewApplicationButton() {
         var createApplicationButton = elementFinder.findByXPath("/html/body/div/div/div/div/div/div[1]/a");
         createApplicationButton.click();
     }
 
-    void vyberObdobiProgramovani() {
+    void selectProgrammingSection() {
         var programmingSectionButton = elementFinder.findByXPath("/html/body/div/div/div[1]/div[3]/div/div[2]/a");
         programmingSectionButton.click();
     }
 
-    void klikniNaVytvoritPrihlasku() {
+    void clickCreateApplicationButton() {
         var createApplicationButton = elementFinder.findByXPath("/html/body/div/div/div/div/div/div/div/div[2]/a");
         createApplicationButton.click();
     }
 
-    void otevriDetailPrvniPrihlasky() {
+    void openFirstApplicationDetailsPage() {
         var openApplicationButton = elementFinder.findByXPath(
                 "/html/body/div/div/div/div/div/div[2]/div[2]/div/table/tbody/tr/td[5]/div/a[1]");
         openApplicationButton.click();

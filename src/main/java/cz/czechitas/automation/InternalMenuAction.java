@@ -19,32 +19,32 @@ final class InternalMenuAction {
         this.elementFinder = Objects.requireNonNull(elementFinder);
     }
 
-    void jdiDoSekceObjednavky() {
+    void gotoOrdersSection() {
         var ordersMenuItem = elementFinder.findByXPath("//*[@id=\"adminNavbar\"]/div/a[1]");
         ordersMenuItem.click();
     }
 
-    void jdiDoSekceTerminy() {
+    void gotoTermsSection() {
         var datesMenuItem = elementFinder.findByXPath("//*[@id=\"adminNavbar\"]/div/a[2]");
         datesMenuItem.click();
     }
 
-    void jdiDoSekcePrihlasky() {
+    void gotoApplicationsSection() {
         var applicationsMenuItem = elementFinder.findByXPath("//*[@id=\"adminNavbar\"]/div/a[3]");
         applicationsMenuItem.click();
     }
 
-    void jdiDoSekceKategorie() {
+    void gotoCategoriesSection() {
         var categoriesMenuItem = elementFinder.findByXPath("//*[@id=\"adminNavbar\"]/div/a[4]");
         categoriesMenuItem.click();
     }
 
-    void jdiDoSekceAktuality() {
+    void gotoNewsSection() {
         var newsMenuItem = elementFinder.findByXPath("//*[@id=\"adminNavbar\"]/div/a[5]");
         newsMenuItem.click();
     }
 
-    void jdiDoSekceExporty() {
+    void gotoExportsSection() {
         var exportsMenuItem = elementFinder.findByXPath("//*[@id=\"adminNavbar\"]/div/a[6]");
         exportsMenuItem.click();
     }
