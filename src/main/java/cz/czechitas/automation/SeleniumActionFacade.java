@@ -21,21 +21,21 @@ final class SeleniumActionFacade {
 
     final PublicMenuAction headerMenu;
     final InternalMenuAction internalMenu;
-    final LoginAction loginAction;
-    final OrderAction orderAction;
-    final ApplicationAction applicationAction;
-    final ApplicationDetail applicationDetail;
-    final ProfileAction profileAction;
+    final LoginAction loginSection;
+    final OrderAction orderSection;
+    final ApplicationAction applicationSection;
+    final ApplicationDetail applicationDetailsSection;
+    final ProfileAction profileSection;
 
     public SeleniumActionFacade(WebDriver driver) {
         var elementFinder = new ElementFinder(Objects.requireNonNull(driver));
         this.headerMenu = new PublicMenuAction(elementFinder);
         this.internalMenu = new InternalMenuAction(elementFinder);
-        this.loginAction = new LoginAction(elementFinder);
-        this.orderAction = new OrderAction(elementFinder);
-        this.applicationAction = new ApplicationAction(elementFinder);
-        this.applicationDetail = new ApplicationDetail(elementFinder);
-        this.profileAction = new ProfileAction(elementFinder);
+        this.loginSection = new LoginAction(elementFinder);
+        this.orderSection = new OrderAction(elementFinder);
+        this.applicationSection = new ApplicationAction(elementFinder);
+        this.applicationDetailsSection = new ApplicationDetail(elementFinder);
+        this.profileSection = new ProfileAction(elementFinder);
     }
 
     void waitFor(long seconds) {

@@ -18,7 +18,7 @@ final class ProfileAction {
         this.elementFinder = Objects.requireNonNull(elementFinder);
     }
 
-    void gotoProfilePage() {
+    void goToProfilePage() {
         var loggedInUserElement = elementFinder.findByXPath("/html/body/div/header/nav/div/div[2]/div/a/strong");
         loggedInUserElement.click();
         var profileButton = elementFinder.findByXPath("/html/body/div/header/nav/div/div[2]/div/div/a[1]");

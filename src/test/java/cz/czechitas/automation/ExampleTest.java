@@ -14,16 +14,16 @@ final class ExampleTest extends TestRunner {
 
     @Test
     void contactsPageUrlTest() {
-        browser.headerMenu.gotoContactsSection();
+        browser.headerMenu.goToContactsSection();
         asserter.checkPageUrl("www.czechitas.cz");
     }
 
     @Test
     void successfulLoginTest() {
-        browser.loginAction.clickLoginMenuLink();
-        browser.loginAction.insertEmail("da-app.admin@czechitas.cz");
-        browser.loginAction.insertPassword("Czechitas123");
-        browser.loginAction.clickLoginButton();
+        browser.loginSection.clickLoginMenuLink();
+        browser.loginSection.insertEmail("da-app.admin@czechitas.cz");
+        browser.loginSection.insertPassword("Czechitas123");
+        browser.loginSection.clickLoginButton();
         asserter.checkIsLoggedIn();
     }
 
@@ -31,7 +31,7 @@ final class ExampleTest extends TestRunner {
     @ParameterizedTest()
     @ValueSource(strings = {"123456789", "ASDFBVC", "123"})
     void icoFieldTest(String icoValue) {
-        browser.headerMenu.gotoKindergartenAndSchoolSection();
-        browser.orderAction.insertICO(icoValue);
+        browser.headerMenu.goToKindergartenAndSchoolSection();
+        browser.orderSection.insertICO(icoValue);
     }
 }

@@ -19,41 +19,41 @@ final class PublicMenuAction {
         this.elementFinder = Objects.requireNonNull(elementFinder);
     }
 
-    void gotoContactsSection() {
+    void goToContactsSection() {
         var agreeButton = elementFinder.findByXPath("/html/body/div/header/nav/div/div[1]/a[2]");
         agreeButton.click();
     }
 
-    void gotoInstructionsAndFormsForTeacherSection() {
+    void goToInstructionsAndFormsForTeacherSection() {
         clickForTeacherMenuItem();
         var menuItem = elementFinder.findByXPath("//*[@id=\"navbarSupportedContent\"]/div[1]/div[2]/div/a[1]");
         menuItem.click();
     }
 
-    void gotoKindergartenAndSchoolSection() {
+    void goToKindergartenAndSchoolSection() {
         clickForTeacherMenuItem();
         var orderMenuItem = elementFinder.findByXPath("//*[@id=\"navbarSupportedContent\"]/div[1]/div[2]/div/a[2]");
         orderMenuItem.click();
     }
 
-    void gotoInstructionsAndFormsForParentSection() {
+    void goToInstructionsAndFormsForParentSection() {
         clickForParentMenuItem();
         var formMenuItem = elementFinder.findByXPath("//*[@id=\"navbarSupportedContent\"]/div[1]/div[1]/div/a[1]");
         formMenuItem.click();
     }
 
-    void gotoCreateApplicationSection() {
+    void goToCreateApplicationSection() {
         clickForParentMenuItem();
         var createApplicationMenuItem = elementFinder.findByXPath("//*[@id=\"navbarSupportedContent\"]/div[1]/div[1]/div/a[2]");
         createApplicationMenuItem.click();
     }
 
-    void gotoHomePage() {
+    void goToHomePage() {
         var homeMenuItem = elementFinder.findByXPath("//*[@id=\"navbarSupportedContent\"]/div[1]/a[1]");
         homeMenuItem.click();
     }
 
-    void gotoApplicationsSection() {
+    void goToApplicationsSection() {
         var applicationsMenuItem = elementFinder.findByXPath("/html/body/div/header/nav/div/div[1]/a[2]");
         applicationsMenuItem.click();
     }
