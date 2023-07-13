@@ -39,19 +39,19 @@ final class ApplicationAction {
         openApplicationButton.click();
     }
 
-    void vyhledej(String textKVyhledani) {
+    void search(String textToSearch) {
         var searchInput = elementFinder.findByXPath(
                 "/html/body/div/div/div/div/div/div[2]/div[1]/div/div[2]/div/label/input");
-        searchInput.sendKeys(textKVyhledani);
+        searchInput.sendKeys(textToSearch);
     }
 
-    void klikniNaUpravitUPrvniPrihlasky() {
+    void clickEditFirstApplicationButton() {
         var firstApplicationEditButton = elementFinder.findByXPath(
                 "/html/body/div/div/div/div/div/div[2]/div[2]/div/table/tbody/tr[1]/td[5]/div/a[2]");
         firstApplicationEditButton.click();
     }
 
-    void klikniNaDetailUPrvniPrihlasky() {
+    void clickViewFirstApplicationButton() {
         var firstApplicationDetailButton = elementFinder.findByXPath(
                 "/html/body/div/div/div/div/div/div[2]/div[2]/div/table/tbody/tr[1]/td[5]/div/a[1]/i");
         firstApplicationDetailButton.click();
