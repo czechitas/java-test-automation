@@ -9,8 +9,10 @@ import org.openqa.selenium.WebDriver;
 
 import java.io.File;
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
-public class ScreenshotOnFailExtension implements TestExecutionExceptionHandler {
+public final class ScreenshotOnFailExtension implements TestExecutionExceptionHandler {
 
     private final WebDriver driver;
 
@@ -23,14 +25,15 @@ public class ScreenshotOnFailExtension implements TestExecutionExceptionHandler 
 
         if (driver != null) {
             File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+            String formattedTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss__"));
             try {
-                String SCREENSHOT_DIRECTORY = "failedScreenshots/";
-                FileUtils.copyFile(screenshotFile, new File(SCREENSHOT_DIRECTORY + context.getDisplayName() + ".png"));
+                String screenshotDir = "failedScreenshots/";
+                FileUtils.copyFile(screenshotFile, new File(screenshotDir + formattedTime + context.getDisplayName() + ".png"));
             } catch (IOException e) {
                 System.out.println("Could not save taken screenshot: " + e);
             }
         }
 
-        throw cause; // Re-throw the exception to allow JUnit to handle it
+        throw cause;
     }
 }
