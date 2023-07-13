@@ -19,51 +19,51 @@ final class PublicMenuAction {
         this.elementFinder = Objects.requireNonNull(elementFinder);
     }
 
-    void jdiDoSekceKontakt() {
+    void goToContactsSection() {
         var agreeButton = elementFinder.findByXPath("/html/body/div/header/nav/div/div[1]/a[2]");
         agreeButton.click();
     }
 
-    void jdiDoSekceNavodyAFormulareProUcitele() {
-        clickOnForTeacherMenuItem();
+    void goToInstructionsAndFormsForTeacherSection() {
+        clickForTeacherMenuItem();
         var menuItem = elementFinder.findByXPath("//*[@id=\"navbarSupportedContent\"]/div[1]/div[2]/div/a[1]");
         menuItem.click();
     }
 
-    void jdiDoSekceObjednavkaProMSZS() {
-        clickOnForTeacherMenuItem();
+    void goToKindergartenAndSchoolSection() {
+        clickForTeacherMenuItem();
         var orderMenuItem = elementFinder.findByXPath("//*[@id=\"navbarSupportedContent\"]/div[1]/div[2]/div/a[2]");
         orderMenuItem.click();
     }
 
-    void jdiDoSekceNavodyAFormulareProRodice() {
-        clickOnForParentMenuItem();
+    void goToInstructionsAndFormsForParentSection() {
+        clickForParentMenuItem();
         var formMenuItem = elementFinder.findByXPath("//*[@id=\"navbarSupportedContent\"]/div[1]/div[1]/div/a[1]");
         formMenuItem.click();
     }
 
-    void jdiDoSekceVytvorPrihlasku() {
-        clickOnForParentMenuItem();
+    void goToCreateApplicationSection() {
+        clickForParentMenuItem();
         var createApplicationMenuItem = elementFinder.findByXPath("//*[@id=\"navbarSupportedContent\"]/div[1]/div[1]/div/a[2]");
         createApplicationMenuItem.click();
     }
 
-    void jdiDoSekceDomu() {
+    void goToHomePage() {
         var homeMenuItem = elementFinder.findByXPath("//*[@id=\"navbarSupportedContent\"]/div[1]/a[1]");
         homeMenuItem.click();
     }
 
-    void jdiDoSekcePrihlasky() {
+    void goToApplicationsSection() {
         var applicationsMenuItem = elementFinder.findByXPath("/html/body/div/header/nav/div/div[1]/a[2]");
         applicationsMenuItem.click();
     }
 
-    private void clickOnForTeacherMenuItem() {
+    private void clickForTeacherMenuItem() {
         var forTeacherMenuItem = elementFinder.findByXPath("//*[@id=\"navbarSupportedContent\"]/div[1]/div[2]/a");
         forTeacherMenuItem.click();
     }
 
-    private void clickOnForParentMenuItem() {
+    private void clickForParentMenuItem() {
         var forParentMenuItem = elementFinder.findByXPath("//*[@id=\"navbarSupportedContent\"]/div[1]/div[1]/a");
         forParentMenuItem.click();
     }

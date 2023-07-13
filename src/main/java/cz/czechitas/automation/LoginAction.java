@@ -19,31 +19,31 @@ final class LoginAction {
         this.elementFinder = Objects.requireNonNull(elementFinder);
     }
 
-    void klikniNaTlacitkoPrihlasit() {
+    void clickLoginMenuLink() {
         var loginButton = elementFinder.findByXPath("/html/body/div/header/nav/div/div[2]/a");
         loginButton.click();
     }
 
-    void vyplnEmail(String email) {
+    void insertEmail(String email) {
         Objects.requireNonNull(email);
 
         var emailInputBox = elementFinder.findByXPath("//*[@id=\"email\"]");
         emailInputBox.sendKeys(email);
     }
 
-    void vyplnHeslo(String heslo) {
-        Objects.requireNonNull(heslo);
+    void insertPassword(String password) {
+        Objects.requireNonNull(password);
 
         var passwordInputBox = elementFinder.findByXPath("//*[@id=\"password\"]");
-        passwordInputBox.sendKeys(heslo);
+        passwordInputBox.sendKeys(password);
     }
 
-    void provedPrihlaseni() {
+    void clickLoginButton() {
         var loginButton = elementFinder.findByXPath("/html/body/div/div/div/div/div/div/form/div[3]/div/button");
         loginButton.click();
     }
 
-    void provedOdhlaseni() {
+    void logout() {
         var signedInUserElement = elementFinder.findByXPath("//*[@id=\"navbarSupportedContent\"]/div[2]/div/a");
         signedInUserElement.click();
         var logoutButton = elementFinder.findByXPath("//*[@id=\"logout-link\"]");

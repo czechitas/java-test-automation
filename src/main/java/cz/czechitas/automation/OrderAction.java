@@ -19,17 +19,17 @@ final class OrderAction {
         this.elementFinder = Objects.requireNonNull(elementFinder);
     }
 
-    void vyberMoznostPrimestskyTabor() {
+    void selectSuburbanCampOption() {
         var suburbanCampButton = elementFinder.findByXPath("//*[@id=\"nav-home-tab\"]");
         suburbanCampButton.click();
     }
 
-    void vyberMoznostSkolaVPrirode() {
+    void selectSchoolInNatureOption() {
         var schoolInNatureButton = elementFinder.findByXPath("//*[@id=\"nav-profile-tab\"]");
         schoolInNatureButton.click();
     }
 
-    void vyplnICO(String ico) {
+    void insertICO(String ico) {
         Objects.requireNonNull(ico);
 
         var icoInputBox = elementFinder.findByXPath("//*[@id=\"ico\"]");
@@ -38,8 +38,8 @@ final class OrderAction {
         fullAddressElement.click();
     }
 
-    void vyplnPocetDeti(int pocetDeti) {
+    void insertChildrenCount(int childrenCount) {
         var natureStudentsInput = elementFinder.findByXPath("//*[@id=\"nature-students\"]");
-        natureStudentsInput.sendKeys(String.valueOf(pocetDeti));
+        natureStudentsInput.sendKeys(String.valueOf(childrenCount));
     }
 }

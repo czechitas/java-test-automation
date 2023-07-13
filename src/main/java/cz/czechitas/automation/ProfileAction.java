@@ -18,25 +18,25 @@ final class ProfileAction {
         this.elementFinder = Objects.requireNonNull(elementFinder);
     }
 
-    void otevriProfil() {
+    void goToProfilePage() {
         var loggedInUserElement = elementFinder.findByXPath("/html/body/div/header/nav/div/div[2]/div/a/strong");
         loggedInUserElement.click();
         var profileButton = elementFinder.findByXPath("/html/body/div/header/nav/div/div[2]/div/div/a[1]");
         profileButton.click();
     }
 
-    void vyplnHeslo(String heslo) {
+    void insertPassword(String password) {
         var passwordInput = elementFinder.findByXPath("//*[@id=\"password\"]");
         passwordInput.clear();
-        passwordInput.sendKeys(heslo);
+        passwordInput.sendKeys(password);
     }
 
-    void vyplnKontroluHesla(String heslo) {
+    void insertPasswordVerification(String password) {
         var passwordControlInput = elementFinder.findByXPath("//*[@id=\"password-confirm\"]");
-        passwordControlInput.sendKeys(heslo);
+        passwordControlInput.sendKeys(password);
     }
 
-    void klikniNaZmenit() {
+    void clickChangeButton() {
         var changeButton = elementFinder.findByXPath("/html/body/div/div/div/div/div/div[2]/form/div[4]/div/button");
         changeButton.click();
     }

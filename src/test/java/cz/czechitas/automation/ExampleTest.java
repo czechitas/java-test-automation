@@ -13,25 +13,25 @@ import org.junit.jupiter.params.provider.ValueSource;
 final class ExampleTest extends TestRunner {
 
     @Test
-    void overKontaktniWwwAdresu() {
-        prohlizec.horniMenu.jdiDoSekceKontakt();
-        overeni.overAdresuWwwStranky("www.czechitas.cz");
+    void contactsPageUrlTest() {
+        browser.headerMenu.goToContactsSection();
+        asserter.checkPageUrl("www.czechitas.cz");
     }
 
     @Test
-    void overUspesnePrihlaseni() {
-        prohlizec.prihlasovani.klikniNaTlacitkoPrihlasit();
-        prohlizec.prihlasovani.vyplnEmail("da-app.admin@czechitas.cz");
-        prohlizec.prihlasovani.vyplnHeslo("Czechitas123");
-        prohlizec.prihlasovani.provedPrihlaseni();
-        overeni.overPrihlaseniUzivatele();
+    void successfulLoginTest() {
+        browser.loginSection.clickLoginMenuLink();
+        browser.loginSection.insertEmail("da-app.admin@czechitas.cz");
+        browser.loginSection.insertPassword("Czechitas123");
+        browser.loginSection.clickLoginButton();
+        asserter.checkIsLoggedIn();
     }
 
-    // test s parametry, ukázka - zjisti, co vše je na tomto testu divné
+    // paramertized test - find out what is wrong with this test
     @ParameterizedTest()
     @ValueSource(strings = {"123456789", "ASDFBVC", "123"})
-    void overPolickoIco(String icoCislo) {
-        prohlizec.horniMenu.jdiDoSekceObjednavkaProMSZS();
-        prohlizec.sekceObjednavky.vyplnICO(icoCislo);
+    void icoFieldTest(String icoValue) {
+        browser.headerMenu.goToKindergartenAndSchoolSection();
+        browser.orderSection.insertICO(icoValue);
     }
 }

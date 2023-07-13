@@ -27,22 +27,22 @@ public final class AssertionFacade {
         this.detailPrihlasky = new ApplicationDetailAssertion(elementFinder);
     }
 
-    public void overAdresuWwwStranky(String wwwAdresa) {
-        var url = elementFinder.findByXPath("/html/body/div/div/div/div/div/div/div/div[1]/p[2]/a");
-        assertThat(url.getText()).isEqualTo(wwwAdresa);
+    public void checkPageUrl(String url) {
+        var urlElement = elementFinder.findByXPath("/html/body/div/div/div/div/div/div/div/div[1]/p[2]/a");
+        assertThat(urlElement.getText()).isEqualTo(url);
     }
 
-    public void overPrihlaseniUzivatele() {
+    public void checkIsLoggedIn() {
         var loggedInText = elementFinder.findByXPath("/html/body/div/header/nav[1]/div/div[2]/div/span");
         assertThat(loggedInText.getText()).isEqualTo("Přihlášen");
     }
 
-    public void overExistenciDlazdiceProgramovani() {
+    public void checkProgrammingSectionPresense() {
         var programmingText = elementFinder.findByXPath("/html/body/div/div/div[1]/div/div/div[1]/div");
         assertThat(programmingText.getText()).isEqualTo("Programování");
     }
 
-    public void overPritomnostTlacitkaZaregistrujteSe() {
+    public void checkRegistrationButtonPresense() {
         var registerButton = elementFinder.findByXPath("/html/body/div/div/div/div/div/div[2]/form/div[4]/div/a");
         assertThat(registerButton.getText()).isEqualTo("Zaregistrujte se");
     }
