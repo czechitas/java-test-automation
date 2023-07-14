@@ -18,11 +18,12 @@ final class ApplicationDetail {
         this.elementFinder = Objects.requireNonNull(elementFinder);
     }
 
-    void selectTerm(String termin) {
-        var dateElement = elementFinder.findByXPath("/html/body/div/div/div/div/div/form/table/tbody/tr[2]/td[2]/div/button");
+    void selectTerm(String term) {
+        var dateElement = elementFinder.findByXPath("//button[@data-id='term_id']");
         dateElement.click();
-        //TODO: find by parameter instead of selecting first option
-        var option = elementFinder.findByXPath("//*[@id=\"bs-select-1-0\"]");
+        var option = elementFinder.findByXPath(
+                "//div[starts-with(@id,'bs-select')]//span[contains(text(), '" + term + "')]"
+        );
         option.click();
     }
 
