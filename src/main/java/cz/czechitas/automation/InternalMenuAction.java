@@ -20,32 +20,32 @@ final class InternalMenuAction {
     }
 
     void goToOrdersSection() {
-        var ordersMenuItem = elementFinder.findByXPath("//*[@id=\"adminNavbar\"]/div/a[1]");
+        var ordersMenuItem = elementFinder.findByXPath("//*[@id=\"adminNavbar\"]//a[contains(text(), 'Objednávky')]");
         ordersMenuItem.click();
     }
 
     void goToTermsSection() {
-        var datesMenuItem = elementFinder.findByXPath("//*[@id=\"adminNavbar\"]/div/a[2]");
+        var datesMenuItem = elementFinder.findByXPath("//*[@id=\"adminNavbar\"]//a[contains(text(), 'Termíny')]");
         datesMenuItem.click();
     }
 
     void goToApplicationsSection() {
-        var applicationsMenuItem = elementFinder.findByXPath("//*[@id=\"adminNavbar\"]/div/a[3]");
+        var applicationsMenuItem = elementFinder.findByXPath("//*[@id=\"adminNavbar\"]//a[contains(text(), 'Přihlášky')]");
         applicationsMenuItem.click();
     }
 
     void goToCategoriesSection() {
-        var categoriesMenuItem = elementFinder.findByXPath("//*[@id=\"adminNavbar\"]/div/a[4]");
+        var categoriesMenuItem = elementFinder.findByXPath("//*[@id=\"adminNavbar\"]//a[contains(text(), 'Kategorie')]");
         categoriesMenuItem.click();
     }
 
     void goToNewsSection() {
-        var newsMenuItem = elementFinder.findByXPath("//*[@id=\"adminNavbar\"]/div/a[5]");
+        var newsMenuItem = elementFinder.findByXPath("//*[@id=\"adminNavbar\"]//a[contains(text(), 'Aktuality')]");
         newsMenuItem.click();
     }
 
     void goToExportsSection() {
-        var exportsMenuItem = elementFinder.findByXPath("//*[@id=\"adminNavbar\"]/div/a[6]");
+        var exportsMenuItem = elementFinder.findByXPath("//*[@id=\"adminNavbar\"]//a[contains(text(), 'Exporty')]");
         exportsMenuItem.click();
     }
 }

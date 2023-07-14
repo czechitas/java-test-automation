@@ -23,13 +23,8 @@ public final class ApplicationAssertion {
     }
 
     public void checkColumnExists(String columnName) {
-        var column = elementFinder.findByXPath("/html/body/div/div/div/div/div/div[2]/div[2]/div/table/thead/tr");
+        var column = elementFinder.findByXPath("//table[@id='DataTables_Table_0']/thead/tr");
         assertThat(column.getText()).contains(columnName);
-    }
-
-    public void checkUrl(String url) {
-        var urlElement = elementFinder.findByXPath("/html/body/div/div/div/div/div/div/div/div[1]/p[2]/a");
-        assertThat(urlElement.getText()).isEqualTo(url);
     }
 
     public void checkApplicationsTableIsEmpty() {

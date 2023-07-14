@@ -28,22 +28,22 @@ public final class AssertionFacade {
     }
 
     public void checkPageUrl(String url) {
-        var urlElement = elementFinder.findByXPath("/html/body/div/div/div/div/div/div/div/div[1]/p[2]/a");
+        var urlElement = elementFinder.findByXPath("//a[text()='www.czechitas.cz']");
         assertThat(urlElement.getText()).isEqualTo(url);
     }
 
     public void checkIsLoggedIn() {
-        var loggedInText = elementFinder.findByXPath("/html/body/div/header/nav[1]/div/div[2]/div/span");
+        var loggedInText = elementFinder.findByCssSelector(".navbar-right span");
         assertThat(loggedInText.getText()).isEqualTo("Přihlášen");
     }
 
     public void checkProgrammingSectionPresense() {
-        var programmingText = elementFinder.findByXPath("/html/body/div/div/div[1]/div/div/div[1]/div");
-        assertThat(programmingText.getText()).isEqualTo("Programování");
+        var programmingText = elementFinder.findByCssSelector(".main_content .card-img-overlay");
+        assertThat(programmingText.getText().trim()).isEqualTo("Programování");
     }
 
     public void checkRegistrationButtonPresense() {
-        var registerButton = elementFinder.findByXPath("/html/body/div/div/div/div/div/div[2]/form/div[4]/div/a");
-        assertThat(registerButton.getText()).isEqualTo("Zaregistrujte se");
+        var registerButton = elementFinder.findByCssSelector(".btn-secondary");
+        assertThat(registerButton.getText().trim()).isEqualTo("Zaregistrujte se");
     }
 }

@@ -19,9 +19,9 @@ final class ProfileAction {
     }
 
     void goToProfilePage() {
-        var loggedInUserElement = elementFinder.findByXPath("/html/body/div/header/nav/div/div[2]/div/a/strong");
+        var loggedInUserElement = elementFinder.findByXPath("//*[@id=\"navbarSupportedContent\"]/div[2]/div/a");
         loggedInUserElement.click();
-        var profileButton = elementFinder.findByXPath("/html/body/div/header/nav/div/div[2]/div/div/a[1]");
+        var profileButton = elementFinder.findByXPath("//*[@id=\"navbarSupportedContent\"]//a[contains(text(), 'Profil')]");
         profileButton.click();
     }
 
@@ -37,7 +37,7 @@ final class ProfileAction {
     }
 
     void clickChangeButton() {
-        var changeButton = elementFinder.findByXPath("/html/body/div/div/div/div/div/div[2]/form/div[4]/div/button");
+        var changeButton = elementFinder.findByXPath("//button[@type='submit']");
         changeButton.click();
     }
 }

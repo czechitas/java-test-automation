@@ -20,7 +20,7 @@ final class LoginAction {
     }
 
     void clickLoginMenuLink() {
-        var loginButton = elementFinder.findByXPath("/html/body/div/header/nav/div/div[2]/a");
+        var loginButton = elementFinder.findByCssSelector(".navbar-right .nav-item");
         loginButton.click();
     }
 
@@ -39,7 +39,7 @@ final class LoginAction {
     }
 
     void clickLoginButton() {
-        var loginButton = elementFinder.findByXPath("/html/body/div/div/div/div/div/div/form/div[3]/div/button");
+        var loginButton = elementFinder.findByXPath("//button[@type='submit']");
         loginButton.click();
     }
 
