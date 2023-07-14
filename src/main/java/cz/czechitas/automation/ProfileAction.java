@@ -19,20 +19,20 @@ final class ProfileAction {
     }
 
     void goToProfilePage() {
-        var loggedInUserElement = elementFinder.findByXPath("//*[@id=\"navbarSupportedContent\"]/div[2]/div/a");
+        var loggedInUserElement = elementFinder.findByXPath("//*[@id='navbarSupportedContent']/div[2]/div/a");
         loggedInUserElement.click();
-        var profileButton = elementFinder.findByXPath("//*[@id=\"navbarSupportedContent\"]//a[contains(text(), 'Profil')]");
+        var profileButton = elementFinder.findByXPath("//*[@id='navbarSupportedContent']//a[contains(text(), 'Profil')]");
         profileButton.click();
     }
 
     void insertPassword(String password) {
-        var passwordInput = elementFinder.findByXPath("//*[@id=\"password\"]");
+        var passwordInput = elementFinder.findByXPath("//*[@id='password']");
         passwordInput.clear();
         passwordInput.sendKeys(password);
     }
 
     void insertPasswordVerification(String password) {
-        var passwordControlInput = elementFinder.findByXPath("//*[@id=\"password-confirm\"]");
+        var passwordControlInput = elementFinder.findByXPath("//*[@id='password-confirm']");
         passwordControlInput.sendKeys(password);
     }
 

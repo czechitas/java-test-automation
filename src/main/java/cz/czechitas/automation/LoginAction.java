@@ -27,14 +27,14 @@ final class LoginAction {
     void insertEmail(String email) {
         Objects.requireNonNull(email);
 
-        var emailInputBox = elementFinder.findByXPath("//*[@id=\"email\"]");
+        var emailInputBox = elementFinder.findByXPath("//*[@id='email']");
         emailInputBox.sendKeys(email);
     }
 
     void insertPassword(String password) {
         Objects.requireNonNull(password);
 
-        var passwordInputBox = elementFinder.findByXPath("//*[@id=\"password\"]");
+        var passwordInputBox = elementFinder.findByXPath("//*[@id='password']");
         passwordInputBox.sendKeys(password);
     }
 
@@ -44,9 +44,9 @@ final class LoginAction {
     }
 
     void logout() {
-        var signedInUserElement = elementFinder.findByXPath("//*[@id=\"navbarSupportedContent\"]/div[2]/div/a");
+        var signedInUserElement = elementFinder.findByXPath("//*[@id='navbarSupportedContent']/div[2]/div/a");
         signedInUserElement.click();
-        var logoutButton = elementFinder.findByXPath("//*[@id=\"logout-link\"]");
+        var logoutButton = elementFinder.findByXPath("//*[@id='logout-link']");
         logoutButton.click();
     }
 }

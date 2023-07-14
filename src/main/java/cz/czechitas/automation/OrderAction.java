@@ -20,26 +20,26 @@ final class OrderAction {
     }
 
     void selectSuburbanCampOption() {
-        var suburbanCampButton = elementFinder.findByXPath("//*[@id=\"nav-home-tab\"]");
+        var suburbanCampButton = elementFinder.findByXPath("//*[@id='nav-home-tab']");
         suburbanCampButton.click();
     }
 
     void selectSchoolInNatureOption() {
-        var schoolInNatureButton = elementFinder.findByXPath("//*[@id=\"nav-profile-tab\"]");
+        var schoolInNatureButton = elementFinder.findByXPath("//*[@id='nav-profile-tab']");
         schoolInNatureButton.click();
     }
 
     void insertICO(String ico) {
         Objects.requireNonNull(ico);
 
-        var icoInputBox = elementFinder.findByXPath("//*[@id=\"ico\"]");
+        var icoInputBox = elementFinder.findByXPath("//*[@id='ico']");
         icoInputBox.sendKeys(ico);
-        var fullAddressElement = elementFinder.findByXPath("//*[@id=\"address\"]");
+        var fullAddressElement = elementFinder.findByXPath("//*[@id='address']");
         fullAddressElement.click();
     }
 
     void insertChildrenCount(int childrenCount) {
-        var natureStudentsInput = elementFinder.findByXPath("//*[@id=\"nature-students\"]");
+        var natureStudentsInput = elementFinder.findByXPath("//*[@id='nature-students']");
         natureStudentsInput.sendKeys(String.valueOf(childrenCount));
     }
 }

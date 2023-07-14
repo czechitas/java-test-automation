@@ -17,14 +17,14 @@ import static org.assertj.core.api.Assertions.assertThat;
 public final class AssertionFacade {
 
     private final ElementFinder elementFinder;
-    public final ApplicationAssertion sekcePrihlasky;
-    public final ApplicationDetailAssertion detailPrihlasky;
+    public final ApplicationAssertion applicationSection;
+    public final ApplicationDetailAssertion applicationDetailAction;
 
     public AssertionFacade(WebDriver webDriver)
     {
         this.elementFinder = new ElementFinder(webDriver);
-        this.sekcePrihlasky = new ApplicationAssertion(elementFinder);
-        this.detailPrihlasky = new ApplicationDetailAssertion(elementFinder);
+        this.applicationSection = new ApplicationAssertion(elementFinder);
+        this.applicationDetailAction = new ApplicationDetailAssertion(elementFinder);
     }
 
     public void checkPageUrl(String url) {

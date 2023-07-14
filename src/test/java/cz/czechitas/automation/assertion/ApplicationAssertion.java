@@ -28,12 +28,12 @@ public final class ApplicationAssertion {
     }
 
     public void checkApplicationsTableIsEmpty() {
-        var applicationsCountElement = elementFinder.findByXPath("//*[@id=\"DataTables_Table_0_info\"]");
+        var applicationsCountElement = elementFinder.findByXPath("//*[@id='DataTables_Table_0_info']");
         assertThat(applicationsCountElement.getText()).contains("Žádné záznamy nenalezeny");
     }
 
     public void checkNumberOfApplications(int applicationsNumber) {
-        var applicationsCountElement = elementFinder.findByXPath("//*[@id=\"DataTables_Table_0_info\"]");
+        var applicationsCountElement = elementFinder.findByXPath("//*[@id='DataTables_Table_0_info']");
         assertThat(applicationsCountElement.getText()).contains("Zobrazeno " + applicationsNumber + " až " + applicationsNumber +
                 " záznamů z " + applicationsNumber);
     }

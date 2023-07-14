@@ -29,22 +29,22 @@ final class ApplicationDetail {
     }
 
     void insertStudentFirstName(String firstName) {
-        var firstNameInput = elementFinder.findByXPath("//*[@id=\"forename\"]");
+        var firstNameInput = elementFinder.findByXPath("//*[@id='forename']");
         firstNameInput.sendKeys(firstName);
     }
 
     void insertStudentLastName(String lastname) {
-        var lastNameInput = elementFinder.findByXPath("//*[@id=\"surname\"]");
+        var lastNameInput = elementFinder.findByXPath("//*[@id='surname']");
         lastNameInput.sendKeys(lastname);
     }
 
     void insertBirthdate(String birthdate) {
-        var birthDate = elementFinder.findByXPath("//*[@id=\"birthday\"]");
+        var birthDate = elementFinder.findByXPath("//*[@id='birthday']");
         birthDate.sendKeys(birthdate);
     }
 
     void insertNote(String note) {
-        var noteInput = elementFinder.findByXPath("//*[@id=\"note\"]");
+        var noteInput = elementFinder.findByXPath("//*[@id='note']");
         noteInput.sendKeys(note);
     }
 
