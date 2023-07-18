@@ -42,6 +42,7 @@ final class ApplicationAction {
     void search(String textToSearch) {
         var searchInput = elementFinder.findByXPath(
                 "/html/body/div/div/div/div/div/div[2]/div[1]/div/div[2]/div/label/input");
+        searchInput.clear();
         searchInput.sendKeys(textToSearch);
     }
 
