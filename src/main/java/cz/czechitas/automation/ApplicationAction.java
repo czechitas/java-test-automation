@@ -27,7 +27,7 @@ final class ApplicationAction {
     }
 
     void selectProgrammingSection() {
-        var programmingSectionButton = elementFinder.findByXPath("//*[contains(text(), 'Programování')]/../..//a");
+        var programmingSectionButton = elementFinder.findByXPath("//*[contains(text(), 'Programování')]//ancestor::*[@class='card']//a");
         programmingSectionButton.click();
     }
 
@@ -41,7 +41,7 @@ final class ApplicationAction {
 
     void openFirstApplicationDetailsPage() {
         var openApplicationButton = elementFinder.findByXPath(
-                "//a[contains(text(), 'Detail')]");
+                "//tr[1]//a[@title='Zobrazit']");
         openApplicationButton.click();
     }
 
@@ -53,7 +53,7 @@ final class ApplicationAction {
 
     void clickEditFirstApplicationButton() {
         var firstApplicationEditButton = elementFinder.findByXPath(
-                "//a[contains(text(), 'Upravit')]");
+                "//tr[1]//a[@title='Upravit']");
         firstApplicationEditButton.click();
     }
 }
