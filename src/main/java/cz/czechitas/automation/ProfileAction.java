@@ -19,7 +19,7 @@ final class ProfileAction {
     }
 
     void goToProfilePage() {
-        var loggedInUserElement = elementFinder.findByXPath("//*[@id='navbarSupportedContent']/div[2]/div/a");
+        var loggedInUserElement = elementFinder.findByXPath("//*[@id='navbarSupportedContent']//a[@class='dropdown-toggle']");
         loggedInUserElement.click();
         var profileButton = elementFinder.findByXPath("//*[@id='navbarSupportedContent']//a[contains(text(), 'Profil')]");
         profileButton.click();
