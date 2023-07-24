@@ -20,6 +20,7 @@ final class ApplicationDetail {
 
     void selectTerm(String term) {
         var dateElement = elementFinder.findByXPath("//button[@data-id='term_id']");
+
         dateElement.click();
         var option = elementFinder.findByXPath(
                 "//div[starts-with(@id,'bs-select')]//span[contains(text(), '" + term + "')]"
@@ -28,52 +29,52 @@ final class ApplicationDetail {
     }
 
     void insertStudentFirstName(String firstName) {
-        var firstNameInput = elementFinder.findByXPath("//*[@id=\"forename\"]");
+        var firstNameInput = elementFinder.findByXPath("//*[@id='forename']");
         firstNameInput.sendKeys(firstName);
     }
 
     void insertStudentLastName(String lastname) {
-        var lastNameInput = elementFinder.findByXPath("//*[@id=\"surname\"]");
+        var lastNameInput = elementFinder.findByXPath("//*[@id='surname']");
         lastNameInput.sendKeys(lastname);
     }
 
     void insertBirthdate(String birthdate) {
-        var birthDate = elementFinder.findByXPath("//*[@id=\"birthday\"]");
+        var birthDate = elementFinder.findByXPath("//*[@id='birthday']");
         birthDate.sendKeys(birthdate);
     }
 
     void insertNote(String note) {
-        var noteInput = elementFinder.findByXPath("//*[@id=\"note\"]");
+        var noteInput = elementFinder.findByXPath("//*[@id='note']");
         noteInput.sendKeys(note);
     }
 
     void clickAcceptTermsCheckbox() {
         var approvalCheckbox = elementFinder.findByXPath(
-                "/html/body/div/div/div/div/div/form/table/tbody/tr[11]/td[2]/span/label");
+                "//label[@for='terms_conditions']");
         approvalCheckbox.click();
     }
 
     void clickCreateApplicationButton() {
         var createButton = elementFinder.findByXPath(
-                "/html/body/div/div/div/div/div/form/table/tbody/tr[11]/td[2]/input");
+                "//input[@type='submit']");
         createButton.click();
     }
 
     void selectCashPaymentMethod() {
         var inCashRadioButton = elementFinder.findByXPath(
-                "/html/body/div/div/div/div/div/form/table/tbody/tr[8]/td[2]/span[4]/label");
+                "//label[@for='payment_cash']");
         inCashRadioButton.click();
     }
 
     void selectBankTrasnferPaymentMethod() {
         var toBankAccountButton = elementFinder.findByXPath(
-                "/html/body/div/div/div/div/div/form/table/tbody/tr[7]/td[2]/span[1]/label");
+                "//label[@for='payment_transfer']");
         toBankAccountButton.click();
     }
 
     void clickEditApplicationButton() {
         var editButton = elementFinder.findByXPath(
-                "/html/body/div/div/div/div/div/form/table/tbody/tr[10]/td[2]/input");
+                "//a[@title='Upravit']");
         editButton.click();
     }
 }

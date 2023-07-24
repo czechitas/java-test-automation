@@ -34,4 +34,15 @@ public final class ElementFinder {
     public WebElement findByXPath(String xpathExpression) {
      return driver.findElement(By.xpath(Objects.requireNonNull(xpathExpression)));
     }
+
+    /**
+     * Finds {@link WebElement} by cssSelector
+     *
+     * @param cssSelector element css selector
+     * @return found {@link WebElement}
+     */
+    @Nonnull
+    public WebElement findByCssSelector(String cssSelector) {
+        return driver.findElement(By.cssSelector(Objects.requireNonNull(cssSelector)));
+    }
 }
