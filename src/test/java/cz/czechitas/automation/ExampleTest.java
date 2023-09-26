@@ -18,116 +18,117 @@ final class ExampleTest extends TestRunner {
 
     @Test
     void navigationTaskOne() {
-        prohlizec.horniMenu.jdiDoSekceObjednavkaProMSZS();
-        prohlizec.sekceObjednavky.vyplnICO("22834958");
-        prohlizec.sekceObjednavky.vyberMoznostSkolaVPrirode();
-        prohlizec.sekceObjednavky.vyplnPocetDeti(5);
+        browser.headerMenu.goToKindergartenAndSchoolSection();
+        browser.orderSection.insertICO("22834958");
+        browser.orderSection.selectSchoolInNatureOption();
+        browser.orderSection.insertChildrenCount(5);
     }
 
     @Test
     void assertionTaskOne() {
-        prohlizec.prihlasovani.klikniNaTlacitkoPrihlasit();
-        prohlizec.prihlasovani.vyplnEmail("mistr@tester.cz");
-        prohlizec.prihlasovani.vyplnHeslo("Mtester123");
-        prohlizec.prihlasovani.provedPrihlaseni();
-        prohlizec.horniMenu.jdiDoSekcePrihlasky();
-        overeni.sekcePrihlasky.overExistenciSloupce("Jméno");
-        overeni.sekcePrihlasky.overExistenciSloupce("Kategorie");
+        browser.loginSection.clickLoginMenuLink();
+        browser.loginSection.insertEmail("mistr@tester.cz");
+        browser.loginSection.insertPassword("Mtester123");
+        browser.loginSection.clickLoginButton();
+        browser.headerMenu.goToApplicationsSection();
+        asserter.applicationSection.checkColumnExists("Jméno");
+        asserter.applicationSection.checkColumnExists("Kategorie");
     }
 
     @Test
     void complexTaskOne() {
-        prohlizec.prihlasovani.klikniNaTlacitkoPrihlasit();
-        prohlizec.prihlasovani.vyplnEmail("mistr@tester.cz");
-        prohlizec.prihlasovani.vyplnHeslo("Mtester123");
-        prohlizec.prihlasovani.provedPrihlaseni();
-        prohlizec.horniMenu.jdiDoSekcePrihlasky();
-        prohlizec.sekcePrihlasky.klikniNaVytvoreniNovePrihlasky();
-        prohlizec.sekcePrihlasky.vyberObdobiProgramovani();
-        prohlizec.sekcePrihlasky.klikniNaVytvoritPrihlasku();
-        prohlizec.detailPrihlasky.vyberTermin("21.11. - 30.11.2022");
-        prohlizec.detailPrihlasky.vyplnKrestniJmenoZaka("Pan");
-        prohlizec.detailPrihlasky.vyplnPrijmeniZaka("Tester001");
-        prohlizec.detailPrihlasky.vyplnDatumNarozeni("29.01.2000");
-        prohlizec.detailPrihlasky.klikniNaSouhlasSPodminkami();
-        prohlizec.detailPrihlasky.vyplnPoznamku("Moje super poznamka");
-        prohlizec.detailPrihlasky.zvolZpusobUhradyHotove();
-        prohlizec.detailPrihlasky.klikniNaVytvoritPrihlasku();
-        overeni.detailPrihlasky.overZpusobUhradyPrihlasky("Hotově");
-        overeni.detailPrihlasky.overKrestniJmeno("Pan");
-        overeni.detailPrihlasky.overPrijmeni("Tester001");
-        overeni.detailPrihlasky.overDatumNarozeni("29.01.2000");
-        overeni.detailPrihlasky.overPoznamku("Moje super poznamka");
+        browser.loginSection.clickLoginMenuLink();
+        browser.loginSection.insertEmail("mistr@tester.cz");
+        browser.loginSection.insertPassword("Mtester123");
+        browser.loginSection.clickLoginButton();
+        browser.headerMenu.goToApplicationsSection();
+        browser.applicationSection.clickCreateNewApplicationButton();
+        browser.applicationSection.selectProgrammingSection();
+        browser.applicationSection.clickCreateApplicationButton();
+        browser.applicationDetailsSection.selectTerm("21.11. - 30.11.2022");
+        browser.applicationDetailsSection.insertStudentFirstName("Pan");
+        browser.applicationDetailsSection.insertStudentLastName("Tester001");
+        browser.applicationDetailsSection.insertBirthdate("29.01.2000");
+        browser.applicationDetailsSection.clickAcceptTermsCheckbox();
+        browser.applicationDetailsSection.insertNote("Moje super poznamka");
+        browser.applicationDetailsSection.selectCashPaymentMethod();
+        browser.applicationDetailsSection.clickCreateApplicationButton();
+        asserter.applicationDetailAction.checkPaymentMethod("Hotově");
+        asserter.applicationDetailAction.checkFirstName("Pan");
+        asserter.applicationDetailAction.checkLastName("Tester001");
+        asserter.applicationDetailAction.checkDateOfBirth("29.01.2000");
+        asserter.applicationDetailAction.checkNote("Moje super poznamka");
     }
 
     @Test
     void complexTaskThree() {
-        prohlizec.prihlasovani.klikniNaTlacitkoPrihlasit();
-        prohlizec.prihlasovani.vyplnEmail("mistr@tester.cz");
-        prohlizec.prihlasovani.vyplnHeslo("Mtester123");
-        prohlizec.prihlasovani.provedPrihlaseni();
-        prohlizec.horniMenu.jdiDoSekcePrihlasky();
-        prohlizec.sekcePrihlasky.vyhledej("tester001");
-        prohlizec.sekcePrihlasky.klikniNaUpravitUPrvniPrihlasky();
-        prohlizec.detailPrihlasky.zvolZpusobUhradyBankovnimPrevodem();
-        prohlizec.detailPrihlasky.klikniNaUpravitPrihlasku();
-        prohlizec.sekcePrihlasky.klikniNaDetailUPrvniPrihlasky();
-        overeni.detailPrihlasky.overZpusobUhradyPrihlasky("Bankovní převod");
-        overeni.detailPrihlasky.overZbyvajiciCastkuKUhrazeni("1 800 Kč");
-        overeni.detailPrihlasky.overZpravaProPrijemceObsahujePrijmeniZaka("Tester001");
+        browser.loginSection.clickLoginMenuLink();
+        browser.loginSection.insertEmail("mistr@tester.cz");
+        browser.loginSection.insertPassword("Mtester123");
+        browser.loginSection.clickLoginButton();
+        browser.headerMenu.goToApplicationsSection();
+        browser.applicationSection.search("tester001");
+        browser.applicationSection.clickEditFirstApplicationButton();
+        browser.applicationDetailsSection.selectBankTrasnferPaymentMethod();
+        browser.applicationDetailsSection.clickEditApplicationButton();
+        browser.applicationSection.openFirstApplicationDetailsPage();
+        asserter.applicationDetailAction.checkPaymentMethod("Bankovní převod");
+        asserter.applicationDetailAction.checkRemainingAmountToPay("1 800 Kč");
+        asserter.applicationDetailAction.checkMessageContainsStudentLastName("Tester001");
     }
 
     @Test
     void complexTaskSix() {
-        prohlizec.prihlasovani.klikniNaTlacitkoPrihlasit();
-        prohlizec.prihlasovani.vyplnEmail("mistr@tester.cz");
-        prohlizec.prihlasovani.vyplnHeslo("Mtester123");
-        prohlizec.prihlasovani.provedPrihlaseni();
-        prohlizec.horniMenu.jdiDoSekcePrihlasky();
-        prohlizec.sekcePrihlasky.klikniNaVytvoreniNovePrihlasky();
-        prohlizec.sekcePrihlasky.vyberObdobiProgramovani();
-        prohlizec.sekcePrihlasky.klikniNaVytvoritPrihlasku();
-        prohlizec.detailPrihlasky.vyberTermin("123");
-        prohlizec.detailPrihlasky.vyplnKrestniJmenoZaka("Pan");
-        var generated = prohlizec.vygenerujNahodnePrijmeni(15);
-        prohlizec.detailPrihlasky.vyplnPrijmeniZaka(generated);
-        prohlizec.detailPrihlasky.vyplnDatumNarozeni("11.12.2000");
-        prohlizec.detailPrihlasky.zvolZpusobUhradyHotove();
-        prohlizec.detailPrihlasky.klikniNaSouhlasSPodminkami();
-        prohlizec.detailPrihlasky.klikniNaVytvoritPrihlasku();
-        prohlizec.horniMenu.jdiDoSekcePrihlasky();
-        prohlizec.sekcePrihlasky.vyhledej(generated);
-        overeni.sekcePrihlasky.overZeVTabulcePrihlasekJePraveZobrazenych(1);
-        prohlizec.prihlasovani.provedOdhlaseni();
-        prohlizec.prihlasovani.klikniNaTlacitkoPrihlasit();
-        prohlizec.prihlasovani.vyplnEmail("ja@tester.cz");
-        prohlizec.prihlasovani.vyplnHeslo("Jtester123");
-        prohlizec.prihlasovani.provedPrihlaseni();
-        prohlizec.horniMenu.jdiDoSekcePrihlasky();
-        prohlizec.sekcePrihlasky.vyhledej(generated);
-        overeni.sekcePrihlasky.overZeVTabulcePrihlasekNeniZadnaZobrazena();
+        browser.loginSection.clickLoginMenuLink();
+        browser.loginSection.insertEmail("mistr@tester.cz");
+        browser.loginSection.insertPassword("Mtester123");
+        browser.loginSection.clickLoginButton();
+        browser.headerMenu.goToApplicationsSection();
+        browser.applicationSection.clickCreateNewApplicationButton();
+        browser.applicationSection.selectProgrammingSection();
+        browser.applicationSection.clickCreateApplicationButton();
+        browser.applicationDetailsSection.selectTerm("123");
+        browser.applicationDetailsSection.insertStudentFirstName("Pan");
+        var generated = browser.generateRandomName(15);
+        browser.applicationDetailsSection.insertStudentLastName(generated);
+        browser.applicationDetailsSection.insertBirthdate("11.12.2000");
+        browser.applicationDetailsSection.selectCashPaymentMethod();
+        browser.applicationDetailsSection.clickAcceptTermsCheckbox();
+        browser.applicationDetailsSection.clickCreateApplicationButton();
+        browser.headerMenu.goToApplicationsSection();
+        browser.applicationSection.search(generated);
+        asserter.applicationSection.checkNumberOfApplications(1);
+        browser.loginSection.logout();
+        browser.loginSection.clickLoginMenuLink();
+        browser.loginSection.insertEmail("ja@tester.cz");
+        browser.loginSection.insertPassword("Jtester123");
+        browser.loginSection.clickLoginButton();
+        browser.headerMenu.goToApplicationsSection();
+        browser.applicationSection.search(generated);
+        asserter.applicationSection.checkApplicationsTableIsEmpty();
     }
 
     @Test
     void complexTaskSeven() {
-        prohlizec.prihlasovani.klikniNaTlacitkoPrihlasit();
-        prohlizec.prihlasovani.vyplnEmail("mistr@tester.cz");
-        prohlizec.prihlasovani.vyplnHeslo("Mtester123");
-        prohlizec.prihlasovani.provedPrihlaseni();
-        prohlizec.profil.otevriProfil();
-        prohlizec.profil.vyplnHeslo("Aaabbb123");
-        prohlizec.profil.vyplnKontroluHesla("Aaabbb123");
-        prohlizec.profil.klikniNaZmenit();
-        prohlizec.cekejNekolikVterin(10);
-        prohlizec.prihlasovani.provedOdhlaseni();
-        prohlizec.prihlasovani.klikniNaTlacitkoPrihlasit();
-        prohlizec.prihlasovani.vyplnEmail("mistr@tester.cz");
-        prohlizec.prihlasovani.vyplnHeslo("Aaabbb123");
-        prohlizec.prihlasovani.provedPrihlaseni();
-        overeni.overPrihlaseniUzivatele();
-        prohlizec.profil.otevriProfil();
-        prohlizec.profil.vyplnHeslo("Mtester123");
-        prohlizec.profil.vyplnKontroluHesla("Mtester123");
-        prohlizec.profil.klikniNaZmenit();
+        browser.loginSection.clickLoginMenuLink();
+        browser.loginSection.insertEmail("mistr@tester.cz");
+        browser.loginSection.insertPassword("Mtester123");
+        browser.loginSection.clickLoginButton();
+        browser.headerMenu.goToApplicationsSection();
+        browser.profileSection.goToProfilePage();
+        browser.profileSection.insertPassword("Aaabbb123");
+        browser.profileSection.insertPasswordVerification("Aaabbb123");
+        browser.profileSection.clickChangeButton();
+        browser.waitFor(10);
+        browser.loginSection.logout();
+        browser.loginSection.clickLoginMenuLink();
+        browser.loginSection.insertEmail("mistr@tester.cz");
+        browser.loginSection.insertPassword("Aaabbb123");
+        browser.loginSection.clickLoginButton();
+        asserter.checkIsLoggedIn();
+        browser.profileSection.goToProfilePage();
+        browser.profileSection.insertPassword("Mtester123");
+        browser.profileSection.insertPasswordVerification("Mtester123");
+        browser.profileSection.clickChangeButton();
     }
 }
