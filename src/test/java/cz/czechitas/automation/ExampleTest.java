@@ -45,7 +45,7 @@ final class ExampleTest extends TestRunner {
         browser.applicationSection.clickCreateNewApplicationButton();
         browser.applicationSection.selectProgrammingSection();
         browser.applicationSection.clickCreateApplicationButton();
-        browser.applicationDetailsSection.selectTerm("21.11. - 30.11.2022");
+        browser.applicationDetailsSection.selectTerm("05.02. - 09.02.2024");
         browser.applicationDetailsSection.insertStudentFirstName("Pan");
         browser.applicationDetailsSection.insertStudentLastName("Tester001");
         browser.applicationDetailsSection.insertBirthdate("29.01.2000");
@@ -69,7 +69,7 @@ final class ExampleTest extends TestRunner {
         browser.headerMenu.goToApplicationsSection();
         browser.applicationSection.search("tester001");
         browser.applicationSection.clickEditFirstApplicationButton();
-        browser.applicationDetailsSection.selectBankTrasnferPaymentMethod();
+        browser.applicationDetailsSection.selectBankTransferPaymentMethod();
         browser.applicationDetailsSection.clickEditApplicationButton();
         browser.applicationSection.openFirstApplicationDetailsPage();
         asserter.applicationDetailAction.checkPaymentMethod("Bankovní převod");
@@ -87,7 +87,7 @@ final class ExampleTest extends TestRunner {
         browser.applicationSection.clickCreateNewApplicationButton();
         browser.applicationSection.selectProgrammingSection();
         browser.applicationSection.clickCreateApplicationButton();
-        browser.applicationDetailsSection.selectTerm("123");
+        browser.applicationDetailsSection.selectTerm("05.02. - 09.02.2024");
         browser.applicationDetailsSection.insertStudentFirstName("Pan");
         var generated = browser.generateRandomName(15);
         browser.applicationDetailsSection.insertStudentLastName(generated);

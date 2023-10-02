@@ -66,7 +66,7 @@ final class ApplicationDetail {
         inCashRadioButton.click();
     }
 
-    void selectBankTrasnferPaymentMethod() {
+    void selectBankTransferPaymentMethod() {
         var toBankAccountButton = elementFinder.findByXPath(
                 "//label[@for='payment_transfer']");
         toBankAccountButton.click();
@@ -74,7 +74,7 @@ final class ApplicationDetail {
 
     void clickEditApplicationButton() {
         var editButton = elementFinder.findByXPath(
-                "//a[@title='Upravit']");
+                "//input[@value='Upravit přihlášku']");
         editButton.click();
     }
 }
