@@ -17,33 +17,33 @@ import static org.assertj.core.api.Assertions.assertThat;
 public final class AssertionFacade {
 
     private final ElementFinder elementFinder;
-    public final ApplicationAssertion sekcePrihlasky;
-    public final ApplicationDetailAssertion detailPrihlasky;
+    public final ApplicationAssertion applicationSection;
+    public final ApplicationDetailAssertion applicationDetailAction;
 
     public AssertionFacade(WebDriver webDriver)
     {
         this.elementFinder = new ElementFinder(webDriver);
-        this.sekcePrihlasky = new ApplicationAssertion(elementFinder);
-        this.detailPrihlasky = new ApplicationDetailAssertion(elementFinder);
+        this.applicationSection = new ApplicationAssertion(elementFinder);
+        this.applicationDetailAction = new ApplicationDetailAssertion(elementFinder);
     }
 
-    public void overAdresuWwwStranky(String wwwAdresa) {
-        var url = elementFinder.findByXPath("/html/body/div/div/div/div/div/div/div/div[1]/p[2]/a");
-        assertThat(url.getText()).isEqualTo(wwwAdresa);
+    public void checkPageUrl(String url) {
+        var urlElement = elementFinder.findByXPath("//a[text()='www.czechitas.cz']");
+        assertThat(urlElement.getText()).isEqualTo(url);
     }
 
-    public void overPrihlaseniUzivatele() {
-        var loggedInText = elementFinder.findByXPath("/html/body/div/header/nav[1]/div/div[2]/div/span");
+    public void checkIsLoggedIn() {
+        var loggedInText = elementFinder.findByCssSelector(".navbar-right span");
         assertThat(loggedInText.getText()).isEqualTo("Přihlášen");
     }
 
-    public void overExistenciDlazdiceProgramovani() {
-        var programmingText = elementFinder.findByXPath("/html/body/div/div/div[1]/div/div/div[1]/div");
-        assertThat(programmingText.getText()).isEqualTo("Programování");
+    public void checkProgrammingSectionPresense() {
+        var programmingText = elementFinder.findByCssSelector(".main_content .card-img-overlay");
+        assertThat(programmingText.getText().trim()).isEqualTo("Programování");
     }
 
-    public void overPritomnostTlacitkaZaregistrujteSe() {
-        var registerButton = elementFinder.findByXPath("/html/body/div/div/div/div/div/div[2]/form/div[4]/div/a");
-        assertThat(registerButton.getText()).isEqualTo("Zaregistrujte se");
+    public void checkRegistrationButtonPresense() {
+        var registerButton = elementFinder.findByCssSelector(".btn-secondary");
+        assertThat(registerButton.getText().trim()).isEqualTo("Zaregistrujte se");
     }
 }

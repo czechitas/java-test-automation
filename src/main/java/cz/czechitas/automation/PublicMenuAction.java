@@ -19,52 +19,52 @@ final class PublicMenuAction {
         this.elementFinder = Objects.requireNonNull(elementFinder);
     }
 
-    void jdiDoSekceKontakt() {
-        var agreeButton = elementFinder.findByXPath("/html/body/div/header/nav/div/div[1]/a[2]");
+    void goToContactsSection() {
+        var agreeButton = elementFinder.findByXPath("//div[@id='navbarSupportedContent']//a[contains(text(), 'Kontakt')]");
         agreeButton.click();
     }
 
-    void jdiDoSekceNavodyAFormulareProUcitele() {
-        clickOnForTeacherMenuItem();
-        var menuItem = elementFinder.findByXPath("//*[@id=\"navbarSupportedContent\"]/div[1]/div[2]/div/a[1]");
+    void goToInstructionsAndFormsForTeacherSection() {
+        clickForTeacherMenuItem();
+        var menuItem = elementFinder.findByXPath("//*[@id='navbarSupportedContent']//a[contains(text(), 'Pro učitelé')]//..//a[text()='Návody a formuláře']");
         menuItem.click();
     }
 
-    void jdiDoSekceObjednavkaProMSZS() {
-        clickOnForTeacherMenuItem();
-        var orderMenuItem = elementFinder.findByXPath("//*[@id=\"navbarSupportedContent\"]/div[1]/div[2]/div/a[2]");
+    void goToKindergartenAndSchoolSection() {
+        clickForTeacherMenuItem();
+        var orderMenuItem = elementFinder.findByXPath("//*[@id='navbarSupportedContent']//a[text()='Objednávka pro MŠ/ZŠ']");
         orderMenuItem.click();
     }
 
-    void jdiDoSekceNavodyAFormulareProRodice() {
-        clickOnForParentMenuItem();
-        var formMenuItem = elementFinder.findByXPath("//*[@id=\"navbarSupportedContent\"]/div[1]/div[1]/div/a[1]");
+    void goToInstructionsAndFormsForParentSection() {
+        clickForParentMenuItem();
+        var formMenuItem = elementFinder.findByXPath("//*[@id='navbarSupportedContent']//a[contains(text(), 'Pro rodiče')]//..//a[text()='Návody a formuláře']");
         formMenuItem.click();
     }
 
-    void jdiDoSekceVytvorPrihlasku() {
-        clickOnForParentMenuItem();
-        var createApplicationMenuItem = elementFinder.findByXPath("//*[@id=\"navbarSupportedContent\"]/div[1]/div[1]/div/a[2]");
+    void goToCreateApplicationSection() {
+        clickForParentMenuItem();
+        var createApplicationMenuItem = elementFinder.findByXPath("//*[@id='navbarSupportedContent']//a[text()='Vytvořit přihlášku']");
         createApplicationMenuItem.click();
     }
 
-    void jdiDoSekceDomu() {
-        var homeMenuItem = elementFinder.findByXPath("//*[@id=\"navbarSupportedContent\"]/div[1]/a[1]");
+    void goToHomePage() {
+        var homeMenuItem = elementFinder.findByXPath("//div[@id='navbarSupportedContent']//a[contains(text(), 'Domů')]");
         homeMenuItem.click();
     }
 
-    void jdiDoSekcePrihlasky() {
-        var applicationsMenuItem = elementFinder.findByXPath("/html/body/div/header/nav/div/div[1]/a[2]");
+    void goToApplicationsSection() {
+        var applicationsMenuItem = elementFinder.findByXPath("//*[@id='navbarSupportedContent']//a[contains(text(), 'Přihlášky')]");
         applicationsMenuItem.click();
     }
 
-    private void clickOnForTeacherMenuItem() {
-        var forTeacherMenuItem = elementFinder.findByXPath("//*[@id=\"navbarSupportedContent\"]/div[1]/div[2]/a");
+    private void clickForTeacherMenuItem() {
+        var forTeacherMenuItem = elementFinder.findByXPath("//*[@id='navbarSupportedContent']//a[contains(text(), 'Pro učitelé')]");
         forTeacherMenuItem.click();
     }
 
-    private void clickOnForParentMenuItem() {
-        var forParentMenuItem = elementFinder.findByXPath("//*[@id=\"navbarSupportedContent\"]/div[1]/div[1]/a");
+    private void clickForParentMenuItem() {
+        var forParentMenuItem = elementFinder.findByXPath("//*[@id='navbarSupportedContent']//a[contains(text(), 'Pro rodiče')]");
         forParentMenuItem.click();
     }
 }

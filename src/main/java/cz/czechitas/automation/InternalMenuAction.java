@@ -19,33 +19,33 @@ final class InternalMenuAction {
         this.elementFinder = Objects.requireNonNull(elementFinder);
     }
 
-    void jdiDoSekceObjednavky() {
-        var ordersMenuItem = elementFinder.findByXPath("//*[@id=\"adminNavbar\"]/div/a[1]");
+    void goToOrdersSection() {
+        var ordersMenuItem = elementFinder.findByXPath("//*[@id='adminNavbar']//a[contains(text(), 'Objednávky')]");
         ordersMenuItem.click();
     }
 
-    void jdiDoSekceTerminy() {
-        var datesMenuItem = elementFinder.findByXPath("//*[@id=\"adminNavbar\"]/div/a[2]");
+    void goToTermsSection() {
+        var datesMenuItem = elementFinder.findByXPath("//*[@id='adminNavbar']//a[contains(text(), 'Termíny')]");
         datesMenuItem.click();
     }
 
-    void jdiDoSekcePrihlasky() {
-        var applicationsMenuItem = elementFinder.findByXPath("//*[@id=\"adminNavbar\"]/div/a[3]");
+    void goToApplicationsSection() {
+        var applicationsMenuItem = elementFinder.findByXPath("//*[@id='adminNavbar']//a[contains(text(), 'Přihlášky')]");
         applicationsMenuItem.click();
     }
 
-    void jdiDoSekceKategorie() {
-        var categoriesMenuItem = elementFinder.findByXPath("//*[@id=\"adminNavbar\"]/div/a[4]");
+    void goToCategoriesSection() {
+        var categoriesMenuItem = elementFinder.findByXPath("//*[@id='adminNavbar']//a[contains(text(), 'Kategorie')]");
         categoriesMenuItem.click();
     }
 
-    void jdiDoSekceAktuality() {
-        var newsMenuItem = elementFinder.findByXPath("//*[@id=\"adminNavbar\"]/div/a[5]");
+    void goToNewsSection() {
+        var newsMenuItem = elementFinder.findByXPath("//*[@id='adminNavbar']//a[contains(text(), 'Aktuality')]");
         newsMenuItem.click();
     }
 
-    void jdiDoSekceExporty() {
-        var exportsMenuItem = elementFinder.findByXPath("//*[@id=\"adminNavbar\"]/div/a[6]");
+    void goToExportsSection() {
+        var exportsMenuItem = elementFinder.findByXPath("//*[@id='adminNavbar']//a[contains(text(), 'Exporty')]");
         exportsMenuItem.click();
     }
 }

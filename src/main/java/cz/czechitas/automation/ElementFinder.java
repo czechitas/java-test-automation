@@ -27,11 +27,22 @@ public final class ElementFinder {
     /**
      * Finds {@link WebElement} by XPath
      *
-     * @param xpathExpression element XPtah
+     * @param xpathExpression element XPath
      * @return found {@link WebElement}
      */
     @Nonnull
     public WebElement findByXPath(String xpathExpression) {
      return driver.findElement(By.xpath(Objects.requireNonNull(xpathExpression)));
+    }
+
+    /**
+     * Finds {@link WebElement} by cssSelector
+     *
+     * @param cssSelector element css selector
+     * @return found {@link WebElement}
+     */
+    @Nonnull
+    public WebElement findByCssSelector(String cssSelector) {
+        return driver.findElement(By.cssSelector(Objects.requireNonNull(cssSelector)));
     }
 }

@@ -18,42 +18,43 @@ final class ApplicationAction {
         this.elementFinder = Objects.requireNonNull(elementFinder);
     }
 
-    void klikniNaVytvoreniNovePrihlasky() {
-        var createApplicationButton = elementFinder.findByXPath("/html/body/div/div/div/div/div/div[1]/a");
+    /**
+     * Click Vytvorit novou prihlasku on table view
+     */
+    void clickCreateNewApplicationButton() {
+        var createApplicationButton = elementFinder.findByCssSelector(".card-header a");
         createApplicationButton.click();
     }
 
-    void vyberObdobiProgramovani() {
-        var programmingSectionButton = elementFinder.findByXPath("/html/body/div/div/div[1]/div[3]/div/div[2]/a");
+    void selectProgrammingSection() {
+        var programmingSectionButton = elementFinder.findByXPath("//*[contains(text(), 'Programování')]//ancestor::*[@class='card']//a");
         programmingSectionButton.click();
     }
 
-    void klikniNaVytvoritPrihlasku() {
-        var createApplicationButton = elementFinder.findByXPath("/html/body/div/div/div/div/div/div/div/div[2]/a");
+
+    /**
+     * Click Vytvorit prihlasku for Python course
+     */
+    void clickCreateApplicationButton() {
+        var createApplicationButton = elementFinder.findByCssSelector(".card-body a");
         createApplicationButton.click();
     }
 
-    void otevriDetailPrvniPrihlasky() {
+    void openFirstApplicationDetailsPage() {
         var openApplicationButton = elementFinder.findByXPath(
-                "/html/body/div/div/div/div/div/div[2]/div[2]/div/table/tbody/tr/td[5]/div/a[1]");
+                "//tr[1]//a[@title='Zobrazit']");
         openApplicationButton.click();
     }
 
-    void vyhledej(String textKVyhledani) {
-        var searchInput = elementFinder.findByXPath(
-                "/html/body/div/div/div/div/div/div[2]/div[1]/div/div[2]/div/label/input");
-        searchInput.sendKeys(textKVyhledani);
+    void search(String textToSearch) {
+        var searchInput = elementFinder.findByXPath("//input[@type='search']");
+        searchInput.clear();
+        searchInput.sendKeys(textToSearch);
     }
 
-    void klikniNaUpravitUPrvniPrihlasky() {
+    void clickEditFirstApplicationButton() {
         var firstApplicationEditButton = elementFinder.findByXPath(
-                "/html/body/div/div/div/div/div/div[2]/div[2]/div/table/tbody/tr[1]/td[5]/div/a[2]");
+                "//tr[1]//a[@title='Upravit']");
         firstApplicationEditButton.click();
-    }
-
-    void klikniNaDetailUPrvniPrihlasky() {
-        var firstApplicationDetailButton = elementFinder.findByXPath(
-                "/html/body/div/div/div/div/div/div[2]/div[2]/div/table/tbody/tr[1]/td[5]/div/a[1]/i");
-        firstApplicationDetailButton.click();
     }
 }

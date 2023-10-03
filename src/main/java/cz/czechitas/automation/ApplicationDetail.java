@@ -18,61 +18,63 @@ final class ApplicationDetail {
         this.elementFinder = Objects.requireNonNull(elementFinder);
     }
 
-    void vyberTermin(String termin) {
-        var dateElement = elementFinder.findByXPath("/html/body/div/div/div/div/div/form/table/tbody/tr[2]/td[2]/div/button");
+    void selectTerm(String term) {
+        var dateElement = elementFinder.findByXPath("//button[@data-id='term_id']");
+
         dateElement.click();
-        //TODO: find by parameter instead of selecting first option
-        var option = elementFinder.findByXPath("//*[@id=\"bs-select-1-0\"]");
+        var option = elementFinder.findByXPath(
+                "//div[starts-with(@id,'bs-select')]//span[contains(text(), '" + term + "')]"
+        );
         option.click();
     }
 
-    void vyplnKrestniJmenoZaka(String krestniJmeno) {
-        var firstNameInput = elementFinder.findByXPath("//*[@id=\"forename\"]");
-        firstNameInput.sendKeys(krestniJmeno);
+    void insertStudentFirstName(String firstName) {
+        var firstNameInput = elementFinder.findByXPath("//*[@id='forename']");
+        firstNameInput.sendKeys(firstName);
     }
 
-    void vyplnPrijmeniZaka(String prijmeni) {
-        var lastNameInput = elementFinder.findByXPath("//*[@id=\"surname\"]");
-        lastNameInput.sendKeys(prijmeni);
+    void insertStudentLastName(String lastname) {
+        var lastNameInput = elementFinder.findByXPath("//*[@id='surname']");
+        lastNameInput.sendKeys(lastname);
     }
 
-    void vyplnDatumNarozeni(String datumNarozeni) {
-        var birthDate = elementFinder.findByXPath("//*[@id=\"birthday\"]");
-        birthDate.sendKeys(datumNarozeni);
+    void insertBirthdate(String birthdate) {
+        var birthDate = elementFinder.findByXPath("//*[@id='birthday']");
+        birthDate.sendKeys(birthdate);
     }
 
-    void vyplnPoznamku(String poznamka) {
-        var note = elementFinder.findByXPath("//*[@id=\"note\"]");
-        note.sendKeys(poznamka);
+    void insertNote(String note) {
+        var noteInput = elementFinder.findByXPath("//*[@id='note']");
+        noteInput.sendKeys(note);
     }
 
-    void klikniNaSouhlasSPodminkami() {
+    void clickAcceptTermsCheckbox() {
         var approvalCheckbox = elementFinder.findByXPath(
-                "/html/body/div/div/div/div/div/form/table/tbody/tr[11]/td[2]/span/label");
+                "//label[@for='terms_conditions']");
         approvalCheckbox.click();
     }
 
-    void klikniNaVytvoritPrihlasku() {
+    void clickCreateApplicationButton() {
         var createButton = elementFinder.findByXPath(
-                "/html/body/div/div/div/div/div/form/table/tbody/tr[11]/td[2]/input");
+                "//input[@type='submit']");
         createButton.click();
     }
 
-    void zvolZpusobUhradyHotove() {
+    void selectCashPaymentMethod() {
         var inCashRadioButton = elementFinder.findByXPath(
-                "/html/body/div/div/div/div/div/form/table/tbody/tr[8]/td[2]/span[4]/label");
+                "//label[@for='payment_cash']");
         inCashRadioButton.click();
     }
 
-    void zvolZpusobUhradyBankovnimPrevodem() {
+    void selectBankTransferPaymentMethod() {
         var toBankAccountButton = elementFinder.findByXPath(
-                "/html/body/div/div/div/div/div/form/table/tbody/tr[7]/td[2]/span[1]/label");
+                "//label[@for='payment_transfer']");
         toBankAccountButton.click();
     }
 
-    void klikniNaUpravitPrihlasku() {
+    void clickEditApplicationButton() {
         var editButton = elementFinder.findByXPath(
-                "/html/body/div/div/div/div/div/form/table/tbody/tr[10]/td[2]/input");
+                "//input[@value='Upravit přihlášku']");
         editButton.click();
     }
 }

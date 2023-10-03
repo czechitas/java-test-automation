@@ -19,34 +19,34 @@ final class LoginAction {
         this.elementFinder = Objects.requireNonNull(elementFinder);
     }
 
-    void klikniNaTlacitkoPrihlasit() {
-        var loginButton = elementFinder.findByXPath("/html/body/div/header/nav/div/div[2]/a");
+    void clickLoginMenuLink() {
+        var loginButton = elementFinder.findByCssSelector(".navbar-right .nav-item");
         loginButton.click();
     }
 
-    void vyplnEmail(String email) {
+    void insertEmail(String email) {
         Objects.requireNonNull(email);
 
-        var emailInputBox = elementFinder.findByXPath("//*[@id=\"email\"]");
+        var emailInputBox = elementFinder.findByXPath("//*[@id='email']");
         emailInputBox.sendKeys(email);
     }
 
-    void vyplnHeslo(String heslo) {
-        Objects.requireNonNull(heslo);
+    void insertPassword(String password) {
+        Objects.requireNonNull(password);
 
-        var passwordInputBox = elementFinder.findByXPath("//*[@id=\"password\"]");
-        passwordInputBox.sendKeys(heslo);
+        var passwordInputBox = elementFinder.findByXPath("//*[@id='password']");
+        passwordInputBox.sendKeys(password);
     }
 
-    void provedPrihlaseni() {
-        var loginButton = elementFinder.findByXPath("/html/body/div/div/div/div/div/div/form/div[3]/div/button");
+    void clickLoginButton() {
+        var loginButton = elementFinder.findByXPath("//button[@type='submit']");
         loginButton.click();
     }
 
-    void provedOdhlaseni() {
-        var signedInUserElement = elementFinder.findByXPath("//*[@id=\"navbarSupportedContent\"]/div[2]/div/a");
+    void logout() {
+        var signedInUserElement = elementFinder.findByXPath("//*[@id='navbarSupportedContent']/div[2]/div/a");
         signedInUserElement.click();
-        var logoutButton = elementFinder.findByXPath("//*[@id=\"logout-link\"]");
+        var logoutButton = elementFinder.findByXPath("//*[@id='logout-link']");
         logoutButton.click();
     }
 }
