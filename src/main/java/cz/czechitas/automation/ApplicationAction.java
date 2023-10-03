@@ -31,6 +31,7 @@ final class ApplicationAction {
         programmingSectionButton.click();
     }
 
+
     /**
      * Click Vytvorit prihlasku for Python course
      */
