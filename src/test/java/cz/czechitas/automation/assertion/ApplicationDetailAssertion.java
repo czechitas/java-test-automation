@@ -29,7 +29,7 @@ public final class ApplicationDetailAssertion {
     }
 
     public void checkFirstName(String firstname) {
-        var firstNameElement = elementFinder.findByXPath("///table/tbody//td[text()='Křestní jméno žáka:']/../td[2]");
+        var firstNameElement = elementFinder.findByXPath("//table/tbody//td[text()='Křestní jméno žáka:']/../td[2]");
         assertThat(firstNameElement.getText()).isEqualTo(firstname);
     }
 
