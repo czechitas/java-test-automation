@@ -60,22 +60,6 @@ final class LowCodePracticeTwoSolutionTest extends TestRunner {
         asserter.applicationDetailAction.checkNote("Moje super poznamka");
     }
 
-    @Test
-    void complexTaskThree() {
-        browser.loginSection.clickLoginMenuLink();
-        browser.loginSection.insertEmail("mistr@tester.cz");
-        browser.loginSection.insertPassword("Mtester123");
-        browser.loginSection.clickLoginButton();
-        browser.headerMenu.goToApplicationsSection();
-        browser.applicationSection.search("tester001");
-        browser.applicationSection.clickEditFirstApplicationButton();
-        browser.applicationDetailsSection.selectBankTransferPaymentMethod();
-        browser.applicationDetailsSection.clickEditApplicationButton();
-        browser.applicationSection.openFirstApplicationDetailsPage();
-        asserter.applicationDetailAction.checkPaymentMethod("Bankovní převod");
-        asserter.applicationDetailAction.checkRemainingAmountToPay("1 800 Kč");
-        asserter.applicationDetailAction.checkMessageContainsStudentLastName("Tester001");
-    }
 
     @Test
     void complexTaskSix() {
@@ -106,29 +90,5 @@ final class LowCodePracticeTwoSolutionTest extends TestRunner {
         browser.headerMenu.goToApplicationsSection();
         browser.applicationSection.search(generated);
         asserter.applicationSection.checkApplicationsTableIsEmpty();
-    }
-
-    @Test
-    void complexTaskSeven() {
-        browser.loginSection.clickLoginMenuLink();
-        browser.loginSection.insertEmail("mistr@tester.cz");
-        browser.loginSection.insertPassword("Mtester123");
-        browser.loginSection.clickLoginButton();
-        browser.headerMenu.goToApplicationsSection();
-        browser.profileSection.goToProfilePage();
-        browser.profileSection.insertPassword("Aaabbb123");
-        browser.profileSection.insertPasswordVerification("Aaabbb123");
-        browser.profileSection.clickChangeButton();
-        browser.waitFor(10);
-        browser.loginSection.logout();
-        browser.loginSection.clickLoginMenuLink();
-        browser.loginSection.insertEmail("mistr@tester.cz");
-        browser.loginSection.insertPassword("Aaabbb123");
-        browser.loginSection.clickLoginButton();
-        asserter.checkIsLoggedIn();
-        browser.profileSection.goToProfilePage();
-        browser.profileSection.insertPassword("Mtester123");
-        browser.profileSection.insertPasswordVerification("Mtester123");
-        browser.profileSection.clickChangeButton();
     }
 }

@@ -22,7 +22,7 @@ final class ApplicationAction {
      * Click Vytvorit novou prihlasku on table view
      */
     void clickCreateNewApplicationButton() {
-        var createApplicationButton = elementFinder.findByCssSelector(".card-header a");
+        var createApplicationButton = elementFinder.findByXPath("/html/body/div/div/div/div/div/div[1]/a");
         createApplicationButton.click();
     }
 
@@ -32,10 +32,10 @@ final class ApplicationAction {
     }
 
     /**
-     * Click Vytvorit prihlasku for Python course
+     * Click Vytvorit prihlasku for Javascript course
      */
     void clickCreateApplicationButton() {
-        var createApplicationButton = elementFinder.findByCssSelector(".card-body a");
+        var createApplicationButton = elementFinder.findByXPath("/html/body/div/div/div/div/div/div/div/div[2]/a");
         createApplicationButton.click();
     }
 
