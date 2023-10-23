@@ -20,7 +20,7 @@ final class LoginAction {
     }
 
     void clickLoginMenuLink() {
-        var loginButton = elementFinder.findByCssSelector(".navbar-right .nav-item");
+        var loginButton = elementFinder.findByXPath("/html/body/div/header/nav/div/div[2]/a");
         loginButton.click();
     }
 

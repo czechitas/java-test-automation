@@ -15,7 +15,7 @@ import cz.czechitas.automation.assertion.AssertionFacade;
  */
 class TestRunner {
 
-    private final WebDriver webDriver;
+    protected final WebDriver webDriver;
 
     protected final SeleniumActionFacade browser;
     protected final AssertionFacade asserter;
