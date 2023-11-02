@@ -20,7 +20,7 @@ Working with the framework is divided according to elements of the testing appli
 **ApplicationDetail** - Allows you to work with application details page:
 - `selectTerm(String term)` - select a term
 - `insertStudentFirstName("Jan")` - insert student first name
-- `insertStudentLastName("Novak")` - insert student first name
+- `insertStudentLastName("Novak")` - insert student last name
 - `insertBirthdate("01.01.2000")` - insert student day of birth
 - `insertNote("my personal note")` - insert a note
 - `selectCashPaymentMethod()` - choose cash payment method
