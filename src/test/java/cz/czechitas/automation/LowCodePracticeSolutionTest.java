@@ -17,15 +17,13 @@ final class LowCodePracticeSolutionTest extends TestRunner {
     }
 
     @Test
-    void navigation2()
-    {
+    void navigation2() {
         browser.headerMenu.goToKindergartenAndSchoolSection();
         browser.orderSection.selectSchoolInNatureOption();
     }
 
     @Test
-    void navigation3()
-    {
+    void navigation3() {
         browser.headerMenu.goToCreateApplicationSection();
         browser.headerMenu.goToKindergartenAndSchoolSection();
         browser.headerMenu.goToContactsSection();
@@ -35,15 +33,13 @@ final class LowCodePracticeSolutionTest extends TestRunner {
     }
 
     @Test
-    void navigation4()
-    {
+    void navigation4() {
         browser.headerMenu.goToKindergartenAndSchoolSection();
         browser.orderSection.insertICO("22834958");
     }
 
     @Test
-    void navigation6()
-    {
+    void navigation6() {
         browser.loginSection.clickLoginMenuLink();
         browser.loginSection.insertEmail("ptester@test.cz");
         browser.loginSection.insertPassword("PTester123");
@@ -55,21 +51,18 @@ final class LowCodePracticeSolutionTest extends TestRunner {
     }
 
     @Test
-    void asserts1()
-    {
+    void asserts1() {
         asserter.checkProgrammingSectionPresense();
     }
 
     @Test
-    void asserts2()
-    {
+    void asserts2() {
         browser.headerMenu.goToCreateApplicationSection();
         asserter.checkRegistrationButtonPresense();
     }
 
     @Test
-    void asserts3()
-    {
+    void asserts3() {
         browser.loginSection.clickLoginMenuLink();
         browser.loginSection.insertEmail("ptester@test.cz");
         browser.loginSection.insertPassword("PTester123");
