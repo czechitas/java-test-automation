@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -35,6 +36,11 @@ public final class ElementFinder {
      return driver.findElement(By.xpath(Objects.requireNonNull(xpathExpression)));
     }
 
+    @Nonnull
+    public List<WebElement> findListByXPath(String xpathExpression) {
+        return driver.findElements(By.xpath(Objects.requireNonNull(xpathExpression)));
+    }
+
     /**
      * Finds {@link WebElement} by cssSelector
      *
@@ -44,5 +50,10 @@ public final class ElementFinder {
     @Nonnull
     public WebElement findByCssSelector(String cssSelector) {
         return driver.findElement(By.cssSelector(Objects.requireNonNull(cssSelector)));
+    }
+
+    @Nonnull
+    public List<WebElement> findListByCssSelector(String cssSelector) {
+        return driver.findElements(By.cssSelector(Objects.requireNonNull(cssSelector)));
     }
 }
