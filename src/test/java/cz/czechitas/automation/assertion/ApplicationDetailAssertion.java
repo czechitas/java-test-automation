@@ -62,4 +62,10 @@ public final class ApplicationDetailAssertion {
         var dateElement = elementFinder.findByCssSelector(".card-body h4");
         assertThat(dateElement.getText()).contains(term);
     }
+
+    public void checkIfCancelled() {
+        var warning = elementFinder.findByCssSelector(".alert-warning");
+        assertThat(warning.getText()).contains("Žák byl odhlášen");
+        assertThat(warning.getText()).contains("Z důvodu nemoci");
+    }
 }
