@@ -18,12 +18,12 @@ public class HackathonAsserter {
 
     public void checkElementTextCss(String cssSelector, String expectedValue) {
         WebElement element = elementFinder.findByCssSelector(cssSelector);
-        assertThat(element.getText()).isEqualTo(expectedValue);
+        assertThat(element.getText().trim()).isEqualTo(expectedValue);
     }
 
     public void checkListElementTextCss(String cssSelector, int position, String expectedValue) {
         List<WebElement> elements = elementFinder.findListByCssSelector(cssSelector);
-        assertThat(elements.get(position).getText()).isEqualTo(expectedValue);
+        assertThat(elements.get(position).getText().trim()).isEqualTo(expectedValue);
     }
 
     public void checkElementTextXPath(String xPath, String expectedValue) {
