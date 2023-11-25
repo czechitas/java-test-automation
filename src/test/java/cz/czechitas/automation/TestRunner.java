@@ -7,6 +7,8 @@ import org.junit.jupiter.api.extension.RegisterExtension;
 import org.openqa.selenium.WebDriver;
 import cz.czechitas.automation.assertion.AssertionFacade;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * Base test runner class for low code automation on the {@code https://czechitas-app.kutac.cz/} page
  *
@@ -25,6 +27,7 @@ class TestRunner {
 
     public TestRunner() {
         this.webDriver = WebDriverProvider.getWebDriver();
+        webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         this.browser = new SeleniumActionFacade(webDriver);
         this.asserter = new AssertionFacade(webDriver);
         this.screenshotExtension = new ScreenshotOnFailExtension(webDriver);
