@@ -6,7 +6,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.extension.RegisterExtension;
 import org.openqa.selenium.WebDriver;
 import cz.czechitas.automation.assertion.AssertionFacade;
-
 /**
  * Base test runner class for low code automation on the {@code https://czechitas-app.kutac.cz/} page
  *

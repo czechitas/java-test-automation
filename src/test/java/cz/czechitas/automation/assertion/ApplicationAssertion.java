@@ -37,4 +37,9 @@ public final class ApplicationAssertion {
         assertThat(applicationsCountElement.getText()).contains("Zobrazeno " + applicationsNumber + " až " + applicationsNumber +
                 " záznamů z " + applicationsNumber);
     }
+
+    public void checkIsLoggedIn() {
+        var loggedInText = elementFinder.findByCssSelector(".navbar-right span");
+        assertThat(loggedInText.getText()).isEqualTo("Přihlášen");
+    }
 }

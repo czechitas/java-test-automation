@@ -5,8 +5,6 @@ import org.openqa.selenium.WebDriver;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 /**
  * Assertion facade for user-friendly assertions
  *
@@ -16,34 +14,18 @@ import static org.assertj.core.api.Assertions.assertThat;
 @ParametersAreNonnullByDefault
 public final class AssertionFacade {
 
-    private final ElementFinder elementFinder;
     public final ApplicationAssertion applicationSection;
     public final ApplicationDetailAssertion applicationDetailSection;
+    public final LoginAssertion loginAssertion;
+    public final HomePageAssertion homePageAssertion;
+    public final GeneralAssertion generalAssertion;
 
-    public AssertionFacade(WebDriver webDriver)
-    {
-        this.elementFinder = new ElementFinder(webDriver);
+    public AssertionFacade(WebDriver webDriver) {
+        var elementFinder = new ElementFinder(webDriver);
         this.applicationSection = new ApplicationAssertion(elementFinder);
         this.applicationDetailSection = new ApplicationDetailAssertion(elementFinder);
-    }
-
-    public void checkPageUrl(String url) {
-        var urlElement = elementFinder.findByXPath("//a[text()='www.czechitas.cz']");
-        assertThat(urlElement.getText()).isEqualTo(url);
-    }
-
-    public void checkIsLoggedIn() {
-        var loggedInText = elementFinder.findByCssSelector(".navbar-right span");
-        assertThat(loggedInText.getText()).isEqualTo("Přihlášen");
-    }
-
-    public void checkProgrammingSectionPresense() {
-        var programmingText = elementFinder.findByCssSelector(".main_content .card-img-overlay");
-        assertThat(programmingText.getText().trim()).isEqualTo("Programování");
-    }
-
-    public void checkRegistrationButtonPresense() {
-        var registerButton = elementFinder.findByCssSelector(".btn-secondary");
-        assertThat(registerButton.getText().trim()).isEqualTo("Zaregistrujte se");
+        this.loginAssertion = new LoginAssertion(elementFinder);
+        this.homePageAssertion = new HomePageAssertion(elementFinder);
+        this.generalAssertion = new GeneralAssertion(elementFinder);
     }
 }

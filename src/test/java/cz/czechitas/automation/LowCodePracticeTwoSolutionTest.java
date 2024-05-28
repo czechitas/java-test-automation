@@ -13,7 +13,7 @@ final class LowCodePracticeTwoSolutionTest extends TestRunner {
     @Test
     void contactsPageUrlTest() {
         browser.headerMenu.goToContactsSection();
-        asserter.checkPageUrl("www.czechitas.cz");
+        asserter.generalAssertion.checkPageUrl("www.czechitas.cz");
     }
 
     @Test
@@ -125,7 +125,7 @@ final class LowCodePracticeTwoSolutionTest extends TestRunner {
         browser.loginSection.insertEmail("ptester@test.cz");
         browser.loginSection.insertPassword("Aaabbb123");
         browser.loginSection.clickLoginButton();
-        asserter.checkIsLoggedIn();
+        asserter.applicationSection.checkIsLoggedIn();
         browser.profileSection.goToProfilePage();
         browser.profileSection.insertPassword("PTester123");
         browser.profileSection.insertPasswordVerification("PTester123");

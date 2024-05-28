@@ -57,14 +57,14 @@ final class LowCodePracticeSolutionTest extends TestRunner {
     @Test
     void asserts1()
     {
-        asserter.checkProgrammingSectionPresense();
+        asserter.homePageAssertion.checkProgrammingSectionPresence();
     }
 
     @Test
     void asserts2()
     {
         browser.headerMenu.goToCreateApplicationSection();
-        asserter.checkRegistrationButtonPresense();
+        asserter.loginAssertion.checkRegistrationButtonPresence();
     }
 
     @Test
