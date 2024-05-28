@@ -57,14 +57,14 @@ final class LowCodePracticeSolutionTest extends TestRunner {
     @Test
     void asserts1()
     {
-        asserter.checkProgrammingSectionPresense();
+        asserter.homePageSection.checkProgrammingSectionPresence();
     }
 
     @Test
     void asserts2()
     {
         browser.headerMenu.goToCreateApplicationSection();
-        asserter.checkRegistrationButtonPresense();
+        asserter.loginSection.checkRegistrationButtonPresence();
     }
 
     @Test
@@ -78,10 +78,10 @@ final class LowCodePracticeSolutionTest extends TestRunner {
         browser.headerMenu.goToApplicationsSection();
         browser.applicationSection.openFirstApplicationDetailsPage();
 
-        asserter.applicationDetailAction.checkTerm("05.02. - 09.02.2024");
-        asserter.applicationDetailAction.checkFirstName("Pan");
-        asserter.applicationDetailAction.checkLastName("Testerek");
-        asserter.applicationDetailAction.checkDateOfBirth("12.03.1999");
-        asserter.applicationDetailAction.checkPaymentMethod("Bankovní převod");
+        asserter.applicationDetailSection.checkTerm("05.02. - 09.02.2024");
+        asserter.applicationDetailSection.checkFirstName("Pan");
+        asserter.applicationDetailSection.checkLastName("Testerek");
+        asserter.applicationDetailSection.checkDateOfBirth("12.03.1999");
+        asserter.applicationDetailSection.checkPaymentMethod("Bankovní převod");
     }
 }

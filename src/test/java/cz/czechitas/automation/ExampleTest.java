@@ -15,7 +15,7 @@ final class ExampleTest extends TestRunner {
     @Test
     void contactsPageUrlTest() {
         browser.headerMenu.goToContactsSection();
-        asserter.checkPageUrl("www.czechitas.cz");
+        asserter.generalSection.checkPageUrl("www.czechitas.cz");
     }
 
     @Test
@@ -24,7 +24,7 @@ final class ExampleTest extends TestRunner {
         browser.loginSection.insertEmail("da-app.admin@czechitas.cz");
         browser.loginSection.insertPassword("Czechitas123");
         browser.loginSection.clickLoginButton();
-        asserter.checkIsLoggedIn();
+        asserter.applicationSection.checkIsLoggedIn();
     }
 
     // paramertized test - find out what is wrong with this test
