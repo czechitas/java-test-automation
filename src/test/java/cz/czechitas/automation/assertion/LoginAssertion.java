@@ -10,7 +10,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 /**
  * Application specific assertions
  *
- * @author Jiri Koudelka
+ * @author Adam Abbod
  * @since 1.0.0
  */
 @ParametersAreNonnullByDefault
