@@ -53,11 +53,11 @@ final class LowCodePracticeTwoSolutionTest extends TestRunner {
         browser.applicationDetailsSection.insertNote("Moje super poznamka");
         browser.applicationDetailsSection.selectCashPaymentMethod();
         browser.applicationDetailsSection.clickCreateApplicationButton();
-        asserter.applicationDetailAction.checkPaymentMethod("Hotově");
-        asserter.applicationDetailAction.checkFirstName("Pan");
-        asserter.applicationDetailAction.checkLastName("Tester001");
-        asserter.applicationDetailAction.checkDateOfBirth("29.01.2000");
-        asserter.applicationDetailAction.checkNote("Moje super poznamka");
+        asserter.applicationDetailSection.checkPaymentMethod("Hotově");
+        asserter.applicationDetailSection.checkFirstName("Pan");
+        asserter.applicationDetailSection.checkLastName("Tester001");
+        asserter.applicationDetailSection.checkDateOfBirth("29.01.2000");
+        asserter.applicationDetailSection.checkNote("Moje super poznamka");
     }
 
     @Test
@@ -72,9 +72,9 @@ final class LowCodePracticeTwoSolutionTest extends TestRunner {
         browser.applicationDetailsSection.selectBankTransferPaymentMethod();
         browser.applicationDetailsSection.clickEditApplicationButton();
         browser.applicationSection.openFirstApplicationDetailsPage();
-        asserter.applicationDetailAction.checkPaymentMethod("Bankovní převod");
-        asserter.applicationDetailAction.checkRemainingAmountToPay("1 800 Kč");
-        asserter.applicationDetailAction.checkMessageContainsStudentLastName("Tester001");
+        asserter.applicationDetailSection.checkPaymentMethod("Bankovní převod");
+        asserter.applicationDetailSection.checkRemainingAmountToPay("1 800 Kč");
+        asserter.applicationDetailSection.checkMessageContainsStudentLastName("Tester001");
     }
 
     @Test
