@@ -16,16 +16,16 @@ public final class AssertionFacade {
 
     public final ApplicationAssertion applicationSection;
     public final ApplicationDetailAssertion applicationDetailSection;
-    public final LoginAssertion loginAssertion;
-    public final HomePageAssertion homePageAssertion;
-    public final GeneralAssertion generalAssertion;
+    public final LoginAssertion loginSection;
+    public final HomePageAssertion homePageSection;
+    public final GeneralAssertion generalSection;
 
     public AssertionFacade(WebDriver webDriver) {
         var elementFinder = new ElementFinder(webDriver);
         this.applicationSection = new ApplicationAssertion(elementFinder);
         this.applicationDetailSection = new ApplicationDetailAssertion(elementFinder);
-        this.loginAssertion = new LoginAssertion(elementFinder);
-        this.homePageAssertion = new HomePageAssertion(elementFinder);
-        this.generalAssertion = new GeneralAssertion(elementFinder);
+        this.loginSection = new LoginAssertion(elementFinder);
+        this.homePageSection = new HomePageAssertion(elementFinder);
+        this.generalSection = new GeneralAssertion(elementFinder);
     }
 }

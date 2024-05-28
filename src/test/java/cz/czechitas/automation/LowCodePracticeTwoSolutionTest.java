@@ -13,7 +13,7 @@ final class LowCodePracticeTwoSolutionTest extends TestRunner {
     @Test
     void contactsPageUrlTest() {
         browser.headerMenu.goToContactsSection();
-        asserter.generalAssertion.checkPageUrl("www.czechitas.cz");
+        asserter.generalSection.checkPageUrl("www.czechitas.cz");
     }
 
     @Test
