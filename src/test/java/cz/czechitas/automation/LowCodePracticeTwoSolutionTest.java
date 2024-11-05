@@ -44,7 +44,7 @@ final class LowCodePracticeTwoSolutionTest extends TestRunner {
         browser.headerMenu.goToApplicationsSection();
         browser.applicationSection.clickCreateNewApplicationButton();
         browser.applicationSection.selectProgrammingSection();
-        browser.applicationSection.clickCreateApplicationButton();
+        browser.applicationSection.clickCreatePythonApplicationButton();
         browser.applicationDetailsSection.selectTerm("20.01. - 24.01.2025");
         browser.applicationDetailsSection.insertStudentFirstName("Pan");
         browser.applicationDetailsSection.insertStudentLastName("Tester001");
@@ -86,7 +86,7 @@ final class LowCodePracticeTwoSolutionTest extends TestRunner {
         browser.headerMenu.goToApplicationsSection();
         browser.applicationSection.clickCreateNewApplicationButton();
         browser.applicationSection.selectProgrammingSection();
-        browser.applicationSection.clickCreateApplicationButton();
+        browser.applicationSection.clickCreatePythonApplicationButton();
         browser.applicationDetailsSection.selectTerm("20.01. - 24.01.2025");
         browser.applicationDetailsSection.insertStudentFirstName("Pan");
         var generated = browser.generateRandomName(15);

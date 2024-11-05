@@ -34,7 +34,8 @@ final class ApplicationAction {
     /**
      * Click Vytvorit prihlasku for Python course
      */
-    void clickCreateApplicationButton() {
+    void clickCreatePythonApplicationButton() {
+        //TODO: modify css selector to reflect python course instead of first course (method parameter?)
         var createApplicationButton = elementFinder.findByCssSelector(".card-body a");
         createApplicationButton.click();
     }

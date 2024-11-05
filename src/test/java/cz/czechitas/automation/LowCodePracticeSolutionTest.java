@@ -51,7 +51,7 @@ final class LowCodePracticeSolutionTest extends TestRunner {
 
         browser.headerMenu.goToCreateApplicationSection();
         browser.applicationSection.selectProgrammingSection();
-        browser.applicationSection.clickCreateApplicationButton();
+        browser.applicationSection.clickCreatePythonApplicationButton();
     }
 
     @Test
