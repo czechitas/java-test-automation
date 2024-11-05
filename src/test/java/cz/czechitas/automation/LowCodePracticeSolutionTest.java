@@ -78,7 +78,7 @@ final class LowCodePracticeSolutionTest extends TestRunner {
         browser.headerMenu.goToApplicationsSection();
         browser.applicationSection.openFirstApplicationDetailsPage();
 
-        asserter.applicationDetailSection.checkTerm("05.02. - 09.02.2024");
+        asserter.applicationDetailSection.checkTerm("20.01. - 24.01.2025");
         asserter.applicationDetailSection.checkFirstName("Pan");
         asserter.applicationDetailSection.checkLastName("Testerek");
         asserter.applicationDetailSection.checkDateOfBirth("12.03.1999");
