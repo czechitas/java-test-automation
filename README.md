@@ -11,8 +11,9 @@ A sample test in the `ExampleTest` class will open a web browser and verify that
 Working with the framework is divided according to elements of the testing application as follows:
 
 **ApplicationAction** - Allows you to work with application list:
+- `clickCreateNewApplicationButton()` - click on create new application button
 - `selectProgrammingSection()` - select _Programming_ course category
-- `clickCreateNewApplicationButton()` - create a new application once category is selected
+- `clickCreatePythonApplicationButton()` - create a new application once programming category is selected
 - `openFirstApplicationDetailsPage()` - open an existing application to see details
 - `search("Jan")` - search for an application from Jan
 - `clickEditFirstApplicationButton()` - open the first application to edit details
@@ -39,7 +40,8 @@ Working with the framework is divided according to elements of the testing appli
 
 **LoginAction** - allows you to login and logout:
 - `clickLoginMenuLink()` - click login link in top menu (top right corner)
-- `insertEmail("test@czechitas.cz"); insertPassword("mySecurePass123")`insert email and password
+- `insertEmail("test@czechitas.cz")` -  insert email
+- `insertPassword("mySecurePass123")` - insert password
 - `clickLoginButton()` - click login button once credentials are provided
 - `logout()` - logout
 
