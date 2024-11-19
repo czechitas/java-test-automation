@@ -27,8 +27,8 @@ final class LowCodePracticeTwoSolutionTest extends TestRunner {
     @Test
     void assertionTaskOne() {
         browser.loginSection.clickLoginMenuLink();
-        browser.loginSection.insertEmail("mistr@tester.cz");
-        browser.loginSection.insertPassword("Mtester123");
+        browser.loginSection.insertEmail("mistra@test.cz");
+        browser.loginSection.insertPassword("Qwe123!");
         browser.loginSection.clickLoginButton();
         browser.headerMenu.goToApplicationsSection();
         asserter.applicationSection.checkColumnExists("Jméno");
@@ -38,14 +38,14 @@ final class LowCodePracticeTwoSolutionTest extends TestRunner {
     @Test
     void complexTaskOne() {
         browser.loginSection.clickLoginMenuLink();
-        browser.loginSection.insertEmail("mistr@tester.cz");
-        browser.loginSection.insertPassword("Mtester123");
+        browser.loginSection.insertEmail("mistra@test.cz");
+        browser.loginSection.insertPassword("Qwe123!");
         browser.loginSection.clickLoginButton();
         browser.headerMenu.goToApplicationsSection();
         browser.applicationSection.clickCreateNewApplicationButton();
         browser.applicationSection.selectProgrammingSection();
-        browser.applicationSection.clickCreateApplicationButton();
-        browser.applicationDetailsSection.selectTerm("05.02. - 09.02.2024");
+        browser.applicationSection.clickCreatePythonApplicationButton();
+        browser.applicationDetailsSection.selectTerm("20.01. - 24.01.2025");
         browser.applicationDetailsSection.insertStudentFirstName("Pan");
         browser.applicationDetailsSection.insertStudentLastName("Tester001");
         browser.applicationDetailsSection.insertBirthdate("29.01.2000");
@@ -64,14 +64,14 @@ final class LowCodePracticeTwoSolutionTest extends TestRunner {
     @Test
     void complexTaskSix() {
         browser.loginSection.clickLoginMenuLink();
-        browser.loginSection.insertEmail("mistr@tester.cz");
-        browser.loginSection.insertPassword("Mtester123");
+        browser.loginSection.insertEmail("mistra@test.cz");
+        browser.loginSection.insertPassword("Qwe123!");
         browser.loginSection.clickLoginButton();
         browser.headerMenu.goToApplicationsSection();
         browser.applicationSection.clickCreateNewApplicationButton();
         browser.applicationSection.selectProgrammingSection();
-        browser.applicationSection.clickCreateApplicationButton();
-        browser.applicationDetailsSection.selectTerm("05.02. - 09.02.2024");
+        browser.applicationSection.clickCreatePythonApplicationButton();
+        browser.applicationDetailsSection.selectTerm("20.01. - 24.01.2025");
         browser.applicationDetailsSection.insertStudentFirstName("Pan");
         var generated = browser.generateRandomName(15);
         browser.applicationDetailsSection.insertStudentLastName(generated);
