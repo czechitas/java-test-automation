@@ -57,4 +57,30 @@ final class ApplicationAction {
                 "//tr[1]//a[@title='Upravit']");
         firstApplicationEditButton.click();
     }
+
+    void clickCancelFirstApplicationButton()  {
+        var firstApplicationCancelButton = elementFinder.findByCssSelector(
+                "tr.odd:nth-child(1) > td:nth-child(5) > div:nth-child(1) > a:nth-child(3)");
+        firstApplicationCancelButton.click();
+    }
+
+    void selectIllnessOption() {
+        var illnessButton = elementFinder.findByCssSelector("span.custom-control:nth-child(1) > label:nth-child(2)");
+        illnessButton.click();
+    }
+
+    void selectOtherReasonOption() {
+        var otherReasonOption = elementFinder.findByCssSelector("span.custom-control:nth-child(2) > label:nth-child(2)");
+        otherReasonOption.click();
+    }
+
+    void insertReason(String reason) {
+        var reasonInput = elementFinder.findByCssSelector("#logged_out_reason");
+        reasonInput.sendKeys(reason);
+    }
+
+    void clickCancelApplicationButton() {
+        var cancelApplicationButton = elementFinder.findByCssSelector(".btn");
+        cancelApplicationButton.click();
+    }
 }

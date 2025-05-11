@@ -62,4 +62,12 @@ public final class ApplicationDetailAssertion {
         var dateElement = elementFinder.findByCssSelector(".card-body h4");
         assertThat(dateElement.getText()).contains(term);
     }
+
+    public void checkCancellationMessage(String message) {
+        var cancellationMessageElement = elementFinder.findByCssSelector("html body.section--students div.main_wrap " +
+                "div.main_content.container-fluid div.row.justify-content-center " +
+                "div.col div.card div.card-body div.alert.alert-warning ul.m-0 li");
+
+        assertThat(cancellationMessageElement.getText()).contains(message);
+    }
 }

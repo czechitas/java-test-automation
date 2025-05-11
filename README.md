@@ -17,6 +17,11 @@ Working with the framework is divided according to elements of the testing appli
 - `openFirstApplicationDetailsPage()` - open an existing application to see details
 - `search("Jan")` - search for an application from Jan
 - `clickEditFirstApplicationButton()` - open the first application to edit details
+- `clickCancelFirstApplicationButton()` - click cancel button on the first application in the list
+- `selectIllnessOption()` - select an _Nemoc_ option in the application cancellation detail
+- `selectOtherReasonOption()` - select _Jiný důvod_ option in the application cancellation detail
+- `insertReason("my reason")` - insert a reason for application cancellation
+- `clickCancelApplicationButton()` - click cancel application button in the application cancellation detail
 
 **ApplicationDetail** - Allows you to work with application details page:
 - `selectTerm(String term)` - select a term
@@ -74,3 +79,4 @@ Working with the framework is divided according to elements of the testing appli
 `checkRemainingAmountToPay("100.00")` - check that remaining amount to pay is _100.00_ Kč
 `checkTerm("05.02. - 09.02.2024")` - check that the term is _05.02. - 09.02.2024_
 `checkMessageContainsStudentLastName("Novak")` - ensure that _Zpráva pro příjemce_ contains student last name _Novak_
+`checkCancellationMessage("Důvod")` - ensure that the cancellation message is _Důvod_
