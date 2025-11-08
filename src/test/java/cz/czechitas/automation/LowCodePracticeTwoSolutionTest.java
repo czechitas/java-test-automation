@@ -38,14 +38,14 @@ final class LowCodePracticeTwoSolutionTest extends TestRunner {
     @Test
     void complexTaskOne() {
         browser.loginSection.clickLoginMenuLink();
-        browser.loginSection.insertEmail("ptestovac@test.cz");
+        browser.loginSection.insertEmail("ptestak@test.cz");
         browser.loginSection.insertPassword("PTester123");
         browser.loginSection.clickLoginButton();
         browser.headerMenu.goToApplicationsSection();
         browser.applicationSection.clickCreateNewApplicationButton();
         browser.applicationSection.selectProgrammingSection();
         browser.applicationSection.clickCreatePythonApplicationButton();
-        browser.applicationDetailsSection.selectTerm("04.06. - 08.06.2025");
+        browser.applicationDetailsSection.selectTerm("02.02. - 06.02.2026");
         browser.applicationDetailsSection.insertStudentFirstName("Pan");
         browser.applicationDetailsSection.insertStudentLastName("Tester001");
         browser.applicationDetailsSection.insertBirthdate("29.01.2000");
@@ -63,11 +63,11 @@ final class LowCodePracticeTwoSolutionTest extends TestRunner {
     @Test
     void complexTaskThree() {
         browser.loginSection.clickLoginMenuLink();
-        browser.loginSection.insertEmail("ptestovac@test.cz");
+        browser.loginSection.insertEmail("ptestak@test.cz");
         browser.loginSection.insertPassword("PTester123");
         browser.loginSection.clickLoginButton();
         browser.headerMenu.goToApplicationsSection();
-        browser.applicationSection.search("tester001");
+        browser.applicationSection.search("Tester001");
         browser.applicationSection.clickEditFirstApplicationButton();
         browser.applicationDetailsSection.selectBankTransferPaymentMethod();
         browser.applicationDetailsSection.clickEditApplicationButton();
@@ -80,14 +80,14 @@ final class LowCodePracticeTwoSolutionTest extends TestRunner {
     @Test
     void complexTaskSix() {
         browser.loginSection.clickLoginMenuLink();
-        browser.loginSection.insertEmail("ptestovac@test.cz");
+        browser.loginSection.insertEmail("ptestak@test.cz");
         browser.loginSection.insertPassword("PTester123");
         browser.loginSection.clickLoginButton();
         browser.headerMenu.goToApplicationsSection();
         browser.applicationSection.clickCreateNewApplicationButton();
         browser.applicationSection.selectProgrammingSection();
         browser.applicationSection.clickCreatePythonApplicationButton();
-        browser.applicationDetailsSection.selectTerm("04.06. - 08.06.2025");
+        browser.applicationDetailsSection.selectTerm("02.02. - 06.02.2026");
         browser.applicationDetailsSection.insertStudentFirstName("Pan");
         var generated = browser.generateRandomName(15);
         browser.applicationDetailsSection.insertStudentLastName(generated);
@@ -100,7 +100,7 @@ final class LowCodePracticeTwoSolutionTest extends TestRunner {
         asserter.applicationSection.checkNumberOfApplications(1);
         browser.loginSection.logout();
         browser.loginSection.clickLoginMenuLink();
-        browser.loginSection.insertEmail("ja@tester.cz");
+        browser.loginSection.insertEmail("muj@tester.cz");
         browser.loginSection.insertPassword("JTester123");
         browser.loginSection.clickLoginButton();
         browser.headerMenu.goToApplicationsSection();

@@ -34,4 +34,44 @@ final class ExampleTest extends TestRunner {
         browser.headerMenu.goToKindergartenAndSchoolSection();
         browser.orderSection.insertICO(icoValue);
     }
+
+    @Test
+    void navigation1()
+    {
+        browser.headerMenu.goToInstructionsAndFormsForParentSection();
+    }
+
+    @Test
+    void navigation2() {
+        browser.headerMenu.goToKindergartenAndSchoolSection();
+        browser.orderSection.selectSchoolInNatureOption();
+    }
+
+    @Test
+    void navigation3() {
+        browser.headerMenu.goToCreateApplicationSection();
+        browser.headerMenu.goToKindergartenAndSchoolSection();
+        browser.headerMenu.goToContactsSection();
+        browser.headerMenu.goToHomePage();
+        browser.headerMenu.goToInstructionsAndFormsForParentSection();
+        browser.headerMenu.goToInstructionsAndFormsForTeacherSection();
+    }
+
+    @Test
+    void navigation4() {
+        browser.headerMenu.goToKindergartenAndSchoolSection();
+        browser.orderSection.insertICO("1234566");
+    }
+
+    @Test
+    void navigation6() {
+        browser.loginSection.clickLoginMenuLink();
+        browser.loginSection.insertEmail("ptestak@test.cz");
+        browser.loginSection.insertPassword("PTester123");
+        browser.loginSection.clickLoginButton();
+
+        browser.applicationSection.clickCreateNewApplicationButton();
+        browser.applicationSection.selectProgrammingSection();
+        browser.applicationSection.clickCreatePythonApplicationButton();
+    }
 }
