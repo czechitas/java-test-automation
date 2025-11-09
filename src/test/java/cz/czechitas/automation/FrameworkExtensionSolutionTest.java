@@ -13,14 +13,14 @@ final class FrameworkExtensionSolutionTest extends TestRunner {
     @Test
     void cancelApplicationDueToSickness() {
         browser.loginSection.clickLoginMenuLink();
-        browser.loginSection.insertEmail("ptestovac@test.cz");
+        browser.loginSection.insertEmail("ptestak@test.cz");
         browser.loginSection.insertPassword("PTester123");
         browser.loginSection.clickLoginButton();
         browser.headerMenu.goToApplicationsSection();
         browser.applicationSection.clickCreateNewApplicationButton();
         browser.applicationSection.selectProgrammingSection();
         browser.applicationSection.clickCreatePythonApplicationButton();
-        browser.applicationDetailsSection.selectTerm("04.06. - 08.06.2025");
+        browser.applicationDetailsSection.selectTerm("02.02. - 06.02.2026");
         browser.applicationDetailsSection.insertStudentFirstName("Pan");
         var generated = browser.generateRandomName(15);
         browser.applicationDetailsSection.insertStudentLastName(generated);
@@ -43,14 +43,14 @@ final class FrameworkExtensionSolutionTest extends TestRunner {
     @Test
     void cancelApplicationDueToOtherReason() {
         browser.loginSection.clickLoginMenuLink();
-        browser.loginSection.insertEmail("ptestovac@test.cz");
+        browser.loginSection.insertEmail("ptestak@test.cz");
         browser.loginSection.insertPassword("PTester123");
         browser.loginSection.clickLoginButton();
         browser.headerMenu.goToApplicationsSection();
         browser.applicationSection.clickCreateNewApplicationButton();
         browser.applicationSection.selectProgrammingSection();
         browser.applicationSection.clickCreatePythonApplicationButton();
-        browser.applicationDetailsSection.selectTerm("04.06. - 08.06.2025");
+        browser.applicationDetailsSection.selectTerm("02.02. - 06.02.2026");
         browser.applicationDetailsSection.insertStudentFirstName("Pan");
         var generated = browser.generateRandomName(15);
         browser.applicationDetailsSection.insertStudentLastName(generated);
