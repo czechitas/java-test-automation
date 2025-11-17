@@ -48,4 +48,9 @@ final class InternalMenuAction {
         var exportsMenuItem = elementFinder.findByXPath("//*[@id='adminNavbar']//a[contains(text(), 'Exporty')]");
         exportsMenuItem.click();
     }
+
+    void goToUsersSection() {
+        var usersMenuItem = elementFinder.findByXPath("//*[@id='adminNavbar']//a[contains(text(), 'Uživatelé')]");
+        usersMenuItem.click();
+    }
 }

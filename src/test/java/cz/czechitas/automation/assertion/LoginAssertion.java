@@ -39,4 +39,9 @@ public final class LoginAssertion {
         var loggedInText = elementFinder.findByXPath("/html/body/div/header/nav/div/div[2]/a");
         assertThat(loggedInText.getText()).isEqualTo("Přihlásit");
     }
+
+    public void checkErrorMessage() {
+        var errorMessage = elementFinder.findByCssSelector(".invalid-feedback > strong:nth-child(1)");
+        assertThat(errorMessage.getText()).isEqualTo("Tyto přihlašovací údaje neodpovídají žadnému záznamu.");
+    }
 }

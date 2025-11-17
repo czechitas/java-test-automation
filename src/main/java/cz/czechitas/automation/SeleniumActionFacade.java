@@ -28,6 +28,7 @@ final class SeleniumActionFacade {
     final ApplicationDetail applicationDetailsSection;
     final ProfileAction profileSection;
     final RegisterAction registerSection;
+    final UsersAction usersSection;
 
     public SeleniumActionFacade(WebDriver driver) {
         var elementFinder = new ElementFinder(Objects.requireNonNull(driver));
@@ -40,6 +41,7 @@ final class SeleniumActionFacade {
         this.applicationDetailsSection = new ApplicationDetail(elementFinder);
         this.profileSection = new ProfileAction(elementFinder);
         this.registerSection = new RegisterAction(elementFinder);
+        this.usersSection = new UsersAction(elementFinder);
     }
 
     void waitFor(long seconds) {

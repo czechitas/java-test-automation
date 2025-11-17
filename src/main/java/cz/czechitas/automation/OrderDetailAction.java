@@ -1,5 +1,7 @@
 package cz.czechitas.automation;
 
+import org.openqa.selenium.Keys;
+
 import java.util.Objects;
 
 /**
@@ -106,8 +108,13 @@ final class OrderDetailAction {
     }
 
     void insertStartTime(String arrivalTime) {
-        var arrivalTimeInput = elementFinder.findByXPath("//*[@id=\"nature-start_time\"]");
+        var arrivalTimeField = elementFinder.findByXPath("//*[@id=\"nature-start_time\"]");
+        arrivalTimeField.click();
+        var arrivalTimeInput = elementFinder.findByXPath("/html/body/div[8]/div/div[1]/input");
+        arrivalTimeInput.click();
         arrivalTimeInput.sendKeys(arrivalTime);
+        arrivalTimeInput.sendKeys(Keys.ENTER);
+        arrivalTimeField.sendKeys(Keys.ENTER);
     }
 
     void selectBreakfastStartToSchoolInNature() {
@@ -142,7 +149,13 @@ final class OrderDetailAction {
 
     void insertEndTime(String endTime) {
         var arrivalTimeInput = elementFinder.findByXPath("//*[@id=\"nature-end_time\"]");
-        arrivalTimeInput.sendKeys(endTime);
+        //arrivalTimeInput.sendKeys(endTime);
+        arrivalTimeInput.click();
+        var endTimeInput = elementFinder.findByCssSelector("div.flatpickr-calendar:nth-child(11) > div:nth-child(1) > div:nth-child(1) > input:nth-child(1)");
+        endTimeInput.click();
+        endTimeInput.sendKeys(endTime);
+        endTimeInput.sendKeys(Keys.ENTER);
+        arrivalTimeInput.sendKeys(Keys.ENTER);
     }
 
     void selectBreakfastEndToSchoolInNature() {
@@ -183,5 +196,14 @@ final class OrderDetailAction {
     void saveSchoolInNatureOrder() {
         var saveButton = elementFinder.findByXPath("/html/body/div[1]/div/div/div/div/div/form/div[5]/div[2]/div[2]/input");
         saveButton.click();
+    }
+    void insertICO(String ico) {
+        Objects.requireNonNull(ico);
+
+        var icoInputBox = elementFinder.findByXPath("//*[@id='ico']");
+        icoInputBox.sendKeys(ico);
+        icoInputBox.sendKeys(Keys.ENTER);
+        /*var fullAddressElement = elementFinder.findByXPath("//*[@id='address']");
+        fullAddressElement.click();*/
     }
 }
