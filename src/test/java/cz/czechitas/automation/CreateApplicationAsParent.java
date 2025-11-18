@@ -3,7 +3,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Map;
 
-final class olgaCreateApplicationAsParent extends TestRunner {
+final class CreateApplicationAsParent extends TestRunner {
 
         Map<String, String> credentials = Map.of(
                 "masterEmail", "ladymaster@gmail.com",

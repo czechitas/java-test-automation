@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import java.util.Map;
 
 
-final class olgaUserRegistrationAndLogin extends TestRunner {
+final class UserRegistrationAndLogin extends TestRunner {
 
     Map<String, String> credentials = Map.of(
             "masterEmail", "ladymaster@gmail.com",
