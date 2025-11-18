@@ -1,5 +1,7 @@
 package cz.czechitas.automation;
 
+import org.openqa.selenium.Keys;
+
 import java.util.Objects;
 
 /**
@@ -39,9 +41,25 @@ final class OrderDetailAction {
         var startDateInput = elementFinder.findByXPath("//*[@id=\"start_date_1\"]");
         startDateInput.sendKeys(startDate);
     }
+    void insertStartDate2(String startDate) {
+        var startDateInput = elementFinder.findByXPath("//*[@id=\"start_date_2\"]");
+        startDateInput.sendKeys(startDate);
+    }
+    void insertStartDate3(String startDate) {
+        var startDateInput = elementFinder.findByXPath("//*[@id=\"start_date_3\"]");
+        startDateInput.sendKeys(startDate);
+    }
 
     void insertEndDate(String endDate) {
         var endDateInput = elementFinder.findByXPath("//*[@id=\"end_date_1\"]");
+        endDateInput.sendKeys(endDate);
+    }
+    void insertEndDate2(String endDate) {
+        var endDateInput = elementFinder.findByXPath("//*[@id=\"end_date_2\"]");
+        endDateInput.sendKeys(endDate);
+    }
+    void insertEndDate3(String endDate) {
+        var endDateInput = elementFinder.findByXPath("//*[@id=\"end_date_3\"]");
         endDateInput.sendKeys(endDate);
     }
 
@@ -105,9 +123,19 @@ final class OrderDetailAction {
         fullAddressInput.sendKeys(fullAddress);
     }
 
-    void insertStartTime(String arrivalTime) {
+    /*void insertStartTime(String arrivalTime) {
         var arrivalTimeInput = elementFinder.findByXPath("//*[@id=\"nature-start_time\"]");
         arrivalTimeInput.sendKeys(arrivalTime);
+    }*/
+
+    void insertStartTime(String arrivalTime) {
+        var arrivalTimeField = elementFinder.findByXPath("//*[@id=\"nature-start_time\"]");
+        arrivalTimeField.click();
+        var arrivalTimeInput = elementFinder.findByXPath("/html/body/div[8]/div/div[1]/input");
+        arrivalTimeInput.click();
+        arrivalTimeInput.sendKeys(arrivalTime);
+        arrivalTimeInput.sendKeys(Keys.ENTER);
+        arrivalTimeField.sendKeys(Keys.ENTER);
     }
 
     void selectBreakfastStartToSchoolInNature() {
@@ -119,6 +147,11 @@ final class OrderDetailAction {
         );
         option.click();
     }
+
+    /*void insertEndTime(String endTime) {
+        var arrivalTimeInput = elementFinder.findByXPath("//*[@id=\"nature-end_time\"]");
+        arrivalTimeInput.sendKeys(endTime);
+    }*/
 
     void selectLunchStartToSchoolInNature() {
         var element = elementFinder.findByXPath("//*[@id=\"nature-start_food\"]");
@@ -142,7 +175,13 @@ final class OrderDetailAction {
 
     void insertEndTime(String endTime) {
         var arrivalTimeInput = elementFinder.findByXPath("//*[@id=\"nature-end_time\"]");
-        arrivalTimeInput.sendKeys(endTime);
+        //arrivalTimeInput.sendKeys(endTime);
+        arrivalTimeInput.click();
+        var endTimeInput = elementFinder.findByCssSelector("div.flatpickr-calendar:nth-child(11) > div:nth-child(1) > div:nth-child(1) > input:nth-child(1)");
+        endTimeInput.click();
+        endTimeInput.sendKeys(endTime);
+        endTimeInput.sendKeys(Keys.ENTER);
+        arrivalTimeInput.sendKeys(Keys.ENTER);
     }
 
     void selectBreakfastEndToSchoolInNature() {
@@ -183,5 +222,14 @@ final class OrderDetailAction {
     void saveSchoolInNatureOrder() {
         var saveButton = elementFinder.findByXPath("/html/body/div[1]/div/div/div/div/div/form/div[5]/div[2]/div[2]/input");
         saveButton.click();
+    }
+    void insertICO(String ico) {
+        Objects.requireNonNull(ico);
+
+        var icoInputBox = elementFinder.findByXPath("//*[@id='ico']");
+        icoInputBox.sendKeys(ico);
+        icoInputBox.sendKeys(Keys.ENTER);
+        /*var fullAddressElement = elementFinder.findByXPath("//*[@id='address']");
+        fullAddressElement.click();*/
     }
 }

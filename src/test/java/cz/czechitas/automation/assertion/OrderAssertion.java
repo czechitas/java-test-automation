@@ -43,4 +43,8 @@ public final class OrderAssertion {
         assertThat(ordersCountElement.getText()).contains("Zobrazeno " + orderCount + " až " + orderCount +
                 " záznamů z " + orderCount);
     }
+    public void checkOrderIsCreated () {
+        var message = elementFinder.findByXPath("/html/body/div/div/div/div/div/div/h3");
+        assertThat(message.getText()).contains("Děkujeme za objednávku");
+    }
 }

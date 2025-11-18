@@ -3,6 +3,8 @@ package cz.czechitas.automation;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Objects;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 /**
  * Login/logout specific selenium actions
  *

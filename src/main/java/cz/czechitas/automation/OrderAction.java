@@ -52,4 +52,10 @@ final class OrderAction {
         searchInput.clear();
         searchInput.sendKeys(textToSearch);
     }
+    void deleteOrder() {
+        var deleteButton = elementFinder.findByCssSelector(".odd > td:nth-child(6) > div:nth-child(1) > a:nth-child(3)");
+        deleteButton.click();
+        var confirmButton = elementFinder.findByXPath("/html/body/div[1]/div/div/div/div/div[2]/div[2]/div/table/tbody/tr/td[6]/div[2]/div/div/div/div[2]/form/button");
+        confirmButton.click();
+    }
 }

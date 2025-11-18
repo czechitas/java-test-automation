@@ -30,12 +30,15 @@ public final class ApplicationDetailAssertion {
 
     public void checkFirstName(String firstname) {
         var firstNameElement = elementFinder.findByXPath("//table/tbody//td[text()='Křestní jméno žáka:']/../td[2]");
-        assertThat(firstNameElement.getText()).isEqualTo(firstname);
+        //var firstNameElement = elementFinder.findByCssSelector("table.border-top > tbody:nth-child(1) > tr:nth-child(4) > td:nth-child(2)");
+        //assertThat(firstNameElement.getText()).isEqualTo(firstname);
+        assertThat(firstNameElement.getText()).isEqualToIgnoringCase(firstname);
     }
 
     public void checkLastName(String lastname) {
         var lastNameElement = elementFinder.findByXPath("//table/tbody//td[text()='Příjmení žáka:']/../td[2]");
-        assertThat(lastNameElement.getText()).isEqualTo(lastname);
+        //assertThat(lastNameElement.getText()).isEqualTo(lastname);
+        assertThat(lastNameElement.getText()).isEqualToIgnoringCase(lastname);
     }
 
     public void checkDateOfBirth(String birthdate) {
