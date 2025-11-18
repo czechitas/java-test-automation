@@ -36,7 +36,7 @@ final class ApplicationAction {
      */
     void clickCreatePythonApplicationButton() {
         //TODO: modify css selector to reflect python course instead of first course (method parameter?)
-        var createApplicationButton = elementFinder.findByCssSelector(".card-body a");
+        var createApplicationButton = elementFinder.findByXPath("/html/body/div/div/div/div/div/div[2]/div/div[2]/a");
         createApplicationButton.click();
     }
 

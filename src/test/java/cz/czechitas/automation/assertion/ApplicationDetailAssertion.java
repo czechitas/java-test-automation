@@ -70,4 +70,8 @@ public final class ApplicationDetailAssertion {
         var healthRestrictionNoteElement = elementFinder.findByXPath("//table/tbody//td[text()='Zdravotní omezení:']/../td[2]");
         assertThat(healthRestrictionNoteElement.getText()).isEqualTo(healthRestrictionNote);
     }
+    public void checkErrorMessage(String errorMessage) {
+        var errorTooYoung = elementFinder.findByXPath("/html/body/div/div/div/div/div/form/table/tbody/tr[6]/td[2]/span");
+         assertThat(errorTooYoung.getText()).contains(errorMessage);
+    }
 }
