@@ -9,7 +9,7 @@ final class CreateApplicationAsParent extends TestRunner {
                 "masterEmail", "ladymaster@gmail.com",
                 "masterPassword","Lady123",
                 "masterName", "Lady Galadriel",
-                "parentEmail", "3e6pa+sprint@protonmail.com",
+                "parentEmail", "john123@email.com",
                 "parentPassword", "A1sdfg",
                 "parentName", "John Baggins"
         );
@@ -118,7 +118,7 @@ final class CreateApplicationAsParent extends TestRunner {
         fillOutApplicationForm(applicationData);
         browser.waitFor(2);
 
-        //asserter.
+        asserter.applicationDetailSection.checkErrorMessage("Žák musí dovršit 4 roky nejpozději v den začátku kurzu");
         //browser.loginSection.logout();
     }
 
@@ -155,12 +155,10 @@ final class CreateApplicationAsParent extends TestRunner {
                     browser.applicationDetailsSection.selectSlipPaymentMethod();
                     break;
             }
-            switch (applicationData.get("healthDisability")) {
-                case "ano":
+            if (applicationData.containsKey("healthDisability")) {
                     browser.applicationDetailsSection.clickHealthDisabilityCheckbox();
                     browser.waitFor(1);
                     browser.applicationDetailsSection.insertHealthDisabilityNote(applicationData.get("healthDisabilityNote"));
-                    break;
             }
             browser.applicationDetailsSection.clickCreateApplicationButton();
         }

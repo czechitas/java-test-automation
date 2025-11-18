@@ -11,10 +11,10 @@ final class UserRegistrationAndLogin extends TestRunner {
             "masterEmail", "ladymaster@gmail.com",
             "masterPassword","Lady123",
             "masterName", "Lady Galadriel",
-            "adminEmail", "da-app.admin@czechitas.cz",
-            "adminPassword", "Czechitas123",
-            "adminName", "Lišák Admin",
-            "parentEmail", "3e6pa+sprint@protonmail.com",
+            "adminEmail", "aragorn@email.com",
+            "adminPassword", "Aragorn1",
+            "adminName", "Aragorn Dunedain",
+            "parentEmail", "john123@email.com",
             "parentPassword", "A1sdfg",
             "parentName", "John Baggins"
     );
