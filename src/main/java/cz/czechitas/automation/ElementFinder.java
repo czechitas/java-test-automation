@@ -15,7 +15,7 @@ import java.util.Objects;
  * @since 1.0.0
  */
 @ParametersAreNonnullByDefault
-public final class ElementFinder {
+public class ElementFinder implements ElementFinderInterface {
 
     private final WebDriver driver;
 
@@ -32,7 +32,7 @@ public final class ElementFinder {
      */
     @Nonnull
     public WebElement findByXPath(String xpathExpression) {
-     return driver.findElement(By.xpath(Objects.requireNonNull(xpathExpression)));
+        return driver.findElement(By.xpath(Objects.requireNonNull(xpathExpression)));
     }
 
     /**
