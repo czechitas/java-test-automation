@@ -43,8 +43,12 @@ class TestRunner {
             throw new RuntimeException("Failed to load test.properties", e);
         }
 
-        // System property overrides file property; fallback to a sensible default
-        this.baseUrl = System.getProperty("app.url", props.getProperty("app.url"));
+        // System property overrides file property
+        String resolvedUrl = System.getProperty("app.url", props.getProperty("app.url"));
+        if (resolvedUrl == null || resolvedUrl.isBlank()) {
+            throw new IllegalStateException("app.url is not configured. Set it via the 'app.url' system property or in test.properties.");
+        }
+        this.baseUrl = resolvedUrl;
     }
 
     @BeforeEach
