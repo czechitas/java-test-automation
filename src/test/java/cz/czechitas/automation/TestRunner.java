@@ -44,7 +44,7 @@ class TestRunner {
         }
 
         // System property overrides file property; fallback to a sensible default
-        this.baseUrl = System.getProperty("app.url", props.getProperty("app.url", "https://team8-2022brno.herokuapp.com/"));
+        this.baseUrl = System.getProperty("app.url", props.getProperty("app.url"));
     }
 
     @BeforeEach
