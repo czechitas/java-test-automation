@@ -1,76 +1,186 @@
-# Low-code Test Automation Framework
+# 🤖 Low-code Test Automation Framework
 
-Framework for teaching the basics of low-code automation on projects of the Czechitas Digital Testing Academy.
+A framework for teaching the basics of low-code automation as part of the **Czechitas Digital Testing Academy**.
 
-In its default state, after launching, the framework should start a web browser you have installed, without the need to download additional drivers. The assumption is that the user has one of the following web browsers installed: Firefox, Chrome, or Edge.
+After launching, the framework automatically starts a web browser you already have installed — no additional driver downloads needed. Supported browsers: **Firefox**, **Chrome**, or **Edge**.
 
-A sample test in the `ExampleTest` class will open a web browser and verify that the address www.czechitas.cz is present in the contacts section of the testing application.
+> 💡 **Quick check:** The `ExampleTest` class contains a sample test that opens a browser and verifies that *www.czechitas.cz* is present in the contacts section of the testing application.
 
-# Hierarchy of Elements
+---
 
-Working with the framework is divided according to elements of the testing application as follows:
+# ✍️ How to Write Tests
 
-**ApplicationAction** - Allows you to work with application list:
-- `clickCreateNewApplicationButton()` - click on create new application button
-- `selectProgrammingSection()` - select _Programming_ course category
-- `clickCreatePythonApplicationButton()` - create a new application once programming category is selected
-- `openFirstApplicationDetailsPage()` - open an existing application to see details
-- `search("Jan")` - search for an application from Jan
-- `clickEditFirstApplicationButton()` - open the first application to edit details
+Write your tests inside `LowCodeAutomationTest.java`, or create a similar file for each solution. Each test method must be annotated with `@Test`.
 
-**ApplicationDetail** - Allows you to work with application details page:
-- `selectTerm(String term)` - select a term
-- `insertStudentFirstName("Jan")` - insert student first name
-- `insertStudentLastName("Novak")` - insert student last name
-- `insertBirthdate("01.01.2000")` - insert student day of birth
-- `insertNote("my personal note")` - insert a note
-- `selectCashPaymentMethod()` - choose cash payment method
-- `selectBankTrasnferPaymentMethod()` - choose bank transfer payment method
-- `clickAcceptTermsCheckbox()` - accept Terms and Conditions
-- `clickEditApplicationButton()` - save changes upon editing an application
-- `clickCreateApplicationButton()` - click the button to create an application once all the details are provided
+```java
+final class LowCodeAutomationTest extends TestRunner {
 
-**InternalMenuAction** - Allows you to work with internal menu upon logging in:
-- `goToOrdersSection()` - go to Objednavky section
-- `goToTermsSection()` - go to Terminy section
-- `goToApplicationsSection()` - go to Prihlasky section
-- `goToCategoriesSection()` - go to Kategorie section
-- `goToNewsSection()` - go to Aktuality section
-- `goToExportsSection()` - go to Exporty section
+    @Test
+    void myFirstTest() {
+        // navigate using browser.*
+        browser.headerMenu.goToContactsSection();
 
-**LoginAction** - allows you to login and logout:
-- `clickLoginMenuLink()` - click login link in top menu (top right corner)
-- `insertEmail("test@czechitas.cz")` -  insert email
-- `insertPassword("mySecurePass123")` - insert password
-- `clickLoginButton()` - click login button once credentials are provided
-- `logout()` - logout
+        // verify using asserter.*
+        asserter.checkPageUrl("www.czechitas.cz");
+    }
+}
+```
 
-**ProfileAction** - allows you to work with customer profile:
-- `goToProfilePage()` - open profile page from top menu
-- `insertPassword("new password")` - enter a new password. Change "new password" to the one you like based on security requirements (lowercase and uppercase letters, numbers, etc)
-- `insertPasswordVerification("new password")` - enter a password to confirm
-- `clickChangeButton()` - click the button to save changes
+Two objects are available in every test:
 
-**PublicMenuAction** - allows you to work with top level menu in page header:
-- `goToContactsSection()` - go to Kontakt section
-- `goToHomePage()` - go to Domu page
-- `goToInstructionsAndFormsForTeacherSection()` - go to Navody a Formulare pro ucitele
-- `goToKindergartenAndSchoolSection()` - go to Objednávka pro MŠ/ZŠ
-- `goToInstructionsAndFormsForParentSection()` - go to Navody a Formulare pro rodice
-- `goToCreateApplicationSection()` - create an application from top header menu (Pro rodice -> Vytvorit prihlasku)
+| Object | Purpose |
+|---|---|
+| `browser` | 🖱️ Perform actions in the browser (navigation, filling forms, clicking buttons) |
+| `asserter` | ✅ Verify the state of the page |
 
-# Assertions
-**Application list** - verification steps you can do on the list view
-`checkColumnExists("Akce")` - check if _Akce_ column is visible on the page
-`checkApplicationsTableIsEmpty()` - ensure the application list is empty (_Žádné záznamy nenalezeny_ message is displayed)
-`checkNumberOfApplications(5)` - ensure the application list has exactly 5 applications
+The table below shows which sub-object to use for each area of the application:
 
-**Application detail view** - verification steps you can do on the detail view
-`checkPaymentMethod("Bankovní převod")` - ensure the application is paid through a bank transfer
-`checkFirstName("Jan")` - check that the student first name is _Jan_
-`checkLastName("Novak")` - check that the student first name is _Novak_
-`checkDateOfBirth("01.01.2010")` - check that the student date of birth is _01.01.2010_
-`checkNote("myPrivateNote")` - check that the note is _myPrivateNote_
-`checkRemainingAmountToPay("100.00")` - check that remaining amount to pay is _100.00_ Kč
-`checkTerm("05.02. - 09.02.2024")` - check that the term is _05.02. - 09.02.2024_
-`checkMessageContainsStudentLastName("Novak")` - ensure that _Zpráva pro příjemce_ contains student last name _Novak_
+| Area | `browser.*` | `asserter.*` |
+|---|---|---|
+| 🔝 Top menu (public) | `browser.headerMenu` | — |
+| 🔐 Login / logout | `browser.loginSection` | — |
+| 🗂️ Internal admin menu | `browser.internalMenu` | — |
+| 📋 Public order form (MŠ/ZŠ) | `browser.orderSection` | — |
+| 📑 Application list | `browser.applicationSection` | `asserter.applicationSection` |
+| 🔍 Application detail | `browser.applicationDetailsSection` | `asserter.applicationDetailAction` |
+| 👤 Profile | `browser.profileSection` | — |
+| 🌐 General page checks | — | `asserter` (directly) |
+
+## 🌐 Application URL
+
+The tests run against: `https://team8-2022brno.herokuapp.com/`
+
+To override the URL, edit `src/test/resources/test.properties` or pass `-Dapp.url=<url>` to Maven.
+
+---
+
+# 🗂️ Browser Actions
+
+## 📑 ApplicationAction
+Access via `browser.applicationSection` — work with the application list.
+
+| Method | Description |
+|---|---|
+| `clickCreateNewApplicationButton()` | Click the _Create new application_ button |
+| `selectProgrammingSection()` | Select the _Programming_ course category |
+| `clickCreatePythonApplicationButton()` | Create a new application once programming category is selected |
+| `openFirstApplicationDetailsPage()` | Open an existing application to see its details |
+| `search("Jan")` | Search for an application from Jan |
+| `clickEditFirstApplicationButton()` | Open the first application to edit its details |
+
+## 🔍 ApplicationDetail
+Access via `browser.applicationDetailsSection` — work with the application details page.
+
+| Method | Description |
+|---|---|
+| `selectTerm(String term)` | Select a term |
+| `insertStudentFirstName("Jan")` | Insert student first name |
+| `insertStudentLastName("Novak")` | Insert student last name |
+| `insertBirthdate("01.01.2000")` | Insert student date of birth |
+| `insertNote("my personal note")` | Insert a note |
+| `selectCashPaymentMethod()` | Choose cash payment method |
+| `selectBankTransferPaymentMethod()` | Choose bank transfer payment method |
+| `clickAcceptTermsCheckbox()` | Accept Terms and Conditions |
+| `clickEditApplicationButton()` | Save changes when editing an application |
+| `clickCreateApplicationButton()` | Submit the form to create a new application |
+
+## 🗂️ InternalMenuAction
+Access via `browser.internalMenu` — work with the internal admin menu after login.
+
+| Method | Description |
+|---|---|
+| `goToOrdersSection()` | Go to _Objednávky_ section |
+| `goToTermsSection()` | Go to _Termíny_ section |
+| `goToApplicationsSection()` | Go to _Přihlášky_ section |
+| `goToCategoriesSection()` | Go to _Kategorie_ section |
+| `goToNewsSection()` | Go to _Aktuality_ section |
+| `goToExportsSection()` | Go to _Exporty_ section |
+
+## 🔐 LoginAction
+Access via `browser.loginSection` — log in and out of the application.
+
+| Method | Description |
+|---|---|
+| `clickLoginMenuLink()` | Click the login link in the top-right corner |
+| `insertEmail("test@czechitas.cz")` | Insert email |
+| `insertPassword("mySecurePass123")` | Insert password |
+| `clickLoginButton()` | Click the login button once credentials are provided |
+| `logout()` | Log out |
+
+## 👤 ProfileAction
+Access via `browser.profileSection` — work with the customer profile.
+
+| Method | Description |
+|---|---|
+| `goToProfilePage()` | Open profile page from the top menu |
+| `insertPassword("new password")` | Enter a new password (must meet security requirements: lower/uppercase letters, numbers, etc.) |
+| `insertPasswordVerification("new password")` | Enter the password again to confirm |
+| `clickChangeButton()` | Save changes |
+
+## 📋 OrderAction
+Access via `browser.orderSection` — work with the public order form (_Objednávka pro MŠ/ZŠ_).
+
+| Method | Description |
+|---|---|
+| `selectSuburbanCampOption()` | Select the _Příměstský tábor_ tab |
+| `selectSchoolInNatureOption()` | Select the _Škola v přírodě_ tab |
+| `insertICO("12345678")` | Insert company ICO and wait for address lookup |
+| `insertChildrenCount(30)` | Insert the number of children |
+
+## 🔝 PublicMenuAction
+Access via `browser.headerMenu` — navigate the top-level page header menu.
+
+| Method | Description |
+|---|---|
+| `goToContactsSection()` | Go to _Kontakt_ section |
+| `goToHomePage()` | Go to _Domů_ page |
+| `goToInstructionsAndFormsForTeacherSection()` | Go to _Návody a formuláře_ (under _Pro učitelé_) |
+| `goToKindergartenAndSchoolSection()` | Go to _Objednávka pro MŠ/ZŠ_ |
+| `goToInstructionsAndFormsForParentSection()` | Go to _Návody a formuláře_ (under _Pro rodiče_) |
+| `goToCreateApplicationSection()` | Go to _Vytvořit přihlášku_ (under _Pro rodiče_) |
+| `goToApplicationsSection()` | Go to _Přihlášky_ section |
+
+---
+
+# ✅ Assertions
+
+## 🌐 General
+Called directly on `asserter`:
+
+| Method | Description |
+|---|---|
+| `asserter.checkPageUrl("www.czechitas.cz")` | Check that the page contains a link with the given URL text |
+| `asserter.checkIsLoggedIn()` | Verify the user is logged in (_Přihlášen_ label is visible) |
+| `asserter.checkProgrammingSectionPresence()` | Verify that the _Programování_ section card is visible |
+| `asserter.checkRegistrationButtonPresence()` | Verify that the _Zaregistrujte se_ button is visible |
+
+## 📑 Application list
+Called on `asserter.applicationSection`:
+
+| Method | Description |
+|---|---|
+| `asserter.applicationSection.checkColumnExists("Akce")` | Check if the _Akce_ column is visible |
+| `asserter.applicationSection.checkApplicationsTableIsEmpty()` | Ensure the application list is empty (_Žádné záznamy nenalezeny_) |
+| `asserter.applicationSection.checkNumberOfApplications(5)` | Ensure the application list has exactly 5 applications |
+
+## 🔍 Application detail view
+Called on `asserter.applicationDetailAction`:
+
+| Method | Description |
+|---|---|
+| `asserter.applicationDetailAction.checkPaymentMethod("Bankovní převod")` | Ensure the application is paid via bank transfer |
+| `asserter.applicationDetailAction.checkFirstName("Jan")` | Check that the student first name is _Jan_ |
+| `asserter.applicationDetailAction.checkLastName("Novak")` | Check that the student last name is _Novak_ |
+| `asserter.applicationDetailAction.checkDateOfBirth("01.01.2010")` | Check that the student date of birth is _01.01.2010_ |
+| `asserter.applicationDetailAction.checkNote("myPrivateNote")` | Check that the note is _myPrivateNote_ |
+- `asserter.applicationDetailAction.checkRemainingAmountToPay("100.00")` - check that remaining amount to pay is _100.00_ Kč
+- `asserter.applicationDetailAction.checkTerm("05.02. - 09.02.2024")` - check that the term is _05.02. - 09.02.2024_
+- `asserter.applicationDetailAction.checkMessageContainsStudentLastName("Novak")` - ensure that _Zpráva pro příjemce_ contains student last name _Novak_
+
+# 🔧 Utilities
+
+The following utility methods are available directly on `browser`:
+
+- `browser.waitFor(3)` - pause test execution for the given number of seconds
+- `browser.generateRandomName(10)` - generate a random lowercase string of the given length (useful for creating unique test data, e.g. a unique student last name)
+
