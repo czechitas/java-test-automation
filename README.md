@@ -164,18 +164,18 @@ Called on `asserter.applicationSection`:
 | `asserter.applicationSection.checkNumberOfApplications(5)` | Ensure the application list has exactly 5 applications |
 
 ## 🔍 Application detail view
-Called on `asserter.applicationDetailAction`:
+Called on `asserter.applicationDetailSection`:
 
 | Method | Description |
 |---|---|
-| `asserter.applicationDetailAction.checkPaymentMethod("Bankovní převod")` | Ensure the application is paid via bank transfer |
-| `asserter.applicationDetailAction.checkFirstName("Jan")` | Check that the student first name is _Jan_ |
-| `asserter.applicationDetailAction.checkLastName("Novak")` | Check that the student last name is _Novak_ |
-| `asserter.applicationDetailAction.checkDateOfBirth("01.01.2010")` | Check that the student date of birth is _01.01.2010_ |
-| `asserter.applicationDetailAction.checkNote("myPrivateNote")` | Check that the note is _myPrivateNote_ |
-- `asserter.applicationDetailAction.checkRemainingAmountToPay("100.00")` - check that remaining amount to pay is _100.00_ Kč
-- `asserter.applicationDetailAction.checkTerm("05.02. - 09.02.2024")` - check that the term is _05.02. - 09.02.2024_
-- `asserter.applicationDetailAction.checkMessageContainsStudentLastName("Novak")` - ensure that _Zpráva pro příjemce_ contains student last name _Novak_
+| `asserter.applicationDetailSection.checkPaymentMethod("Bankovní převod")` | Ensure the application is paid via bank transfer |
+| `asserter.applicationDetailSection.checkFirstName("Jan")` | Check that the student first name is _Jan_ |
+| `asserter.applicationDetailSection.checkLastName("Novak")` | Check that the student last name is _Novak_ |
+| `asserter.applicationDetailSection.checkDateOfBirth("01.01.2010")` | Check that the student date of birth is _01.01.2010_ |
+| `asserter.applicationDetailSection.checkNote("myPrivateNote")` | Check that the note is _myPrivateNote_ |
+- `asserter.applicationDetailSection.checkRemainingAmountToPay("100.00")` - check that remaining amount to pay is _100.00_ Kč
+- `asserter.applicationDetailSection.checkTerm("05.02. - 09.02.2024")` - check that the term is _05.02. - 09.02.2024_
+- `asserter.applicationDetailSection.checkMessageContainsStudentLastName("Novak")` - ensure that _Zpráva pro příjemce_ contains student last name _Novak_
 
 # 🔧 Utilities
 
