@@ -4,7 +4,7 @@ Navigace
 1. Napište test, který přejde do sekce Pro rodiče -> Návody a formuláře.
 2. Napište test, který přejde do sekce Pro učitelé -> Objednávka pro MŠ/ZŠ a jako
 objednávanou službu v dolní části obrazovky zvolí Příměstský tábor.
-3. Napište test, který pustupně projde všechny sekce horního veřejného menu.
+3. Napište test, který postupně projde všechny sekce horního veřejného menu.
 4. Napište test, který přejde do sekce Pro učitelé -> Objednávka pro MŠ/ZŠ a do
 políčka pro IČO vyplní IČO organizace czechitas.
 5. Vytvořte si v aplikaci vlastního uživatele, pomocí kterého se budete následně
