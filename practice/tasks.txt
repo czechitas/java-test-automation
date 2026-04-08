@@ -1,0 +1,75 @@
+tasks 1
+--------
+Navigace
+1. Napište test, který přejde do sekce Pro rodiče -> Návody a formuláře.
+2. Napište test, který přejde do sekce Pro učitelé -> Objednávka pro MŠ/ZŠ a jako
+objednávanou službu v dolní části obrazovky zvolí Příměstský tábor.
+3. Napište test, který pustupně projde všechny sekce horního veřejného menu.
+4. Napište test, který přejde do sekce Pro učitelé -> Objednávka pro MŠ/ZŠ a do
+políčka pro IČO vyplní IČO organizace czechitas.
+5. Vytvořte si v aplikaci vlastního uživatele, pomocí kterého se budete následně
+přihlašovat do aplikace. POZOR uživatele vytvořte ručně. Proč nemůžeme uživatele
+vytvářet pomocí testu? Zamyslete se nad tím, jak by se dali uživatelé vytvářet
+v testech?
+6. Přihlaste se do aplikace pod Vámi nově vytvořeným uživatelem. Klikněte na
+vytvoření nové přihlášky. Vyberte období programování a nakonec klikněte na
+vytvoření přihlášky. Výsledkem navigace by měla být obrazovka s formulářem pro
+založení přihlášky.
+
+Assertace
+1. Ověřte, že na úvodní stránce se nachází „dlaždice“ Programování.
+2. Ověřte, že pokud jde uživatel do sekce pro vytváření přihlášky pro rodiče (Pro rodiče
+-> Vytvořit přihlášku) a není přihlášen, je na obrazovce k dispozici tlačítko pro
+registraci.
+3. V aplikaci se přihlaště pod Vámi založeným uživatel a ručně si vytvořte libovolnou
+přihlášku.
+4. Napište test, který provede přihlášení Vámi založeným uživatelem, otevře detail
+první přihlášky v seznamu přihlášek a zkontroluje, že způsob úhrady odpovídá
+způsobu úhrady, který jste zadali při jejím zakládání.
+
+tasks 2
+---------
+Opakování (Navigace)
+1. Napište test, který přejde do sekce Pro učitelé -> Objednávka pro MŠ/ZŠ, vyplní do pole IČO
+libovolné existující IČO a v dolní části formuláře se přepne na záložku Škola v přírodě, kde do
+pole Počet dětí vyplní libovolný počet dětí.
+Opakování (Assertace)
+1. Napište test, který se přihlásí do aplikace, přejde pomocí horního menu do sekce Přihlášky a
+ověří, že v tabulce přihlášek jsou sloupce pojmenované Jméno a Kategorie.
+Komplexnější testy
+1. Napište test, který bude plnit následující posloupnost úkonů:
+a. Přihlaste se do aplikace
+b. Přejděte pomocí horního menu do sekce Přihlášky
+c. Klikněte zde na tlačítko Vytvořit novou přihlášku.
+d. Vyberte období akce programování
+e. Klikněte na tlačítko Vytvořit přihlášku pro akcí JavaScript a NodeJS.
+f. Vyplňte pole ve formuláři (Termín, Křestní jméno, Příjmení, Datum narození,
+Poznámka) pro vytvoření přihlášky (Jako způsob platby zvolte možnost hotově) a na
+závěr přihlášku vytvořte.
+g. Ověřte, že nově vytvořená přihláška má Vámi nastavené hodnoty (Termín, Křestní
+jméno, Příjmení, Datum narození, Poznámka) správně uložené.
+2. Vytvořte ručně přihlášku, kde jako příjmení žáka uveďte Tester001. (Toto jméno by v rámci
+testovacích dat mělo být unikátní).
+3. Napište test, který bude plnit následující posloupnost úkonů:
+a. Přihlaste se do aplikace
+b. Přejděte pomocí horního menu do sekce Přihlášky
+c. Do vyhledávacího pole nad tabulkou přihlášek zadejte příjmení žáka z
+předcházejícího úkolu
+d. Pro vyhledanou přihlášku zvolte možnost upravit a nastavte způsob platby na
+Bankovní převod
+e. Uložte otevřenou přihlášku
+f. Opět pomocí vyhledávacího pole nad tabulkou vyhledejte příjmení žáka z
+předchozího úkolu
+g. Pro vyhledanou přihlášku otevřete její detail
+h. Ověřte, že způsob platby je nastaven na Bankovní převod
+i. Ověřte, že zbývající částka k uhrazení je 1 800 Kč
+j. Ověřte, že zpráva pro příjemce obsahuje příjmení žáka z předchozího úkolu
+4. Vytvořte ručně druhého uživatele, pomocí kterého se budete moci přihlásit
+5. Prodiskutujte s lektorem nebo kouči, jak se dá v Java programu uložit hodnota k
+opakovanému použití.
+6. Přihlaste se pod jedním z Vámi založených uživatelů a vytvořte přihlášku pro žáka s náhodně
+vygenerovaným příjmením (lze použít metodu prohlizec.vygenerujNahodnePrijmeni()).
+Ověřte, že v tabulce přihlášek nově založená přihláška skutečně existuje. Následně se
+odhlaste a přihlaste pod druhým uživatelem. Nyní ověřte, že se přihláška prvního uživatele
+nezobrazuje mezi přihláškami uživatele druhého.
+7. Napište test, který ověří, že v aplikaci funguje funkcionalita změny hesla.
