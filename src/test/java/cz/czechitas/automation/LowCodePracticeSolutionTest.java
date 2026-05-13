@@ -41,8 +41,8 @@ final class LowCodePracticeSolutionTest extends TestRunner {
     @Test
     void navigation6() {
         browser.loginSection.clickLoginMenuLink();
-        browser.loginSection.insertEmail("ptestak@test.cz");
-        browser.loginSection.insertPassword("PTester123");
+        browser.loginSection.insertEmail("muj@tester.cz");
+        browser.loginSection.insertPassword("JTester123");
         browser.loginSection.clickLoginButton();
 
         browser.headerMenu.goToCreateApplicationSection();
@@ -52,29 +52,29 @@ final class LowCodePracticeSolutionTest extends TestRunner {
 
     @Test
     void asserts1() {
-        asserter.checkProgrammingSectionPresense();
+        asserter.checkProgrammingSectionPresence();
     }
 
     @Test
     void asserts2() {
         browser.headerMenu.goToCreateApplicationSection();
-        asserter.checkRegistrationButtonPresense();
+        asserter.checkRegistrationButtonPresence();
     }
 
     @Test
     void asserts3() {
         browser.loginSection.clickLoginMenuLink();
-        browser.loginSection.insertEmail("ptestak@test.cz");
-        browser.loginSection.insertPassword("PTester123");
+        browser.loginSection.insertEmail("muj@tester.cz");
+        browser.loginSection.insertPassword("JTester123");
         browser.loginSection.clickLoginButton();
 
         browser.headerMenu.goToApplicationsSection();
         browser.applicationSection.openFirstApplicationDetailsPage();
 
-        asserter.applicationDetailAction.checkTerm("02.02. - 06.02.2026");
-        asserter.applicationDetailAction.checkFirstName("Pan");
-        asserter.applicationDetailAction.checkLastName("Testerek");
-        asserter.applicationDetailAction.checkDateOfBirth("12.03.1999");
-        asserter.applicationDetailAction.checkPaymentMethod("Bankovní převod");
+        asserter.applicationDetailSection.checkTerm("20.07. - 24.07.2026");
+        asserter.applicationDetailSection.checkFirstName("Henry");
+        asserter.applicationDetailSection.checkLastName("Proper");
+        asserter.applicationDetailSection.checkDateOfBirth("01.01.1990");
+        asserter.applicationDetailSection.checkPaymentMethod("Hotově");
     }
 }
