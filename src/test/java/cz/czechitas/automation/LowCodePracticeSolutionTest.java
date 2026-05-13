@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 /**
  * Class with example solutions of tasks from the Low-code_automation_practice.pdf file
  *
- * @author Jiri Koudelka
+ * @author Jiri Koudelka & Barbora Blozonova
  * @since 1.0.0
  */
 final class LowCodePracticeSolutionTest extends TestRunner {
@@ -17,15 +17,13 @@ final class LowCodePracticeSolutionTest extends TestRunner {
     }
 
     @Test
-    void navigation2()
-    {
+    void navigation2() {
         browser.headerMenu.goToKindergartenAndSchoolSection();
         browser.orderSection.selectSchoolInNatureOption();
     }
 
     @Test
-    void navigation3()
-    {
+    void navigation3() {
         browser.headerMenu.goToCreateApplicationSection();
         browser.headerMenu.goToKindergartenAndSchoolSection();
         browser.headerMenu.goToContactsSection();
@@ -35,18 +33,16 @@ final class LowCodePracticeSolutionTest extends TestRunner {
     }
 
     @Test
-    void navigation4()
-    {
+    void navigation4() {
         browser.headerMenu.goToKindergartenAndSchoolSection();
         browser.orderSection.insertICO("22834958");
     }
 
     @Test
-    void navigation6()
-    {
+    void navigation6() {
         browser.loginSection.clickLoginMenuLink();
-        browser.loginSection.insertEmail("ptestovac@test.cz");
-        browser.loginSection.insertPassword("PTester123");
+        browser.loginSection.insertEmail("muj2@tester.cz");
+        browser.loginSection.insertPassword("JTester123");
         browser.loginSection.clickLoginButton();
 
         browser.headerMenu.goToCreateApplicationSection();
@@ -55,33 +51,30 @@ final class LowCodePracticeSolutionTest extends TestRunner {
     }
 
     @Test
-    void asserts1()
-    {
-        asserter.homePageSection.checkProgrammingSectionPresence();
+    void asserts1() {
+        asserter.checkProgrammingSectionPresence();
     }
 
     @Test
-    void asserts2()
-    {
+    void asserts2() {
         browser.headerMenu.goToCreateApplicationSection();
-        asserter.loginSection.checkRegistrationButtonPresence();
+        asserter.checkRegistrationButtonPresence();
     }
 
     @Test
-    void asserts3()
-    {
+    void asserts3() {
         browser.loginSection.clickLoginMenuLink();
-        browser.loginSection.insertEmail("ptestovac@test.cz");
-        browser.loginSection.insertPassword("PTester123");
+        browser.loginSection.insertEmail("muj2@tester.cz");
+        browser.loginSection.insertPassword("JTester123");
         browser.loginSection.clickLoginButton();
 
         browser.headerMenu.goToApplicationsSection();
         browser.applicationSection.openFirstApplicationDetailsPage();
 
-        asserter.applicationDetailSection.checkTerm("04.06. - 08.06.2025");
-        asserter.applicationDetailSection.checkFirstName("Pan");
-        asserter.applicationDetailSection.checkLastName("Testerek");
-        asserter.applicationDetailSection.checkDateOfBirth("12.03.1999");
-        asserter.applicationDetailSection.checkPaymentMethod("Bankovní převod");
+        asserter.applicationDetailsSection.checkTerm("20.07. - 24.07.2026");
+        asserter.applicationDetailsSection.checkFirstName("Henry");
+        asserter.applicationDetailsSection.checkLastName("Proper");
+        asserter.applicationDetailsSection.checkDateOfBirth("01.01.1990");
+        asserter.applicationDetailsSection.checkPaymentMethod("Hotově");
     }
 }

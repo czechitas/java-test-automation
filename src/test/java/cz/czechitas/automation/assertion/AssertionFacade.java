@@ -6,6 +6,8 @@ import org.openqa.selenium.WebDriver;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 /**
  * Assertion facade for user-friendly assertions
  *
@@ -17,19 +19,19 @@ public final class AssertionFacade {
 
     private final ElementFinderInterface elementFinder;
     public final ApplicationAssertion applicationSection;
-    public final ApplicationDetailAssertion applicationDetailSection;
+    public final ApplicationDetailAssertion applicationDetailsSection;
     public final LoginAssertion loginSection;
     public final HomePageAssertion homePageSection;
     public final GeneralAssertion generalSection;
 
     public AssertionFacade(WebDriver webDriver) {
         var elementFinder = new ElementFinder(webDriver);
+        this.elementFinder = elementFinder;
         this.applicationSection = new ApplicationAssertion(elementFinder);
-        this.applicationDetailSection = new ApplicationDetailAssertion(elementFinder);
+        this.applicationDetailsSection = new ApplicationDetailAssertion(elementFinder);
         this.loginSection = new LoginAssertion(elementFinder);
         this.homePageSection = new HomePageAssertion(elementFinder);
         this.generalSection = new GeneralAssertion(elementFinder);
-        this.applicationDetailSection = new ApplicationDetailAssertion(elementFinder);
     }
 
     public void checkPageUrl(String url) {

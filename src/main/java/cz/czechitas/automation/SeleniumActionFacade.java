@@ -51,9 +51,9 @@ final class SeleniumActionFacade {
         var leftLimit = 97;
         var rightLimit = 122;
 
-        return random.ints(leftLimit, rightLimit + 1)
+        return Objects.requireNonNull(random.ints(leftLimit, rightLimit + 1)
                 .limit(nameLength)
                 .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
-                .toString();
+                .toString());
     }
 }

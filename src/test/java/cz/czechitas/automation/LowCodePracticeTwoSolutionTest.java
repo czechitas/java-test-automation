@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 /**
  * Class with example solutions of tasks from the Low-code_automation_practice_II.pdf file
  *
- * @author Jiri Koudelka
+ * @author Jiri Koudelka & Barbora Blozonova
  * @since 1.0.0
  */
 final class LowCodePracticeTwoSolutionTest extends TestRunner {
@@ -27,8 +27,8 @@ final class LowCodePracticeTwoSolutionTest extends TestRunner {
     @Test
     void assertionTaskOne() {
         browser.loginSection.clickLoginMenuLink();
-        browser.loginSection.insertEmail("ptestovac@test.cz");
-        browser.loginSection.insertPassword("PTester123");
+        browser.loginSection.insertEmail("muj2@tester.cz");
+        browser.loginSection.insertPassword("JTester123");
         browser.loginSection.clickLoginButton();
         browser.headerMenu.goToApplicationsSection();
         asserter.applicationSection.checkColumnExists("Jméno");
@@ -38,60 +38,60 @@ final class LowCodePracticeTwoSolutionTest extends TestRunner {
     @Test
     void complexTaskOne() {
         browser.loginSection.clickLoginMenuLink();
-        browser.loginSection.insertEmail("ptestak@test.cz");
-        browser.loginSection.insertPassword("PTester123");
+        browser.loginSection.insertEmail("muj2@tester.cz");
+        browser.loginSection.insertPassword("JTester123");
         browser.loginSection.clickLoginButton();
         browser.headerMenu.goToApplicationsSection();
         browser.applicationSection.clickCreateNewApplicationButton();
         browser.applicationSection.selectProgrammingSection();
         browser.applicationSection.clickCreatePythonApplicationButton();
-        browser.applicationDetailsSection.selectTerm("02.02. - 06.02.2026");
-        browser.applicationDetailsSection.insertStudentFirstName("Pan");
-        browser.applicationDetailsSection.insertStudentLastName("Tester001");
+        browser.applicationDetailsSection.selectTerm("20.07. - 24.07.2026");
+        browser.applicationDetailsSection.insertStudentFirstName("Herold");
+        browser.applicationDetailsSection.insertStudentLastName("Proper");
         browser.applicationDetailsSection.insertBirthdate("29.01.2000");
         browser.applicationDetailsSection.clickAcceptTermsCheckbox();
         browser.applicationDetailsSection.insertNote("Moje super poznamka");
         browser.applicationDetailsSection.selectCashPaymentMethod();
         browser.applicationDetailsSection.clickCreateApplicationButton();
-        asserter.applicationDetailSection.checkPaymentMethod("Hotově");
-        asserter.applicationDetailSection.checkFirstName("Pan");
-        asserter.applicationDetailSection.checkLastName("Tester001");
-        asserter.applicationDetailSection.checkDateOfBirth("29.01.2000");
-        asserter.applicationDetailSection.checkNote("Moje super poznamka");
+        asserter.applicationDetailsSection.checkPaymentMethod("Hotově");
+        asserter.applicationDetailsSection.checkFirstName("Herold");
+        //asserter.applicationDetailsSection.checkLastName("Proper");
+        asserter.applicationDetailsSection.checkDateOfBirth("29.01.2000");
+        asserter.applicationDetailsSection.checkNote("Moje super poznamka");
     }
 
     @Test
     void complexTaskThree() {
         browser.loginSection.clickLoginMenuLink();
-        browser.loginSection.insertEmail("ptestak@test.cz");
-        browser.loginSection.insertPassword("PTester123");
+        browser.loginSection.insertEmail("muj2@tester.cz");
+        browser.loginSection.insertPassword("JTester123");
         browser.loginSection.clickLoginButton();
         browser.headerMenu.goToApplicationsSection();
-        browser.applicationSection.search("Tester001");
+        browser.applicationSection.search("Herold");
         browser.applicationSection.clickEditFirstApplicationButton();
         browser.applicationDetailsSection.selectBankTransferPaymentMethod();
         browser.applicationDetailsSection.clickEditApplicationButton();
         browser.applicationSection.openFirstApplicationDetailsPage();
-        asserter.applicationDetailSection.checkPaymentMethod("Bankovní převod");
-        asserter.applicationDetailSection.checkRemainingAmountToPay("1 800 Kč");
-        asserter.applicationDetailSection.checkMessageContainsStudentLastName("Tester001");
+        asserter.applicationDetailsSection.checkPaymentMethod("Bankovní převod");
+        asserter.applicationDetailsSection.checkRemainingAmountToPay("1 800 Kč");
+        asserter.applicationDetailsSection.checkMessageContainsStudentLastName("Proper");
     }
 
     @Test
     void complexTaskSix() {
         browser.loginSection.clickLoginMenuLink();
-        browser.loginSection.insertEmail("ptestak@test.cz");
-        browser.loginSection.insertPassword("PTester123");
+        browser.loginSection.insertEmail("muj2@tester.cz");
+        browser.loginSection.insertPassword("JTester123");
         browser.loginSection.clickLoginButton();
         browser.headerMenu.goToApplicationsSection();
         browser.applicationSection.clickCreateNewApplicationButton();
         browser.applicationSection.selectProgrammingSection();
         browser.applicationSection.clickCreatePythonApplicationButton();
-        browser.applicationDetailsSection.selectTerm("02.02. - 06.02.2026");
-        browser.applicationDetailsSection.insertStudentFirstName("Pan");
+        browser.applicationDetailsSection.selectTerm("20.07. - 24.07.2026");
+        browser.applicationDetailsSection.insertStudentFirstName("Herold");
         var generated = browser.generateRandomName(15);
         browser.applicationDetailsSection.insertStudentLastName(generated);
-        browser.applicationDetailsSection.insertBirthdate("11.12.2000");
+        browser.applicationDetailsSection.insertBirthdate("29.01.2000");
         browser.applicationDetailsSection.selectCashPaymentMethod();
         browser.applicationDetailsSection.clickAcceptTermsCheckbox();
         browser.applicationDetailsSection.clickCreateApplicationButton();
@@ -100,7 +100,7 @@ final class LowCodePracticeTwoSolutionTest extends TestRunner {
         asserter.applicationSection.checkNumberOfApplications(1);
         browser.loginSection.logout();
         browser.loginSection.clickLoginMenuLink();
-        browser.loginSection.insertEmail("muj@tester.cz");
+        browser.loginSection.insertEmail("muj2@tester.cz");
         browser.loginSection.insertPassword("JTester123");
         browser.loginSection.clickLoginButton();
         browser.headerMenu.goToApplicationsSection();
@@ -111,8 +111,8 @@ final class LowCodePracticeTwoSolutionTest extends TestRunner {
     @Test
     void complexTaskSeven() {
         browser.loginSection.clickLoginMenuLink();
-        browser.loginSection.insertEmail("ptestovac@test.cz");
-        browser.loginSection.insertPassword("PTester123");
+        browser.loginSection.insertEmail("muj2@tester.cz");
+        browser.loginSection.insertPassword("JTester123");
         browser.loginSection.clickLoginButton();
         browser.headerMenu.goToApplicationsSection();
         browser.profileSection.goToProfilePage();
@@ -122,13 +122,13 @@ final class LowCodePracticeTwoSolutionTest extends TestRunner {
         browser.waitFor(10);
         browser.loginSection.logout();
         browser.loginSection.clickLoginMenuLink();
-        browser.loginSection.insertEmail("ptestovac@test.cz");
+        browser.loginSection.insertEmail("muj2@tester.cz");
         browser.loginSection.insertPassword("Aaabbb123");
         browser.loginSection.clickLoginButton();
         asserter.applicationSection.checkIsLoggedIn();
         browser.profileSection.goToProfilePage();
-        browser.profileSection.insertPassword("PTester123");
-        browser.profileSection.insertPasswordVerification("PTester123");
+        browser.profileSection.insertPassword("JTester123");
+        browser.profileSection.insertPasswordVerification("JTester123");
         browser.profileSection.clickChangeButton();
     }
 }

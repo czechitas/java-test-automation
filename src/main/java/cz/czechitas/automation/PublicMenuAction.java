@@ -1,5 +1,7 @@
 package cz.czechitas.automation;
 
+import org.openqa.selenium.NoSuchElementException;
+
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Objects;
 
@@ -54,8 +56,14 @@ final class PublicMenuAction {
     }
 
     void goToApplicationsSection() {
-        var applicationsMenuItem = elementFinder.findByXPath("//*[@id='navbarSupportedContent']//a[contains(text(), 'Přihlášky')]");
-        applicationsMenuItem.click();
+        try {
+            var publicApplicationsMenuItem = elementFinder.findByXPath("//*[@id='navbarSupportedContent']//a[contains(text(), 'Přihlášky')]");
+            publicApplicationsMenuItem.click();
+        }
+        catch (NoSuchElementException ignored) {
+            var internalApplicationsMenuItem = elementFinder.findByXPath("//*[@id='adminNavbar']//a[contains(text(), 'Přihlášky')]");
+            internalApplicationsMenuItem.click();
+        }
     }
 
     private void clickForTeacherMenuItem() {
