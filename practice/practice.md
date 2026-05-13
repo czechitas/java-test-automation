@@ -78,7 +78,7 @@ ověří, že v tabulce přihlášek jsou sloupce pojmenované **Jméno** a **Ka
 
     d. Vyberte období akce programování
 
-    e. Klikněte na tlačítko **Vytvořit přihlášku** pro akcí **JavaScript a NodeJS**.
+    e. Klikněte na tlačítko **Vytvořit přihlášku** pro akci **JavaScript a NodeJS**.
 
     f. Vyplňte pole ve formuláři (Termín, Křestní jméno, Příjmení, Datum narození,
     Poznámka) pro vytvoření přihlášky (Jako způsob platby zvolte možnost hotově) a na
