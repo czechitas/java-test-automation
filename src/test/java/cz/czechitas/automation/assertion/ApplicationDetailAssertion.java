@@ -1,6 +1,6 @@
 package cz.czechitas.automation.assertion;
 
-import cz.czechitas.automation.ElementFinder;
+import cz.czechitas.automation.ElementFinderInterface;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Objects;
@@ -16,9 +16,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 @ParametersAreNonnullByDefault
 public final class ApplicationDetailAssertion {
 
-    private final ElementFinder elementFinder;
+    private final ElementFinderInterface elementFinder;
 
-    public ApplicationDetailAssertion(ElementFinder elementFinder)
+    public ApplicationDetailAssertion(ElementFinderInterface elementFinder)
     {
         this.elementFinder = Objects.requireNonNull(elementFinder);
     }

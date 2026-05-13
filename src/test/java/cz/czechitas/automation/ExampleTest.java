@@ -27,7 +27,7 @@ final class ExampleTest extends TestRunner {
         asserter.checkIsLoggedIn();
     }
 
-    // paramertized test - find out what is wrong with this test
+    // parametrized test - find out what is wrong with this test
     @ParameterizedTest()
     @ValueSource(strings = {"123456789", "ASDFBVC", "123"})
     void icoFieldTest(String icoValue) {

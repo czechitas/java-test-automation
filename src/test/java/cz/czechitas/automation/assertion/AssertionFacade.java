@@ -1,6 +1,7 @@
 package cz.czechitas.automation.assertion;
 
 import cz.czechitas.automation.ElementFinder;
+import cz.czechitas.automation.ElementFinderInterface;
 import org.openqa.selenium.WebDriver;
 
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -16,15 +17,15 @@ import static org.assertj.core.api.Assertions.assertThat;
 @ParametersAreNonnullByDefault
 public final class AssertionFacade {
 
-    private final ElementFinder elementFinder;
+    private final ElementFinderInterface elementFinder;
     public final ApplicationAssertion applicationSection;
-    public final ApplicationDetailAssertion applicationDetailAction;
+    public final ApplicationDetailAssertion applicationDetailSection;
 
     public AssertionFacade(WebDriver webDriver)
     {
         this.elementFinder = new ElementFinder(webDriver);
         this.applicationSection = new ApplicationAssertion(elementFinder);
-        this.applicationDetailAction = new ApplicationDetailAssertion(elementFinder);
+        this.applicationDetailSection = new ApplicationDetailAssertion(elementFinder);
     }
 
     public void checkPageUrl(String url) {
@@ -37,12 +38,12 @@ public final class AssertionFacade {
         assertThat(loggedInText.getText()).isEqualTo("Přihlášen");
     }
 
-    public void checkProgrammingSectionPresense() {
+    public void checkProgrammingSectionPresence() {
         var programmingText = elementFinder.findByCssSelector(".main_content .card-img-overlay");
         assertThat(programmingText.getText().trim()).isEqualTo("Programování");
     }
 
-    public void checkRegistrationButtonPresense() {
+    public void checkRegistrationButtonPresence() {
         var registerButton = elementFinder.findByCssSelector(".btn-secondary");
         assertThat(registerButton.getText().trim()).isEqualTo("Zaregistrujte se");
     }
