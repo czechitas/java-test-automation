@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 /**
  * Class with example solutions of tasks from the Low-code_automation_practice.pdf file
  *
- * @author Jiri Koudelka
+ * @author Jiri Koudelka & Barbora Blozonova
  * @since 1.0.0
  */
 final class LowCodePracticeSolutionTest extends TestRunner {
