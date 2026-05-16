@@ -20,12 +20,13 @@ public final class AssertionFacade {
     private final ElementFinderInterface elementFinder;
     public final ApplicationAssertion applicationSection;
     public final ApplicationDetailAssertion applicationDetailSection;
-
+    public final OrderAssertion orderSection;
     public AssertionFacade(WebDriver webDriver)
     {
         this.elementFinder = new ElementFinder(webDriver);
         this.applicationSection = new ApplicationAssertion(elementFinder);
         this.applicationDetailSection = new ApplicationDetailAssertion(elementFinder);
+        this.orderSection = new OrderAssertion(elementFinder);
     }
 
     public void checkPageUrl(String url) {
