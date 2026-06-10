@@ -34,4 +34,9 @@ final class ExampleTest extends TestRunner {
         browser.headerMenu.goToKindergartenAndSchoolSection();
         browser.orderSection.insertICO(icoValue);
     }
+
+    @Test
+    void navigateToParentInstructionsAndFormsTest() {
+        browser.headerMenu.goToInstructionsAndFormsForParentSection();
+    }
 }
